@@ -1,0 +1,4843 @@
+{
+  "subject": "Java 期中考",
+  "schema_version": "2.0",
+  "note": "文字版題庫，支援 Markdown 與程式碼區塊，不包含圖片。",
+  "chapter_1": [
+    {
+      "id": "ch1-001",
+      "source_number": 1,
+      "practice_group": 1,
+      "question": "Java 最適合用下列哪一句話來描述？",
+      "options": {
+        "A": "只能用來製作手機 App 的語言",
+        "B": "一種可用於多種系統開發的通用型程式語言",
+        "C": "只能在 Windows 上執行的程式語言",
+        "D": "一種專門用來設計圖片的軟體"
+      },
+      "answer": "B",
+      "explanation": "Java 是通用型程式語言，可以應用在企業系統、網站後端、Android 與各種大型\n資訊系統。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch1-002",
+      "source_number": 2,
+      "practice_group": 1,
+      "question": "Java 的「物件導向」特色，後續課程會接觸到哪些概念？",
+      "options": {
+        "A": "類別與物件",
+        "B": "圖片裁切與濾鏡",
+        "C": "Excel 儲存格格式",
+        "D": "網路線接法"
+      },
+      "answer": "A",
+      "explanation": "Java 的物件導向核心包含類別、物件、封裝、繼承與多型等概念。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch1-003",
+      "source_number": 3,
+      "practice_group": 1,
+      "question": "Java 所謂的「跨平台」主要表示什麼？",
+      "options": {
+        "A": "Java 程式只能在一台電腦上執行",
+        "B": "Java 程式只能在手機上執行",
+        "C": "編譯後的 Java 程式可透過不同平台上的 JVM 執行",
+        "D": "Java 程式不需要任何執行環境"
+      },
+      "answer": "C",
+      "explanation": "Java 透過 JVM 提供跨平台能力，讓同一份位元碼可在不同作業系統的 JVM 上執\n行。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch1-004",
+      "source_number": 4,
+      "practice_group": 1,
+      "question": "Garbage Collection 主要協助 Java 處理什麼？",
+      "options": {
+        "A": "自動管理不再使用的記憶體",
+        "B": "自動設計網頁版面",
+        "C": "自動建立資料庫帳號",
+        "D": "自動翻譯程式碼成中文"
+      },
+      "answer": "A",
+      "explanation": "Garbage Collection 會協助回收不再使用的物件與記憶體，減少開發者手動管理\n記憶體的負擔。",
+      "type": "single_choice",
+      "source_pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ch1-005",
+      "source_number": 5,
+      "practice_group": 1,
+      "question": "Java 是強型別語言，代表什麼？",
+      "options": {
+        "A": "變數通常需要有明確的資料型別",
+        "B": "所有資料都只能是文字",
+        "C": "所有程式都只能寫在同一個檔案",
+        "D": "Java 不能使用數字"
+      },
+      "answer": "A",
+      "explanation": "Java 會要求變數具有明確的型別，例如整數、浮點數或字串，讓許多型別錯誤能\n較早被發現。",
+      "type": "single_choice",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "ch1-006",
+      "source_number": 1,
+      "practice_group": 2,
+      "question": "下列哪一項是 Java 常見的實際應用？",
+      "options": {
+        "A": "企業後端系統",
+        "B": "銀行帳務系統",
+        "C": "REST API",
+        "D": "以上皆是"
+      },
+      "answer": "D",
+      "explanation": "Java 常被應用在企業後端、金融系統、API、雲端服務等多種場景。",
+      "type": "single_choice",
+      "source_pages": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "ch1-007",
+      "source_number": 2,
+      "practice_group": 2,
+      "question": "Java 搭配哪一類技術常被用來開發網站後端與 API？",
+      "options": {
+        "A": "Spring / Spring Boot",
+        "B": "PowerPoint",
+        "C": "Photoshop",
+        "D": "Excel 樞紐分析"
+      },
+      "answer": "A",
+      "explanation": "Spring 與 Spring Boot 是 Java 生態中非常常見的後端開發框架。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch1-008",
+      "source_number": 3,
+      "practice_group": 2,
+      "question": "下列哪個情境很適合使用 Java 開發？",
+      "options": {
+        "A": "醫院掛號與病歷系統",
+        "B": "銀行帳務系統",
+        "C": "企業庫存與採購系統",
+        "D": "以上皆是"
+      },
+      "answer": "D",
+      "explanation": "這些都是 Java 常見的企業級應用場景，尤其重視穩定、維護與多人協作的系統。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch1-009",
+      "source_number": 4,
+      "practice_group": 2,
+      "question": "關於 Java 與 Android，下列哪個說法較正確？",
+      "options": {
+        "A": "Java 與 Android 完全沒有關係",
+        "B": "Android 新專案常使用 Kotlin，但許多既有專案仍有 Java 程式碼",
+        "C": "Android 只能用 Java  及不能使用 Kotlin",
+        "D": "Java 只能寫桌面程式"
+      },
+      "answer": "B",
+      "explanation": "現在 Android 新開發常使用 Kotlin，但 Java 在大量既有 Android 專案與基礎知\n識中仍有重要地位。",
+      "type": "single_choice",
+      "source_pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "ch1-010",
+      "source_number": 5,
+      "practice_group": 2,
+      "question": "企業系統若想加入 AI 功能，Java 可以扮演什麼角色？",
+      "options": {
+        "A": "負責後端與商業邏輯，再呼叫 AI API",
+        "B": "Java 完全不能與 AI 整合",
+        "C": "只能把 AI 畫成圖片",
+        "D": "只能用來安裝瀏覽器"
+      },
+      "answer": "A",
+      "explanation": "實務上可以由 Java 建立系統流程、資料與商業邏輯，再串接 AI 模型或 API 提供\n智慧功能。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "ch1-011",
+      "source_number": 1,
+      "practice_group": 3,
+      "question": "Java 原始碼通常會先經過哪個步驟，才能交給 JVM 執行？",
+      "options": {
+        "A": "壓縮",
+        "B": "編譯",
+        "C": "列印",
+        "D": "截圖"
+      },
+      "answer": "B",
+      "explanation": "Java 原始碼需要先由編譯器轉成 .class  位元碼，再交給 JVM 執行。",
+      "type": "single_choice",
+      "source_pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": "ch1-012",
+      "source_number": 2,
+      "practice_group": 3,
+      "question": "Java 原始碼檔案的副檔名通常是什麼？",
+      "options": {
+        "A": ".java",
+        "B": ".jpg",
+        "C": ".xlsx",
+        "D": ".mp3"
+      },
+      "answer": "A",
+      "explanation": "Java 原始碼使用 .java  作為副檔名，例如 HelloJava.java 。",
+      "type": "single_choice",
+      "source_pages": [
+        10
+      ]
+    },
+    {
+      "id": "ch1-013",
+      "source_number": 3,
+      "practice_group": 3,
+      "question": "Java 原始碼編譯後，通常會產生哪種檔案？",
+      "options": {
+        "A": ".class",
+        "B": ".png",
+        "C": ".docx",
+        "D": ".html"
+      },
+      "answer": "A",
+      "explanation": "Java 編譯器會把 .java  原始碼轉成包含位元碼的 .class  檔案。",
+      "type": "single_choice",
+      "source_pages": [
+        10
+      ]
+    },
+    {
+      "id": "ch1-014",
+      "source_number": 4,
+      "practice_group": 3,
+      "question": "JVM 的主要工作是什麼？",
+      "options": {
+        "A": "編輯 Java 程式碼",
+        "B": "執行 Java 位元碼",
+        "C": "設計資料庫表格",
+        "D": "製作簡報"
+      },
+      "answer": "B",
+      "explanation": "JVM 是 Java Virtual Machine，主要負責讀取並執行 Java 的位元碼。",
+      "type": "single_choice",
+      "source_pages": [
+        10
+      ]
+    },
+    {
+      "id": "ch1-015",
+      "source_number": 5,
+      "practice_group": 3,
+      "question": "JDK 最適合怎麼理解？",
+      "options": {
+        "A": "只是一個文字編輯器",
+        "B": "Java 開發所需的一整套工具",
+        "C": "一種圖片格式",
+        "D": "一種資料庫"
+      },
+      "answer": "B",
+      "explanation": "JDK 是 Java Development Kit，包含編譯、執行與其他 Java 開發時需要的工\n具。",
+      "type": "single_choice",
+      "source_pages": [
+        10,
+        11
+      ]
+    },
+    {
+      "id": "ch1-016",
+      "source_number": 1,
+      "practice_group": 4,
+      "question": "上面這支程式執行後，畫面會顯示什麼？",
+      "options": {
+        "A": "HelloJava.java",
+        "B": "public class HelloJava",
+        "C": "Hello, Java!",
+        "D": "main"
+      },
+      "answer": "C",
+      "explanation": "System.out.println(\"Hello, Java!\");  會把雙引號中的文字輸出到畫面上。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ],
+      "contentBlocks": [
+        {
+          "type": "text",
+          "value": "上面這支程式執行後，畫面會顯示什麼？"
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "value": "public class HelloJava {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, Java!\");\n    }\n}"
+        }
+      ]
+    },
+    {
+      "id": "ch1-017",
+      "source_number": 2,
+      "practice_group": 4,
+      "question": "如果類別名稱是 HelloJava ，檔名應該是什麼？",
+      "options": {
+        "A": "hello.txt",
+        "B": "HelloJava.java",
+        "C": "JavaHello.java",
+        "D": "HelloJava.class.java"
+      },
+      "answer": "B",
+      "explanation": "公開類別名稱與 Java 檔名需要一致，因此類別 HelloJava  對應 HelloJava.java 。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch1-018",
+      "source_number": 3,
+      "practice_group": 4,
+      "question": "哪一行是程式實際輸出文字的指令？",
+      "options": {
+        "A": "public class HelloJava",
+        "B": "public static void main(String[] args)",
+        "C": "System.out.println(\"Hello, Java!\");",
+        "D": "}"
+      },
+      "answer": "C",
+      "explanation": "System.out.println(...)  的作用就是把指定內容輸出到畫面。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch1-019",
+      "source_number": 4,
+      "practice_group": 4,
+      "question": "如果想把畫面改成顯示 Hello, NTCUST! ，最直接要修改哪裡？",
+      "options": {
+        "A": "修改雙引號裡的文字",
+        "B": "修改 public",
+        "C": "刪掉 main",
+        "D": "刪掉所有大括號"
+      },
+      "answer": "A",
+      "explanation": "輸出的內容就是 println  括號內雙引號中的字串，因此修改該文字即可。",
+      "type": "single_choice",
+      "source_pages": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": "ch1-020",
+      "source_number": 5,
+      "practice_group": 4,
+      "question": "第一次學習這支程式時，最重要的目標是什麼？",
+      "options": {
+        "A": "一次背完所有關鍵字",
+        "B": "成功建立、執行並看到輸出結果",
+        "C": "立刻學會資料庫",
+        "D": "立刻完成大型網站"
+      },
+      "answer": "B",
+      "explanation": "初學階段先建立完整的執行經驗，比一開始硬背所有語法定義更重要。",
+      "type": "single_choice",
+      "source_pages": [
+        13
+      ]
+    },
+    {
+      "id": "ch1-021",
+      "source_number": 1,
+      "practice_group": 5,
+      "question": "一般 Java 程式通常會從哪個方法開始執行？",
+      "options": {
+        "A": "start",
+        "B": "run",
+        "C": "main",
+        "D": "println"
+      },
+      "answer": "C",
+      "explanation": "一般 Java 應用程式會從 main  方法開始執行。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch1-022",
+      "source_number": 2,
+      "practice_group": 5,
+      "question": "public class HelloJava  主要是在做什麼？",
+      "options": {
+        "A": "建立一個名稱叫 HelloJava  的類別",
+        "B": "輸出文字",
+        "C": "關閉程式",
+        "D": "建立資料庫"
+      },
+      "answer": "A",
+      "explanation": "class HelloJava  表示定義一個名稱為 HelloJava  的類別。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "public class HelloJava  主要是在做什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch1-023",
+      "source_number": 3,
+      "practice_group": 5,
+      "question": "System.out.println  中的 println  有什麼效果？",
+      "options": {
+        "A": "輸出內容後換行",
+        "B": "刪除程式",
+        "C": "建立類別",
+        "D": "編譯程式"
+      },
+      "answer": "A",
+      "explanation": "println  會輸出內容，並在輸出完畢後自動換到下一行。",
+      "type": "single_choice",
+      "source_pages": [
+        15,
+        16
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "System.out.println  中的 println  有什麼效果？"
+        }
+      ]
+    },
+    {
+      "id": "ch1-024",
+      "source_number": 4,
+      "practice_group": 5,
+      "question": "Java 敘述最後常見的 ;  代表什麼？",
+      "options": {
+        "A": "一行敘述的結束",
+        "B": "程式的標題",
+        "C": "Java 的版本",
+        "D": "註解開始"
+      },
+      "answer": "A",
+      "explanation": "Java 許多敘述會以分號結束，表示這一個敘述到此完成。",
+      "type": "single_choice",
+      "source_pages": [
+        16
+      ]
+    },
+    {
+      "id": "ch1-025",
+      "source_number": 5,
+      "practice_group": 5,
+      "question": "程式中的 {  與 }  主要用來做什麼？",
+      "options": {
+        "A": "包住一段程式區塊",
+        "B": "表示圖片",
+        "C": "表示檔案名稱",
+        "D": "表示網址"
+      },
+      "answer": "A",
+      "explanation": "大括號用來標示類別、方法等程式區塊的開始與結束。",
+      "type": "single_choice",
+      "source_pages": [
+        16
+      ]
+    },
+    {
+      "id": "ch1-026",
+      "source_number": 1,
+      "practice_group": 6,
+      "question": "下列哪一行 Java 程式寫法正確？",
+      "options": {
+        "A": "system.out.println(\"Hi\");",
+        "B": "System.out.println(\"Hi\");",
+        "C": "System.Out.Println(\"Hi\");",
+        "D": "SYSTEM.OUT.PRINTLN(\"Hi\");"
+      },
+      "answer": "B",
+      "explanation": "Java 區分大小寫，因此 System.out.println  的大小寫必須正確。",
+      "type": "single_choice",
+      "source_pages": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "ch1-027",
+      "source_number": 2,
+      "practice_group": 6,
+      "question": "如果 System  寫成 system ，最可能發生什麼事？",
+      "options": {
+        "A": "Java 會自動修正",
+        "B": "程式可能編譯失敗",
+        "C": "輸出速度會變快",
+        "D": "完全沒有差異"
+      },
+      "answer": "B",
+      "explanation": "Java 區分大小寫，System  與 system  被視為不同名稱，因此可能造成找不到符號\n的編譯錯誤。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch1-028",
+      "source_number": 3,
+      "practice_group": 6,
+      "question": "雙引號 \" \"  在目前的範例中主要用來表示什麼？",
+      "options": {
+        "A": "一段文字",
+        "B": "一個類別",
+        "C": "Java 版本",
+        "D": "一張圖片"
+      },
+      "answer": "A",
+      "explanation": "在 System.out.println(\"Hello\");  中，雙引號包住的是要輸出的文字字串。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch1-029",
+      "source_number": 4,
+      "practice_group": 6,
+      "question": "下列哪個錯誤最可能是因為忘記分號？",
+      "options": {
+        "A": "System.out.println(\"Hello\")",
+        "B": "System.out.println(\"Hello\");",
+        "C": "public class HelloJava {",
+        "D": "}"
+      },
+      "answer": "A",
+      "explanation": "這一行輸出敘述最後缺少 ; ，因此 Java 編譯器會回報語法錯誤。",
+      "type": "single_choice",
+      "source_pages": [
+        18,
+        19
+      ]
+    },
+    {
+      "id": "ch1-030",
+      "source_number": 5,
+      "practice_group": 6,
+      "question": "大括號如果少寫一個，可能造成什麼情況？",
+      "options": {
+        "A": "程式區塊結構不完整而出現錯誤",
+        "B": "Java 自動補上且永遠不會提示",
+        "C": "程式自動變成 Python",
+        "D": "只會改變文字顏色"
+      },
+      "answer": "A",
+      "explanation": "大括號用來界定程式區塊，缺少其中一個會讓結構不完整，常引發編譯錯誤。",
+      "type": "single_choice",
+      "source_pages": [
+        19
+      ]
+    },
+    {
+      "id": "ch1-031",
+      "source_number": 1,
+      "practice_group": 7,
+      "question": "如果希望連續輸出兩段文字，而且中間不要自動換行，較適合使用哪一個？",
+      "options": {
+        "A": "print",
+        "B": "println",
+        "C": "main",
+        "D": "class"
+      },
+      "answer": "A",
+      "explanation": "print  輸出後不會自動換行，因此適合把多段文字接在同一行。",
+      "type": "single_choice",
+      "source_pages": [
+        20
+      ]
+    },
+    {
+      "id": "ch1-032",
+      "source_number": 2,
+      "practice_group": 7,
+      "question": "println  與 print  最大的差異是什麼？",
+      "options": {
+        "A": "println  輸出後會自動換行",
+        "B": "print  只能輸出數字",
+        "C": "println  只能輸出英文",
+        "D": "print  不能使用雙引號"
+      },
+      "answer": "A",
+      "explanation": "兩者都能輸出資料，但 println  在輸出完成後會自動加入換行。",
+      "type": "single_choice",
+      "source_pages": [
+        20,
+        21
+      ]
+    },
+    {
+      "id": "ch1-033",
+      "source_number": 3,
+      "practice_group": 7,
+      "question": "下列程式會輸出幾行？\nSystem.out.println(\"A\");\nSystem.out.println(\"B\");",
+      "options": {
+        "A": "1 行",
+        "B": "2 行",
+        "C": "3 行",
+        "D": "完全沒有輸出"
+      },
+      "answer": "B",
+      "explanation": "每一個 println  輸出後都會換行，因此 A  與 B  會各佔一行。",
+      "type": "single_choice",
+      "source_pages": [
+        21
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "下列程式會輸出幾行？\nSystem.out.println(\"A\");\nSystem.out.println(\"B\");"
+        }
+      ],
+      "contentBlocks": [
+        {
+          "type": "text",
+          "value": "下列程式會輸出幾行？"
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "value": "System.out.println(\"A\");\nSystem.out.println(\"B\");"
+        }
+      ]
+    },
+    {
+      "id": "ch1-034",
+      "source_number": 4,
+      "practice_group": 7,
+      "question": "下列程式的輸出結果最接近哪一個？\nSystem.out.print(\"Java \");\nSystem.out.print(\"Class\");",
+      "options": {
+        "A": "Java Class  在同一行",
+        "B": "Java  與 Class  分成兩行",
+        "C": "沒有任何輸出",
+        "D": "只顯示 Class"
+      },
+      "answer": "A",
+      "explanation": "兩個 print  都不會自動換行，而且第一段文字尾端有空格，因此結果會是同一行\n的 Java Class 。",
+      "type": "single_choice",
+      "source_pages": [
+        21
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "下列程式的輸出結果最接近哪一個？\nSystem.out.print(\"Java \");\nSystem.out.print(\"Class\");"
+        }
+      ],
+      "contentBlocks": [
+        {
+          "type": "text",
+          "value": "下列程式的輸出結果最接近哪一個？"
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "value": "System.out.print(\"Java \");\nSystem.out.print(\"Class\");"
+        }
+      ]
+    },
+    {
+      "id": "ch1-035",
+      "source_number": 5,
+      "practice_group": 7,
+      "question": "下列程式的輸出結果是什麼？\n\nSystem.out.print(\"Hello \");\nSystem.out.println(\"Java\");\nSystem.out.println(\"Go!\");",
+      "options": {
+        "A": "第一行 Hello Java ，第二行 Go!",
+        "B": "三段文字全部在同一行",
+        "C": "Hello 、Java 、Go!  各一行",
+        "D": "只顯示 Go!"
+      },
+      "answer": "A",
+      "explanation": "第一個 print  不換行，接著 println(\"Java\")  會接在後面並換行，最後 Go!  顯示在\n第二行。",
+      "type": "single_choice",
+      "source_pages": [
+        21,
+        22
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "下列程式的輸出結果是什麼？\n\nSystem.out.print(\"Hello \");\nSystem.out.println(\"Java\");\nSystem.out.println(\"Go!\");"
+        }
+      ],
+      "contentBlocks": [
+        {
+          "type": "text",
+          "value": "下列程式的輸出結果是什麼？"
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "value": "System.out.print(\"Hello \");\nSystem.out.println(\"Java\");\nSystem.out.println(\"Go!\");"
+        }
+      ]
+    },
+    {
+      "id": "ch1-036",
+      "source_number": 1,
+      "practice_group": 8,
+      "question": "若要輸出自己的姓名，下列哪個位置最需要修改？",
+      "options": {
+        "A": "public",
+        "B": "class",
+        "C": "System.out.println()  雙引號內的文字",
+        "D": "static"
+      },
+      "answer": "C",
+      "explanation": "如果只想修改畫面顯示的內容，只要修改 System.out.println()  雙引號中的文字即\n可。",
+      "type": "single_choice",
+      "source_pages": [
+        23,
+        24
+      ]
+    },
+    {
+      "id": "ch1-037",
+      "source_number": 2,
+      "practice_group": 8,
+      "question": "如果要輸出三行文字，最直覺的做法是什麼？",
+      "options": {
+        "A": "使用三次 System.out.println()",
+        "B": "使用三個 class",
+        "C": "使用三個 main",
+        "D": "建立三個 JDK"
+      },
+      "answer": "A",
+      "explanation": "每個 println  輸出後會換行，因此三行內容可以分別使用三次 println 。",
+      "type": "single_choice",
+      "source_pages": [
+        24
+      ]
+    },
+    {
+      "id": "ch1-038",
+      "source_number": 3,
+      "practice_group": 8,
+      "question": "實作練習時，為什麼要實際執行程式？",
+      "options": {
+        "A": "可以確認修改後的結果是否符合預期",
+        "B": "只為了讓電腦變熱",
+        "C": "只為了產生更多檔案",
+        "D": "執行與學習程式完全無關"
+      },
+      "answer": "A",
+      "explanation": "程式設計的重要循環就是撰寫、執行、觀察結果，再根據結果修正。",
+      "type": "single_choice",
+      "source_pages": [
+        24
+      ]
+    },
+    {
+      "id": "ch1-039",
+      "source_number": 4,
+      "practice_group": 8,
+      "question": "想讓 Java  與 is fun!  接在同一行，哪種做法最合理？",
+      "options": {
+        "A": "前一段使用 print ，後一段再使用 println",
+        "B": "兩段都刪除",
+        "C": "把 main  改成 Java",
+        "D": "把檔案改成圖片格式"
+      },
+      "answer": "A",
+      "explanation": "print  不會換行，因此下一個輸出可以接在後面；最後再使用 println  換行即可。",
+      "type": "single_choice",
+      "source_pages": [
+        24,
+        25
+      ]
+    },
+    {
+      "id": "ch1-040",
+      "source_number": 5,
+      "practice_group": 8,
+      "question": "如果修改程式後出現錯誤，較好的做法是什麼？",
+      "options": {
+        "A": "查看錯誤訊息並檢查剛剛修改的位置",
+        "B": "直接放棄",
+        "C": "把電腦關機就一定會修好",
+        "D": "把所有程式碼全部刪除"
+      },
+      "answer": "A",
+      "explanation": "初學程式時出錯很正常，應養成閱讀錯誤訊息、比對修改處並逐步修正的習慣。",
+      "type": "single_choice",
+      "source_pages": [
+        25
+      ]
+    },
+    {
+      "id": "ch1-041",
+      "source_number": 1,
+      "practice_group": 9,
+      "question": "若程式中寫了 public class HelloJava ，最適合的檔名是哪一個？",
+      "options": {
+        "A": "hello.java",
+        "B": "Hello.java",
+        "C": "HelloJava.java",
+        "D": "JavaHello.txt"
+      },
+      "answer": "C",
+      "explanation": "公開類別名稱為 HelloJava  時，檔名應對應為 HelloJava.java 。",
+      "type": "single_choice",
+      "source_pages": [
+        27,
+        28
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "若程式中寫了 public class HelloJava ，最適合的檔名是哪一個？"
+        }
+      ]
+    },
+    {
+      "id": "ch1-042",
+      "source_number": 2,
+      "practice_group": 9,
+      "question": "下面哪一行少了分號？",
+      "options": {
+        "A": "System.out.println(\"Hello\")",
+        "B": "System.out.println(\"Hello\");",
+        "C": "public class HelloJava {",
+        "D": "}"
+      },
+      "answer": "A",
+      "explanation": "輸出敘述通常要用分號結尾，因此這一行最後應補上 ; 。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch1-043",
+      "source_number": 3,
+      "practice_group": 9,
+      "question": "下面哪一個問題是「雙引號沒有成對」？",
+      "options": {
+        "A": "System.out.println(\"Hello);",
+        "B": "System.out.println(\"Hello\");",
+        "C": "System.out.print(\"Hello\");",
+        "D": "System.out.println(\"Java\");"
+      },
+      "answer": "A",
+      "explanation": "字串開頭有雙引號，但 Hello  後面缺少結束的雙引號，因此語法不完整。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch1-044",
+      "source_number": 4,
+      "practice_group": 9,
+      "question": "如果程式突然出現很多紅色錯誤訊息，較好的第一步是什麼？",
+      "options": {
+        "A": "從第一個錯誤開始檢查附近的符號與程式碼",
+        "B": "把所有錯誤一次忽略",
+        "C": "直接重新買一台電腦",
+        "D": "把副檔名改成 .jpg"
+      },
+      "answer": "A",
+      "explanation": "一個小語法錯誤可能連帶造成很多錯誤訊息，因此通常先處理最前面的錯誤最有\n效。",
+      "type": "single_choice",
+      "source_pages": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": "ch1-045",
+      "source_number": 5,
+      "practice_group": 9,
+      "question": "哪一個觀念最適合初學者面對程式錯誤？",
+      "options": {
+        "A": "出錯是學習程式的一部分，可以透過錯誤訊息逐步修正",
+        "B": "程式出錯代表一定不適合學程式",
+        "C": "所有錯誤都只能請別人修",
+        "D": "只要看到紅字就應立刻刪除專案"
+      },
+      "answer": "A",
+      "explanation": "除錯是程式設計的基本能力，錯誤訊息本身就是協助我們找到問題的重要線索。\n🔟 本章總整理與課堂檢核",
+      "type": "single_choice",
+      "source_pages": [
+        29
+      ]
+    },
+    {
+      "id": "ch1-046",
+      "source_number": 1,
+      "practice_group": 10,
+      "question": "下列哪一項最符合本章學習完成後應具備的能力？",
+      "options": {
+        "A": "已經能獨立開發完整電商網站",
+        "B": "已經能完成大型資料庫設計",
+        "C": "能建立、執行並修改一支基本 Java 程式",
+        "D": "已經能熟練所有物件導向設計模式"
+      },
+      "answer": "C",
+      "explanation": "本章核心是完成第一支 Java 程式，並建立基本語法與執行流程的概念。",
+      "type": "single_choice",
+      "source_pages": [
+        30
+      ]
+    },
+    {
+      "id": "ch1-047",
+      "source_number": 2,
+      "practice_group": 10,
+      "question": "Java 原始碼的副檔名是哪一個？",
+      "options": {
+        "A": ".java",
+        "B": ".class",
+        "C": ".png",
+        "D": ".pptx"
+      },
+      "answer": "A",
+      "explanation": "開發者撰寫的 Java 原始碼使用 .java ；編譯後才會產生 .class  位元碼檔案。",
+      "type": "single_choice",
+      "source_pages": [
+        30
+      ]
+    },
+    {
+      "id": "ch1-048",
+      "source_number": 3,
+      "practice_group": 10,
+      "question": "下列哪個執行流程是正確的？",
+      "options": {
+        "A": ".java  → 編譯 → .class  → JVM 執行",
+        "B": ".class  → Word → .java",
+        "C": "JVM → 圖片 → Excel",
+        "D": ".java  → 直接變成 PDF"
+      },
+      "answer": "A",
+      "explanation": "Java 原始碼先經編譯器轉成位元碼，再由 JVM 負責執行。",
+      "type": "single_choice",
+      "source_pages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "ch1-049",
+      "source_number": 4,
+      "practice_group": 10,
+      "question": "哪個方法可以輸出文字並自動換行？",
+      "options": {
+        "A": "System.out.println()",
+        "B": "class()",
+        "C": "main()",
+        "D": "JDK()"
+      },
+      "answer": "A",
+      "explanation": "System.out.println()  會輸出內容，並在輸出完成後自動換到下一行。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch1-050",
+      "source_number": 5,
+      "practice_group": 10,
+      "question": "關於 Java，下列哪個說法正確？",
+      "options": {
+        "A": "Java 區分大小寫，而且程式出錯時可以根據錯誤訊息逐步除錯",
+        "B": "Java 完全不區分大小寫",
+        "C": "Java 只能用來印出 Hello World",
+        "D": "Java 不需要 JVM 就能直接執行位元碼"
+      },
+      "answer": "A",
+      "explanation": "Java 會區分大小寫，而閱讀錯誤訊息並逐步修正也是學習 Java 的重要能力。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    }
+  ],
+  "chapter_2": [
+    {
+      "id": "ch2-001",
+      "source_number": 1,
+      "practice_group": 1,
+      "question": "下列哪一行是在「宣告」一個整數變數？",
+      "options": {
+        "A": "int age;",
+        "B": "age = 20;",
+        "C": "System.out.println(age);",
+        "D": "20 = age;"
+      },
+      "answer": "A",
+      "explanation": "int age;  建立了一個名稱為 age 、型別為 int  的變數，這個動作稱為宣告。",
+      "type": "single_choice",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "ch2-002",
+      "source_number": 2,
+      "practice_group": 1,
+      "question": "age = 20;  代表什麼？",
+      "options": {
+        "A": "判斷 age 是否等於 20",
+        "B": "把 20 放進 age 變數",
+        "C": "輸出 age",
+        "D": "刪除 age"
+      },
+      "answer": "B",
+      "explanation": "單一 =  在這裡是賦值運算子，代表把右邊的 20  指定給左邊的 age 。",
+      "type": "single_choice",
+      "source_pages": [
+        4,
+        5
+      ]
+    },
+    {
+      "id": "ch2-003",
+      "source_number": 3,
+      "practice_group": 1,
+      "question": "執行下列程式後會輸出什麼？\nint score = 80;\nscore = 90;\nSystem.out.println(score);",
+      "options": {
+        "A": "80",
+        "B": "90",
+        "C": "80 90",
+        "D": "無法執行"
+      },
+      "answer": "B",
+      "explanation": "第二次執行 score = 90;  後，原本的 80 會被新的值 90 取代，因此輸出 90。",
+      "type": "single_choice",
+      "source_pages": [
+        5
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "執行下列程式後會輸出什麼？\nint score = 80;\nscore = 90;\nSystem.out.println(score);"
+        }
+      ],
+      "contentBlocks": [
+        {
+          "type": "text",
+          "value": "執行下列程式後會輸出什麼？"
+        },
+        {
+          "type": "code",
+          "language": "java",
+          "value": "int score = 80;\nscore = 90;\nSystem.out.println(score);"
+        }
+      ]
+    },
+    {
+      "id": "ch2-004",
+      "source_number": 4,
+      "practice_group": 1,
+      "question": "哪一個型別最適合保存 168.5 ？",
+      "options": {
+        "A": "int",
+        "B": "double",
+        "C": "boolean",
+        "D": "char"
+      },
+      "answer": "B",
+      "explanation": "168.5  含有小數部分，因此這個階段最適合使用 double 。",
+      "type": "single_choice",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "ch2-005",
+      "source_number": 5,
+      "practice_group": 1,
+      "question": "哪一行同時完成變數宣告與第一次賦值？",
+      "options": {
+        "A": "int age;",
+        "B": "age = 20;",
+        "C": "int age = 20;",
+        "D": "System.out.println(age);"
+      },
+      "answer": "C",
+      "explanation": "int age = 20;  同時建立 age  變數並給它初始值 20，這通常稱為初始化。",
+      "type": "single_choice",
+      "source_pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "ch2-006",
+      "source_number": 1,
+      "practice_group": 2,
+      "question": "若要使用 Scanner ，通常要先引入哪個套件？",
+      "options": {
+        "A": "java.util.Scanner",
+        "B": "java.io.Print",
+        "C": "java.lang.Input",
+        "D": "java.sql.Scanner"
+      },
+      "answer": "A",
+      "explanation": "Scanner  位於 java.util  套件中，因此常見寫法是 import java.util.Scanner; 。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch2-007",
+      "source_number": 2,
+      "practice_group": 2,
+      "question": "哪一個方法最適合讀取整數？",
+      "options": {
+        "A": "nextLine()",
+        "B": "nextInt()",
+        "C": "nextDouble()",
+        "D": "println()"
+      },
+      "answer": "B",
+      "explanation": "nextInt()  會將輸入內容讀取為整數。",
+      "type": "single_choice",
+      "source_pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "ch2-008",
+      "source_number": 3,
+      "practice_group": 2,
+      "question": "若要讀取 168.5  這類小數，最適合使用哪個方法？",
+      "options": {
+        "A": "nextInt()",
+        "B": "nextBoolean()",
+        "C": "nextDouble()",
+        "D": "next()"
+      },
+      "answer": "C",
+      "explanation": "168.5  是小數資料，可使用 nextDouble()  讀取。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "ch2-009",
+      "source_number": 4,
+      "practice_group": 2,
+      "question": "new Scanner(System.in)  的主要用途是什麼？",
+      "options": {
+        "A": "建立可讀取鍵盤輸入的 Scanner",
+        "B": "建立新的 Java 檔案",
+        "C": "輸出資料到畫面",
+        "D": "結束程式"
+      },
+      "answer": "A",
+      "explanation": "System.in  代表標準輸入，通常就是鍵盤；搭配 Scanner  後即可讀取使用者輸入。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "ch2-010",
+      "source_number": 5,
+      "practice_group": 2,
+      "question": "若想讀取包含空白的一整行文字，例如 National Taichung University ，較適合\n用哪個方法？",
+      "options": {
+        "A": "nextInt()",
+        "B": "next()",
+        "C": "nextLine()",
+        "D": "print()"
+      },
+      "answer": "C",
+      "explanation": "nextLine()  會讀取整行內容，因此可保留中間的空白。",
+      "type": "single_choice",
+      "source_pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": "ch2-011",
+      "source_number": 1,
+      "practice_group": 3,
+      "question": "score >= 60  的意思是什麼？",
+      "options": {
+        "A": "score 大於 60",
+        "B": "score 大於或等於 60",
+        "C": "score 等於 60",
+        "D": "score 小於 60"
+      },
+      "answer": "B",
+      "explanation": ">=  代表大於或等於，因此 60 本身也符合條件。",
+      "type": "single_choice",
+      "source_pages": [
+        10,
+        11
+      ]
+    },
+    {
+      "id": "ch2-012",
+      "source_number": 2,
+      "practice_group": 3,
+      "question": "Java 中要判斷兩個整數是否相等，應使用哪個運算子？",
+      "options": {
+        "A": "=",
+        "B": "==",
+        "C": "!=",
+        "D": ">="
+      },
+      "answer": "B",
+      "explanation": "==  用來比較是否相等；=  則是指定值。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ]
+    },
+    {
+      "id": "ch2-013",
+      "source_number": 3,
+      "practice_group": 3,
+      "question": "若 score = 59 ，執行 if (score >= 60) ... else ...  時會進入哪一段？",
+      "options": {
+        "A": "if",
+        "B": "else",
+        "C": "兩段都執行",
+        "D": "程式一定無法執行"
+      },
+      "answer": "B",
+      "explanation": "59 >= 60  為 false，因此會執行 else 。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "若 score = 59 ，執行 if (score >= 60) ... else ...  時會進入哪一段？"
+        }
+      ]
+    },
+    {
+      "id": "ch2-014",
+      "source_number": 4,
+      "practice_group": 3,
+      "question": "number % 2 == 0  常用來判斷什麼？",
+      "options": {
+        "A": "是否為正數",
+        "B": "是否為偶數",
+        "C": "是否大於 2",
+        "D": "是否為小數"
+      },
+      "answer": "B",
+      "explanation": "整數除以 2 的餘數若為 0，就代表它是偶數。",
+      "type": "single_choice",
+      "source_pages": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "ch2-015",
+      "source_number": 5,
+      "practice_group": 3,
+      "question": "下列哪個條件代表 age  不等於 18？",
+      "options": {
+        "A": "age = 18",
+        "B": "age == 18",
+        "C": "age != 18",
+        "D": "age >= 18"
+      },
+      "answer": "C",
+      "explanation": "!=  代表「不等於」。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch2-016",
+      "source_number": 1,
+      "practice_group": 4,
+      "question": "當判斷情況有三種以上時，通常可使用哪個語法？",
+      "options": {
+        "A": "只有 else",
+        "B": "else if",
+        "C": "import",
+        "D": "class"
+      },
+      "answer": "B",
+      "explanation": "else if  可以依序加入多個條件分支。",
+      "type": "single_choice",
+      "source_pages": [
+        14
+      ]
+    },
+    {
+      "id": "ch2-017",
+      "source_number": 2,
+      "practice_group": 4,
+      "question": "age >= 18 && age <= 65  代表什麼？",
+      "options": {
+        "A": "age 只要大於等於 18 即可",
+        "B": "age 必須同時介於 18 到 65",
+        "C": "age 必須小於 18",
+        "D": "age 一定等於 65"
+      },
+      "answer": "B",
+      "explanation": "&&  要求左右兩個條件都成立。",
+      "type": "single_choice",
+      "source_pages": [
+        14
+      ]
+    },
+    {
+      "id": "ch2-018",
+      "source_number": 3,
+      "practice_group": 4,
+      "question": "day == 6 || day == 7  代表什麼？",
+      "options": {
+        "A": "day 必須同時是 6 和 7",
+        "B": "day 是 6 或 7 其中之一",
+        "C": "day 不能是 6",
+        "D": "day 必須大於 7"
+      },
+      "answer": "B",
+      "explanation": "||  表示其中一個條件成立即可。",
+      "type": "single_choice",
+      "source_pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "id": "ch2-019",
+      "source_number": 4,
+      "practice_group": 4,
+      "question": "在一串 if / else if / else  中，某個條件成立後會怎樣？",
+      "options": {
+        "A": "後面所有 else if 都繼續判斷",
+        "B": "重新從第一個 if 開始",
+        "C": "該組後續分支通常不再執行",
+        "D": "一定執行 else"
+      },
+      "answer": "C",
+      "explanation": "同一組條件中，一旦某個分支成立並執行，後面的分支就會略過。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch2-020",
+      "source_number": 5,
+      "practice_group": 4,
+      "question": "若要判斷分數是否介於 0 到 100，哪個條件較正確？",
+      "options": {
+        "A": "score >= 0 && score <= 100",
+        "B": "score >= 0 || score <= 100",
+        "C": "score == 0 && score == 100",
+        "D": "score != 0"
+      },
+      "answer": "A",
+      "explanation": "需要同時滿足「至少 0」與「最多 100」，所以使用 && 。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch2-021",
+      "source_number": 1,
+      "practice_group": 5,
+      "question": "三元運算子的基本結構是哪一個？",
+      "options": {
+        "A": "條件 ? 值1 : 值2",
+        "B": "條件 : 值1 ? 值2",
+        "C": "if ? else :",
+        "D": "值1 && 值2"
+      },
+      "answer": "A",
+      "explanation": "三元運算子使用 條件 ? 成立時的值 : 不成立時的值。",
+      "type": "single_choice",
+      "source_pages": [
+        17
+      ]
+    },
+    {
+      "id": "ch2-022",
+      "source_number": 2,
+      "practice_group": 5,
+      "question": "score >= 60 ? \"及格\" : \"不及格\" ，若 score 為 50，結果是什麼？",
+      "options": {
+        "A": "及格",
+        "B": "不及格",
+        "C": "50",
+        "D": "true"
+      },
+      "answer": "B",
+      "explanation": "50 >= 60  為 false，因此取冒號後方的「不及格」。",
+      "type": "single_choice",
+      "source_pages": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "ch2-023",
+      "source_number": 3,
+      "practice_group": 5,
+      "question": "三元運算子最適合哪種情境？",
+      "options": {
+        "A": "一個簡單條件、兩種結果",
+        "B": "需要執行十個不同流程",
+        "C": "建立類別",
+        "D": "匯入套件"
+      },
+      "answer": "A",
+      "explanation": "三元運算子最適合簡單的二選一結果。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch2-024",
+      "source_number": 4,
+      "practice_group": 5,
+      "question": "int max = a > b ? a : b;  的用途是什麼？",
+      "options": {
+        "A": "把 a 與 b 相加",
+        "B": "取得 a 與 b 中較大的值",
+        "C": "判斷 a 是否為偶數",
+        "D": "交換 a 與 b"
+      },
+      "answer": "B",
+      "explanation": "條件 a > b  成立就取 a，否則取 b，因此會得到較大值。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch2-025",
+      "source_number": 5,
+      "practice_group": 5,
+      "question": "當判斷有很多 else if  且每個分支有多行程式時，通常哪個做法較適合？",
+      "options": {
+        "A": "全部改成巢狀三元運算子",
+        "B": "保留清楚的 if / else if / else",
+        "C": "刪除條件",
+        "D": "只使用 print"
+      },
+      "answer": "B",
+      "explanation": "多分支或複雜操作使用 if / else if / else  通常更容易閱讀與維護。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch2-026",
+      "source_number": 1,
+      "practice_group": 6,
+      "question": "哪一種情境最適合使用 switch / case ？",
+      "options": {
+        "A": "判斷分數是否介於 60～100",
+        "B": "根據選單代碼 1、2、3 執行不同功能",
+        "C": "判斷年齡是否大於等於 18",
+        "D": "判斷兩個條件是否同時成立"
+      },
+      "answer": "B",
+      "explanation": "switch  很適合處理少數幾個明確、固定的值，例如選單編號、星期或固定代碼。",
+      "type": "single_choice",
+      "source_pages": [
+        21,
+        22
+      ]
+    },
+    {
+      "id": "ch2-027",
+      "source_number": 2,
+      "practice_group": 6,
+      "question": "在 switch  中，case 2:  代表什麼？",
+      "options": {
+        "A": "當被判斷的值等於 2 時執行這一段",
+        "B": "將變數改成 2",
+        "C": "重複執行兩次",
+        "D": "判斷數字是否大於 2"
+      },
+      "answer": "A",
+      "explanation": "case 2:  表示當 switch  中的值符合 2  時，執行該區塊的程式。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "id": "ch2-028",
+      "source_number": 3,
+      "practice_group": 6,
+      "question": "break;  在傳統 switch / case  中最常見的作用是什麼？",
+      "options": {
+        "A": "結束整個 Java 程式",
+        "B": "離開目前的 switch ，避免繼續執行下一個 case",
+        "C": "將變數清空",
+        "D": "回到第一個 case"
+      },
+      "answer": "B",
+      "explanation": "break;  通常用來結束目前這次 switch  判斷，避免程式繼續往下一個 case  執行。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "id": "ch2-029",
+      "source_number": 4,
+      "practice_group": 6,
+      "question": "default  最接近 if / else  中的哪一個角色？",
+      "options": {
+        "A": "if",
+        "B": "else",
+        "C": "for",
+        "D": "import"
+      },
+      "answer": "B",
+      "explanation": "當所有 case  都沒有符合時，就會執行 default ，概念上很像最後的 else 。",
+      "type": "single_choice",
+      "source_pages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "ch2-030",
+      "source_number": 5,
+      "practice_group": 6,
+      "question": "哪個情境通常較適合使用 if / else if ，而不是 switch ？",
+      "options": {
+        "A": "選單編號是 1、2、3",
+        "B": "星期代碼是 1～7",
+        "C": "判斷成績是否 >= 90 、>= 80 、>= 70",
+        "D": "根據固定月份代碼顯示月份名稱"
+      },
+      "answer": "C",
+      "explanation": "成績等第屬於範圍判斷，需要使用 >=  等比較條件，通常用 if / else if  比較直\n覺。",
+      "type": "single_choice",
+      "source_pages": [
+        23
+      ]
+    },
+    {
+      "id": "ch2-031",
+      "source_number": 1,
+      "practice_group": 7,
+      "question": "若要讓迴圈從 1 執行到 5，哪個條件較適合？",
+      "options": {
+        "A": "i < 5",
+        "B": "i <= 5",
+        "C": "i >= 5",
+        "D": "i == 0"
+      },
+      "answer": "B",
+      "explanation": "i <= 5  會包含 5，因此可執行 1、2、3、4、5。",
+      "type": "single_choice",
+      "source_pages": [
+        25
+      ]
+    },
+    {
+      "id": "ch2-032",
+      "source_number": 2,
+      "practice_group": 7,
+      "question": "i++  的意思是什麼？",
+      "options": {
+        "A": "i 減 1",
+        "B": "i 加 1",
+        "C": "i 乘 2",
+        "D": "i 變成 0"
+      },
+      "answer": "B",
+      "explanation": "i++  是常見的遞增寫法，相當於讓 i 增加 1。",
+      "type": "single_choice",
+      "source_pages": [
+        25,
+        26
+      ]
+    },
+    {
+      "id": "ch2-033",
+      "source_number": 3,
+      "practice_group": 7,
+      "question": "下列哪個情境最適合使用 for ？",
+      "options": {
+        "A": "確定要重複 10 次",
+        "B": "不知道使用者何時會輸入 0",
+        "C": "只執行一次",
+        "D": "宣告類別"
+      },
+      "answer": "A",
+      "explanation": "已知或容易計算重複次數時，for  很適合。",
+      "type": "single_choice",
+      "source_pages": [
+        26
+      ]
+    },
+    {
+      "id": "ch2-034",
+      "source_number": 4,
+      "practice_group": 7,
+      "question": "for (int i = 0; i < 3; i++)  會執行幾次？",
+      "options": {
+        "A": "2 次",
+        "B": "3 次",
+        "C": "4 次",
+        "D": "無限次"
+      },
+      "answer": "B",
+      "explanation": "i 依序為 0、1、2，共執行 3 次；當 i 變 3 時條件不成立。",
+      "type": "single_choice",
+      "source_pages": [
+        26
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "for (int i = 0; i < 3; i++)  會執行幾次？"
+        }
+      ]
+    },
+    {
+      "id": "ch2-035",
+      "source_number": 5,
+      "practice_group": 7,
+      "question": "在計算總和時，sum += i;  等同於哪一個寫法？",
+      "options": {
+        "A": "sum = i;",
+        "B": "sum = sum + i;",
+        "C": "i = sum + i;",
+        "D": "sum++;"
+      },
+      "answer": "B",
+      "explanation": "sum += i  是 sum = sum + i  的簡寫。",
+      "type": "single_choice",
+      "source_pages": [
+        26
+      ]
+    },
+    {
+      "id": "ch2-036",
+      "source_number": 1,
+      "practice_group": 8,
+      "question": "while  迴圈在執行內容前會先做什麼？",
+      "options": {
+        "A": "先執行一次內容",
+        "B": "先檢查條件",
+        "C": "先把變數歸零",
+        "D": "先建立 Scanner"
+      },
+      "answer": "B",
+      "explanation": "while  是先判斷條件，條件成立才進入迴圈。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch2-037",
+      "source_number": 2,
+      "practice_group": 8,
+      "question": "do-while  最少會執行幾次？",
+      "options": {
+        "A": "0 次",
+        "B": "1 次",
+        "C": "2 次",
+        "D": "無限次"
+      },
+      "answer": "B",
+      "explanation": "do-while  會先執行內容，再檢查條件，因此至少執行一次。",
+      "type": "single_choice",
+      "source_pages": [
+        28,
+        29
+      ]
+    },
+    {
+      "id": "ch2-038",
+      "source_number": 3,
+      "practice_group": 8,
+      "question": "若不知道使用者會輸入幾次，直到輸入 0 才結束，哪種迴圈很適合？",
+      "options": {
+        "A": "while",
+        "B": "只有 if",
+        "C": "import",
+        "D": "class"
+      },
+      "answer": "A",
+      "explanation": "這種「直到條件發生才停止」的情境很適合 while 。",
+      "type": "single_choice",
+      "source_pages": [
+        29
+      ]
+    },
+    {
+      "id": "ch2-039",
+      "source_number": 4,
+      "practice_group": 8,
+      "question": "以下程式若沒有 count++ ，最可能發生什麼？",
+      "options": {
+        "A": "只執行一次",
+        "B": "條件一直成立而形成無限迴圈",
+        "C": "自動變成 for",
+        "D": "Java 自動補上 count++"
+      },
+      "answer": "B",
+      "explanation": "如果控制條件的變數沒有改變，條件可能永遠為 true，導致無限迴圈。",
+      "type": "single_choice",
+      "source_pages": [
+        29
+      ]
+    },
+    {
+      "id": "ch2-040",
+      "source_number": 5,
+      "practice_group": 8,
+      "question": "哪一個敘述最正確？",
+      "options": {
+        "A": "while 一定至少執行一次",
+        "B": "do-while 可能完全不執行",
+        "C": "while 可能執行 0 次，do-while 至少 1 次",
+        "D": "兩者完全沒有差別"
+      },
+      "answer": "C",
+      "explanation": "差別就在判斷條件的時機：while 先判斷；do-while 先執行。",
+      "type": "single_choice",
+      "source_pages": [
+        29,
+        30
+      ]
+    },
+    {
+      "id": "ch2-041",
+      "source_number": 1,
+      "practice_group": 9,
+      "question": "若 while (count <= 5)  中完全沒有改變 count，最可能發生什麼？",
+      "options": {
+        "A": "執行 5 次後自動停止",
+        "B": "形成無限迴圈",
+        "C": "Java 自動把 count 加 1",
+        "D": "只執行一次"
+      },
+      "answer": "B",
+      "explanation": "只要 count 一直沒有改變，count <= 5  就可能永遠為 true。",
+      "type": "single_choice",
+      "source_pages": [
+        33
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "若 while (count <= 5)  中完全沒有改變 count，最可能發生什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch2-042",
+      "source_number": 2,
+      "practice_group": 9,
+      "question": "for (int i = 1; i < 5; i++)  會印出哪些 i？",
+      "options": {
+        "A": "1、2、3、4",
+        "B": "1、2、3、4、5",
+        "C": "0、1、2、3、4",
+        "D": "只有 5"
+      },
+      "answer": "A",
+      "explanation": "條件是 i < 5 ，所以 i 到 4 為止；i 變成 5 時停止。",
+      "type": "single_choice",
+      "source_pages": [
+        33
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "for (int i = 1; i < 5; i++)  會印出哪些 i？"
+        }
+      ]
+    },
+    {
+      "id": "ch2-043",
+      "source_number": 3,
+      "practice_group": 9,
+      "question": "nextInt()  後立刻使用 nextLine()  有時讀到空字串，主要原因是什麼？",
+      "options": {
+        "A": "Scanner 不支援文字",
+        "B": "前一次輸入留下的換行尚未被讀走",
+        "C": "Java 不能同時讀整數與文字",
+        "D": "一定是電腦鍵盤故障"
+      },
+      "answer": "B",
+      "explanation": "nextInt()  通常不會吃掉行尾換行，因此下一個 nextLine()  可能先讀到那個換行。",
+      "type": "single_choice",
+      "source_pages": [
+        33,
+        34
+      ]
+    },
+    {
+      "id": "ch2-044",
+      "source_number": 4,
+      "practice_group": 9,
+      "question": "若判斷流程有很多分支，每個分支有多行程式，哪種方式通常較好讀？",
+      "options": {
+        "A": "全部塞入一個很長的三元運算子",
+        "B": "使用清楚的 if / else if / else",
+        "C": "完全不做判斷",
+        "D": "只使用 while"
+      },
+      "answer": "B",
+      "explanation": "if / else if / else  在複雜流程中通常更清楚。",
+      "type": "single_choice",
+      "source_pages": [
+        34
+      ]
+    },
+    {
+      "id": "ch2-045",
+      "source_number": 5,
+      "practice_group": 9,
+      "question": "寫迴圈時，哪一件事最值得特別檢查？",
+      "options": {
+        "A": "變數是否會朝停止條件前進",
+        "B": "每一行都要有 Scanner",
+        "C": "所有數字都改成字串",
+        "D": "一定要使用三元運算子"
+      },
+      "answer": "A",
+      "explanation": "如果控制變數沒有往停止條件前進，就很容易發生無限迴圈。\n🔟 本章總整理與課堂檢核",
+      "type": "single_choice",
+      "source_pages": [
+        34
+      ]
+    },
+    {
+      "id": "ch2-046",
+      "source_number": 1,
+      "practice_group": 10,
+      "question": "若要讀取鍵盤輸入的整數，最常使用哪個組合？",
+      "options": {
+        "A": "Scanner  + nextInt()",
+        "B": "System.out  + println()",
+        "C": "for  + break",
+        "D": "if  + else"
+      },
+      "answer": "A",
+      "explanation": "Scanner  負責讀取輸入，而 nextInt()  讀取整數。",
+      "type": "single_choice",
+      "source_pages": [
+        36
+      ]
+    },
+    {
+      "id": "ch2-047",
+      "source_number": 2,
+      "practice_group": 10,
+      "question": "若條件只是「分數是否及格」並要產生一個文字結果，哪種寫法最精簡？",
+      "options": {
+        "A": "三元運算子",
+        "B": "建立十層迴圈",
+        "C": "只使用 import",
+        "D": "只使用 class"
+      },
+      "answer": "A",
+      "explanation": "簡單二選一很適合三元運算子，例如 score >= 60 ? \"及格\" : \"不及格\" 。",
+      "type": "single_choice",
+      "source_pages": [
+        36
+      ]
+    },
+    {
+      "id": "ch2-048",
+      "source_number": 3,
+      "practice_group": 10,
+      "question": "若確定要把 1 到 100 印出來，哪種迴圈通常最直覺？",
+      "options": {
+        "A": "for",
+        "B": "只有 if",
+        "C": "只有 else",
+        "D": "不需要迴圈"
+      },
+      "answer": "A",
+      "explanation": "已知起點、終點與更新方式時，for  通常最直覺。",
+      "type": "single_choice",
+      "source_pages": [
+        36,
+        37
+      ]
+    },
+    {
+      "id": "ch2-049",
+      "source_number": 4,
+      "practice_group": 10,
+      "question": "若要一直要求輸入，直到使用者輸入正確資料為止，哪種迴圈很常使用？",
+      "options": {
+        "A": "while  或 do-while",
+        "B": "只有 import",
+        "C": "只有 print",
+        "D": "只能使用三元運算子"
+      },
+      "answer": "A",
+      "explanation": "這類重複次數不固定、由條件決定何時停止的流程很適合 while  或 do-while 。",
+      "type": "single_choice",
+      "source_pages": [
+        37
+      ]
+    },
+    {
+      "id": "ch2-050",
+      "source_number": 5,
+      "practice_group": 10,
+      "question": "下列哪一個觀念最能描述本章程式流程？",
+      "options": {
+        "A": "輸入資料 → 條件判斷 → 視需要重複執行",
+        "B": "只輸出固定文字",
+        "C": "只建立類別但不執行",
+        "D": "只背語法名稱"
+      },
+      "answer": "A",
+      "explanation": "本章就是讓程式能接收資料、做決策，並透過迴圈重複工作。",
+      "type": "single_choice",
+      "source_pages": [
+        37
+      ]
+    }
+  ],
+  "chapter_3": [
+    {
+      "id": "ch3-001",
+      "source_number": 1,
+      "practice_group": 1,
+      "question": "陣列最適合用來保存哪一種資料？",
+      "options": {
+        "A": "多筆相同型別的資料",
+        "B": "只能保存一筆資料",
+        "C": "只能保存文字",
+        "D": "只能保存 true / false"
+      },
+      "answer": "A",
+      "explanation": "陣列的主要用途就是集中保存多筆相同型別的資料，例如多筆整數成績。",
+      "type": "single_choice",
+      "source_pages": [
+        2
+      ]
+    },
+    {
+      "id": "ch3-002",
+      "source_number": 2,
+      "practice_group": 1,
+      "question": "若要保存 40 位學生的成績，哪種方式通常較適合？",
+      "options": {
+        "A": "建立 40 個不同名稱的 int 變數",
+        "B": "使用 int 陣列",
+        "C": "只建立一個 boolean",
+        "D": "使用 switch"
+      },
+      "answer": "B",
+      "explanation": "同一類型的大量資料適合使用陣列集中管理，也方便後續搭配迴圈處理。",
+      "type": "single_choice",
+      "source_pages": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "ch3-003",
+      "source_number": 3,
+      "practice_group": 1,
+      "question": "下列哪個例子最適合使用陣列？",
+      "options": {
+        "A": "一個人的名字",
+        "B": "今天是否下雨",
+        "C": "一週七天的最高溫",
+        "D": "一個商品的價格"
+      },
+      "answer": "C",
+      "explanation": "一週有多筆相同型別的氣溫資料，因此很適合使用陣列。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch3-004",
+      "source_number": 4,
+      "practice_group": 1,
+      "question": "陣列中的每一格資料通常透過什麼來區分？",
+      "options": {
+        "A": "package",
+        "B": "import",
+        "C": "index",
+        "D": "class"
+      },
+      "answer": "C",
+      "explanation": "陣列透過索引 index 指定某一格資料。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch3-005",
+      "source_number": 5,
+      "practice_group": 1,
+      "question": "int[] scores  最適合描述哪一種資料？",
+      "options": {
+        "A": "一個整數",
+        "B": "多筆整數",
+        "C": "多筆文字",
+        "D": "一個 boolean"
+      },
+      "answer": "B",
+      "explanation": "int[]  表示整數陣列，可保存多個 int。",
+      "type": "single_choice",
+      "source_pages": [
+        3,
+        4
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "int[] scores  最適合描述哪一種資料？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-006",
+      "source_number": 1,
+      "practice_group": 2,
+      "question": "哪一行可以建立長度為 5 的 int 陣列？",
+      "options": {
+        "A": "int scores = new int[5];",
+        "B": "int[] scores = new int[5];",
+        "C": "int[5] scores;",
+        "D": "scores = int[5];"
+      },
+      "answer": "B",
+      "explanation": "標準寫法是 int[] scores = new int[5]; 。",
+      "type": "single_choice",
+      "source_pages": [
+        5
+      ]
+    },
+    {
+      "id": "ch3-007",
+      "source_number": 2,
+      "practice_group": 2,
+      "question": "new int[10]  代表什麼？",
+      "options": {
+        "A": "建立索引為 10 的單一整數",
+        "B": "建立可放 10 個整數的陣列",
+        "C": "建立 11 個整數",
+        "D": "將每個元素設為 10"
+      },
+      "answer": "B",
+      "explanation": "中括號中的 10 代表陣列元素數量。",
+      "type": "single_choice",
+      "source_pages": [
+        5,
+        6
+      ]
+    },
+    {
+      "id": "ch3-008",
+      "source_number": 3,
+      "practice_group": 2,
+      "question": "剛建立的 int[] numbers = new int[3]; ，元素預設值為何？",
+      "options": {
+        "A": "1",
+        "B": "-1",
+        "C": "0",
+        "D": "null"
+      },
+      "answer": "C",
+      "explanation": "int 陣列建立後，每一格的預設值是 0。",
+      "type": "single_choice",
+      "source_pages": [
+        6
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "剛建立的 int[] numbers = new int[3]; ，元素預設值為何？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-009",
+      "source_number": 4,
+      "practice_group": 2,
+      "question": "剛建立的 boolean[] flags = new boolean[2]; ，元素預設值為何？",
+      "options": {
+        "A": "true",
+        "B": "false",
+        "C": "0",
+        "D": "null"
+      },
+      "answer": "B",
+      "explanation": "boolean 陣列的預設值為 false。",
+      "type": "single_choice",
+      "source_pages": [
+        6
+      ]
+    },
+    {
+      "id": "ch3-010",
+      "source_number": 5,
+      "practice_group": 2,
+      "question": "int[] scores;  這一行主要完成什麼？",
+      "options": {
+        "A": "建立 5 格陣列",
+        "B": "宣告陣列變數",
+        "C": "輸出陣列",
+        "D": "將所有資料設為 0"
+      },
+      "answer": "B",
+      "explanation": "這一行只是在宣告一個 int 陣列變數，尚未建立實際陣列空間。",
+      "type": "single_choice",
+      "source_pages": [
+        6,
+        7
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "int[] scores;  這一行主要完成什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-011",
+      "source_number": 1,
+      "practice_group": 3,
+      "question": "哪一行是正確的陣列初始化？",
+      "options": {
+        "A": "int scores = {80, 90};",
+        "B": "int[] scores = {80, 90};",
+        "C": "int[] scores = 80, 90;",
+        "D": "int scores[] = 80;"
+      },
+      "answer": "B",
+      "explanation": "大括號可以用來直接列出陣列初始元素。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ]
+    },
+    {
+      "id": "ch3-012",
+      "source_number": 2,
+      "practice_group": 3,
+      "question": "int[] a = {10, 20, 30};  的陣列長度是多少？",
+      "options": {
+        "A": "2",
+        "B": "3",
+        "C": "10",
+        "D": "30"
+      },
+      "answer": "B",
+      "explanation": "陣列中共有 3 個元素。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "int[] a = {10, 20, 30};  的陣列長度是多少？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-013",
+      "source_number": 3,
+      "practice_group": 3,
+      "question": "哪個寫法適合「先建立空間，之後再輸入資料」？",
+      "options": {
+        "A": "int[] a = new int[5];",
+        "B": "int a = 5;",
+        "C": "int[] a = 5;",
+        "D": "new a[5];"
+      },
+      "answer": "A",
+      "explanation": "先建立固定長度陣列後，就可以之後逐格存入資料。",
+      "type": "single_choice",
+      "source_pages": [
+        8,
+        9
+      ]
+    },
+    {
+      "id": "ch3-014",
+      "source_number": 4,
+      "practice_group": 3,
+      "question": "String[] names = {\"Amy\", \"Ben\"};  保存的是什麼？",
+      "options": {
+        "A": "兩個整數",
+        "B": "兩個 boolean",
+        "C": "兩個字串",
+        "D": "一個字串"
+      },
+      "answer": "C",
+      "explanation": "String[]  表示字串陣列，這裡包含 Amy 與 Ben 兩筆文字。",
+      "type": "single_choice",
+      "source_pages": [
+        9
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "String[] names = {\"Amy\", \"Ben\"};  保存的是什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-015",
+      "source_number": 5,
+      "practice_group": 3,
+      "question": "直接使用 {}  初始化的優點之一是什麼？",
+      "options": {
+        "A": "不需要知道任何資料",
+        "B": "可以一次列出已知的初始資料",
+        "C": "陣列可以混合所有型別",
+        "D": "索引會從 1 開始"
+      },
+      "answer": "B",
+      "explanation": "當初始資料已知時，可以直接在大括號中列出。",
+      "type": "single_choice",
+      "source_pages": [
+        9
+      ]
+    },
+    {
+      "id": "ch3-016",
+      "source_number": 1,
+      "practice_group": 4,
+      "question": "Java 陣列第一個元素的索引是多少？",
+      "options": {
+        "A": "-1",
+        "B": "0",
+        "C": "1",
+        "D": "2"
+      },
+      "answer": "B",
+      "explanation": "Java 陣列索引從 0 開始。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ]
+    },
+    {
+      "id": "ch3-017",
+      "source_number": 2,
+      "practice_group": 4,
+      "question": "若 int[] a = {10, 20, 30}; ，a[1]  是多少？",
+      "options": {
+        "A": "10",
+        "B": "20",
+        "C": "30",
+        "D": "1"
+      },
+      "answer": "B",
+      "explanation": "索引 1 是第二格，因此值為 20。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "若 int[] a = {10, 20, 30}; ，a[1]  是多少？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-018",
+      "source_number": 3,
+      "practice_group": 4,
+      "question": "若要把第一格改成 100，應寫成哪一行？",
+      "options": {
+        "A": "a[1] = 100;",
+        "B": "a[0] = 100;",
+        "C": "a = 100;",
+        "D": "a[100] = 0;"
+      },
+      "answer": "B",
+      "explanation": "第一格索引為 0。",
+      "type": "single_choice",
+      "source_pages": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "ch3-019",
+      "source_number": 4,
+      "practice_group": 4,
+      "question": "長度為 4 的陣列，最後一個合法索引為何？",
+      "options": {
+        "A": "4",
+        "B": "3",
+        "C": "2",
+        "D": "1"
+      },
+      "answer": "B",
+      "explanation": "索引從 0 開始，因此長度 4 的合法索引為 0、1、2、3。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch3-020",
+      "source_number": 5,
+      "practice_group": 4,
+      "question": "scores[2]  的意思是什麼？",
+      "options": {
+        "A": "scores 陣列的第 2 格",
+        "B": "scores 陣列索引為 2 的元素，也就是第三格",
+        "C": "陣列長度為 2",
+        "D": "建立兩個 scores"
+      },
+      "answer": "B",
+      "explanation": "索引 2 對應第三個元素。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch3-021",
+      "source_number": 1,
+      "practice_group": 5,
+      "question": "scores.length  代表什麼？",
+      "options": {
+        "A": "最後一個索引",
+        "B": "陣列元素數量",
+        "C": "第一個元素",
+        "D": "scores 的值"
+      },
+      "answer": "B",
+      "explanation": "length  代表陣列中共有幾個元素。",
+      "type": "single_choice",
+      "source_pages": [
+        14
+      ]
+    },
+    {
+      "id": "ch3-022",
+      "source_number": 2,
+      "practice_group": 5,
+      "question": "若陣列長度為 5，哪個 for 條件最常用來完整走訪陣列？",
+      "options": {
+        "A": "i <= scores.length",
+        "B": "i < scores.length",
+        "C": "i > scores.length",
+        "D": "i == scores.length"
+      },
+      "answer": "B",
+      "explanation": "合法索引為 0 到 length - 1，因此使用 i < scores.length 。",
+      "type": "single_choice",
+      "source_pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "id": "ch3-023",
+      "source_number": 3,
+      "practice_group": 5,
+      "question": "為什麼迴圈通常從 i = 0  開始？",
+      "options": {
+        "A": "因為 Java 陣列第一個索引是 0",
+        "B": "因為 length 永遠是 0",
+        "C": "因為 Scanner 規定",
+        "D": "因為 switch 規定"
+      },
+      "answer": "A",
+      "explanation": "第一個元素就是索引 0，因此走訪陣列通常從 0 開始。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch3-024",
+      "source_number": 4,
+      "practice_group": 5,
+      "question": "scores[i] = scanner.nextInt();  的用途是什麼？",
+      "options": {
+        "A": "輸出 scores",
+        "B": "將輸入值存到目前索引 i 的元素",
+        "C": "將 i 設成輸入值",
+        "D": "建立新的陣列"
+      },
+      "answer": "B",
+      "explanation": "每一次迴圈都把一筆輸入資料放到 scores[i]。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch3-025",
+      "source_number": 5,
+      "practice_group": 5,
+      "question": "若 scores.length  是 5，i < scores.length  最後一次成立時 i 是多少？",
+      "options": {
+        "A": "3",
+        "B": "4",
+        "C": "5",
+        "D": "6"
+      },
+      "answer": "B",
+      "explanation": "i 為 4 時仍小於 5；變成 5 時條件不成立。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch3-026",
+      "source_number": 1,
+      "practice_group": 6,
+      "question": "累加陣列總和前，total  通常應初始化為多少？",
+      "options": {
+        "A": "0",
+        "B": "1",
+        "C": "-1",
+        "D": "scores.length"
+      },
+      "answer": "A",
+      "explanation": "總和通常從 0 開始逐筆累加。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch3-027",
+      "source_number": 2,
+      "practice_group": 6,
+      "question": "找最大值時，哪一種初始化方式較合理？",
+      "options": {
+        "A": "int max = scores[0];",
+        "B": "int max = scores.length;",
+        "C": "int max = 1000;",
+        "D": "int max = -scores.length;"
+      },
+      "answer": "A",
+      "explanation": "先使用第一筆實際資料，再與後面的元素比較，適用範圍較廣。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch3-028",
+      "source_number": 3,
+      "practice_group": 6,
+      "question": "if (scores[i] >= 60) passCount++;  的作用是什麼？",
+      "options": {
+        "A": "計算總分",
+        "B": "計算及格人數",
+        "C": "找最高分",
+        "D": "修改所有分數"
+      },
+      "answer": "B",
+      "explanation": "每遇到一筆 60 分以上的資料，就讓 passCount 加 1。",
+      "type": "single_choice",
+      "source_pages": [
+        18,
+        19
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "if (scores[i] >= 60) passCount++;  的作用是什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-029",
+      "source_number": 4,
+      "practice_group": 6,
+      "question": "計算平均通常需要哪兩個資料？",
+      "options": {
+        "A": "最大值與最小值",
+        "B": "總和與資料筆數",
+        "C": "第一筆與最後一筆",
+        "D": "索引 0 與索引 1"
+      },
+      "answer": "B",
+      "explanation": "平均 = 總和 ÷ 資料筆數，而陣列筆數可由 length 取得。",
+      "type": "single_choice",
+      "source_pages": [
+        19
+      ]
+    },
+    {
+      "id": "ch3-030",
+      "source_number": 5,
+      "practice_group": 6,
+      "question": "下列哪個程式片段可以找最小值？",
+      "options": {
+        "A": "if (scores[i] < min) min = scores[i];",
+        "B": "if (scores[i] > min) min++;",
+        "C": "min = scores.length;",
+        "D": "scores[i] = min;"
+      },
+      "answer": "A",
+      "explanation": "遇到比目前 min 更小的元素時，就更新 min。",
+      "type": "single_choice",
+      "source_pages": [
+        19
+      ]
+    },
+    {
+      "id": "ch3-031",
+      "source_number": 1,
+      "practice_group": 7,
+      "question": "長度 5 的陣列若存取 a[5] ，最可能發生什麼？",
+      "options": {
+        "A": "得到最後一筆資料",
+        "B": "得到 0",
+        "C": "索引超出範圍",
+        "D": "自動擴充陣列"
+      },
+      "answer": "C",
+      "explanation": "合法索引只有 0 到 4，因此 a[5] 超出範圍。",
+      "type": "single_choice",
+      "source_pages": [
+        21
+      ]
+    },
+    {
+      "id": "ch3-032",
+      "source_number": 2,
+      "practice_group": 7,
+      "question": "完整走訪陣列時，哪個條件較正確？",
+      "options": {
+        "A": "i <= a.length",
+        "B": "i < a.length",
+        "C": "i > a.length",
+        "D": "i == a.length"
+      },
+      "answer": "B",
+      "explanation": "最後一個合法索引是 length - 1，所以使用小於 length。",
+      "type": "single_choice",
+      "source_pages": [
+        21,
+        22
+      ]
+    },
+    {
+      "id": "ch3-033",
+      "source_number": 3,
+      "practice_group": 7,
+      "question": "取得最後一個元素應使用哪個索引？",
+      "options": {
+        "A": "a.length",
+        "B": "a.length + 1",
+        "C": "a.length - 1",
+        "D": "0"
+      },
+      "answer": "C",
+      "explanation": "因為索引從 0 開始，所以最後索引永遠是 length - 1。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "id": "ch3-034",
+      "source_number": 4,
+      "practice_group": 7,
+      "question": "int[] numbers  中可以直接放入哪一種資料？",
+      "options": {
+        "A": "\"Java\"",
+        "B": "true",
+        "C": "100",
+        "D": "\"100\""
+      },
+      "answer": "C",
+      "explanation": "int 陣列的元素必須是 int 相容的整數值。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "int[] numbers  中可以直接放入哪一種資料？"
+        }
+      ]
+    },
+    {
+      "id": "ch3-035",
+      "source_number": 5,
+      "practice_group": 7,
+      "question": "遇到 ArrayIndexOutOfBoundsException  時，最先應檢查什麼？",
+      "options": {
+        "A": "import 是否太多",
+        "B": "索引是否超出 0 到 length - 1",
+        "C": "class 名稱是否太短",
+        "D": "println 是否太多"
+      },
+      "answer": "B",
+      "explanation": "這個錯誤通常就是存取了不存在的陣列索引。",
+      "type": "single_choice",
+      "source_pages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "ch3-036",
+      "source_number": 1,
+      "practice_group": 8,
+      "question": "要將 int 陣列轉成可進一步處理的 Stream，哪個寫法正確？",
+      "options": {
+        "A": "Arrays.stream(scores)",
+        "B": "scores.stream()",
+        "C": "Stream(scores)",
+        "D": "scores.length()"
+      },
+      "answer": "A",
+      "explanation": "一般可使用 Arrays.stream(scores)  針對陣列建立 Stream。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch3-037",
+      "source_number": 2,
+      "practice_group": 8,
+      "question": "下列哪個方法可以直接計算 int Stream 的總和？",
+      "options": {
+        "A": "count()",
+        "B": "filter()",
+        "C": "sum()",
+        "D": "forEach()"
+      },
+      "answer": "C",
+      "explanation": "sum()  可以直接取得 int Stream 中所有數字的總和。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch3-038",
+      "source_number": 3,
+      "practice_group": 8,
+      "question": "filter(score -> score >= 60)  的主要用途是什麼？",
+      "options": {
+        "A": "把所有 score 改成 60",
+        "B": "保留符合 score >= 60 的資料",
+        "C": "計算平均",
+        "D": "將陣列清空"
+      },
+      "answer": "B",
+      "explanation": "filter  會篩選資料，只讓符合條件的元素繼續留在 Stream 中。",
+      "type": "single_choice",
+      "source_pages": [
+        27,
+        28
+      ]
+    },
+    {
+      "id": "ch3-039",
+      "source_number": 4,
+      "practice_group": 8,
+      "question": "若要統計及格人數，哪個組合最適合？",
+      "options": {
+        "A": "filter(...) + count()",
+        "B": "max() + min()",
+        "C": "sum() + forEach()",
+        "D": "length + switch"
+      },
+      "answer": "A",
+      "explanation": "先使用 filter  留下及格資料，再使用 count()  計算筆數。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch3-040",
+      "source_number": 5,
+      "practice_group": 8,
+      "question": "關於 for 與 Stream，下列哪個敘述較正確？",
+      "options": {
+        "A": "學了 Stream 就完全不需要 for",
+        "B": "Stream 只能處理 String",
+        "C": "for 適合理解索引與逐格控制，Stream 適合某些批次統計操作",
+        "D": "Stream 可以直接修改陣列長度"
+      },
+      "answer": "C",
+      "explanation": "兩種方式各有適合情境。初學陣列仍應先熟悉索引與 for，Stream 則可作為額外\n的資料處理方式。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch3-041",
+      "source_number": 1,
+      "practice_group": 9,
+      "question": "若有 30 筆同類型成績，最適合使用什麼保存？",
+      "options": {
+        "A": "30 個不同名稱變數",
+        "B": "一個 int 陣列",
+        "C": "一個 boolean",
+        "D": "一個 if"
+      },
+      "answer": "B",
+      "explanation": "陣列可以集中保存多筆同型別資料，也方便用迴圈批次處理。",
+      "type": "single_choice",
+      "source_pages": [
+        30
+      ]
+    },
+    {
+      "id": "ch3-042",
+      "source_number": 2,
+      "practice_group": 9,
+      "question": "長度為 10 的陣列，最後索引是多少？",
+      "options": {
+        "A": "10",
+        "B": "9",
+        "C": "11",
+        "D": "0"
+      },
+      "answer": "B",
+      "explanation": "索引從 0 開始，因此最後索引為 10 - 1 = 9。",
+      "type": "single_choice",
+      "source_pages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "ch3-043",
+      "source_number": 3,
+      "practice_group": 9,
+      "question": "哪個寫法可以逐一走訪整個 scores  陣列？",
+      "options": {
+        "A": "for (int i = 0; i < scores.length; i++)",
+        "B": "for (int i = 1; i <= scores.length; i++)",
+        "C": "if (i < scores.length)",
+        "D": "switch (scores)"
+      },
+      "answer": "A",
+      "explanation": "從 0 開始並執行到 length - 1，可以完整走訪所有元素。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch3-044",
+      "source_number": 4,
+      "practice_group": 9,
+      "question": "若要把輸入資料放到陣列第 i 格，最常見寫法為何？",
+      "options": {
+        "A": "scores = scanner.nextInt();",
+        "B": "scores[i] = scanner.nextInt();",
+        "C": "i = scores;",
+        "D": "scores.length = scanner.nextInt();"
+      },
+      "answer": "B",
+      "explanation": "scores[i]  指向目前索引的元素，可直接接受輸入值。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch3-045",
+      "source_number": 5,
+      "practice_group": 9,
+      "question": "本章最核心的組合是哪一個？",
+      "options": {
+        "A": "陣列 + 索引 + length + 迴圈",
+        "B": "switch + package",
+        "C": "class + import",
+        "D": "只有 println"
+      },
+      "answer": "A",
+      "explanation": "掌握這四個概念，就能開始有效處理多筆同類型資料。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    }
+  ],
+  "chapter_4": [
+    {
+      "id": "ch4-001",
+      "source_number": 1,
+      "practice_group": 1,
+      "question": "方法最主要的用途之一是什麼？",
+      "options": {
+        "A": "讓程式只能執行一次",
+        "B": "把具有特定功能的程式碼包起來重複使用",
+        "C": "取代所有變數",
+        "D": "取代 Java 類別"
+      },
+      "answer": "B",
+      "explanation": "方法可以把某個功能集中在一起，需要時再呼叫，因此能降低重複程式碼。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch4-002",
+      "source_number": 2,
+      "practice_group": 1,
+      "question": "若相同的 5 行程式會使用很多次，較好的做法通常是？",
+      "options": {
+        "A": "每次都重新複製 5 行",
+        "B": "建立一個方法",
+        "C": "刪除這 5 行",
+        "D": "改成陣列"
+      },
+      "answer": "B",
+      "explanation": "重複功能很適合包裝成方法，再透過呼叫重複使用。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch4-003",
+      "source_number": 3,
+      "practice_group": 1,
+      "question": "下列哪一項是使用方法的優點？",
+      "options": {
+        "A": "程式一定會變得更長",
+        "B": "程式功能不能重複使用",
+        "C": "可以把大問題拆成數個小功能",
+        "D": "所有方法都必須讀取 Scanner"
+      },
+      "answer": "C",
+      "explanation": "將程式拆成不同方法，可以讓每個方法負責較明確的小功能。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch4-004",
+      "source_number": 4,
+      "practice_group": 1,
+      "question": "呼叫方法最接近哪一個概念？",
+      "options": {
+        "A": "要求已定義好的功能執行一次",
+        "B": "刪除方法",
+        "C": "宣告陣列",
+        "D": "建立新的 Java 專案"
+      },
+      "answer": "A",
+      "explanation": "方法定義好之後，呼叫就是要求該方法開始執行。",
+      "type": "single_choice",
+      "source_pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ch4-005",
+      "source_number": 5,
+      "practice_group": 1,
+      "question": "如果修改已被多處呼叫的方法內容，通常會發生什麼？",
+      "options": {
+        "A": "所有呼叫該方法的位置都會使用修改後的功能",
+        "B": "只有第一個呼叫位置會改變",
+        "C": "方法會自動消失",
+        "D": "Java 不允許修改方法"
+      },
+      "answer": "A",
+      "explanation": "呼叫的位置都會執行同一份方法內容，因此集中修改會比較容易維護。",
+      "type": "single_choice",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "ch4-006",
+      "source_number": 1,
+      "practice_group": 2,
+      "question": "下列哪一行是在呼叫方法？",
+      "options": {
+        "A": "static void hello()",
+        "B": "hello();",
+        "C": "void = hello;",
+        "D": "class hello"
+      },
+      "answer": "B",
+      "explanation": "方法呼叫的基本形式是「方法名稱 + ()」，最後加上分號。",
+      "type": "single_choice",
+      "source_pages": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "ch4-007",
+      "source_number": 2,
+      "practice_group": 2,
+      "question": "如果 showHello();  寫了三次，方法通常會執行幾次？",
+      "options": {
+        "A": "0 次",
+        "B": "1 次",
+        "C": "2 次",
+        "D": "3 次"
+      },
+      "answer": "D",
+      "explanation": "每一次呼叫都會執行一次方法內容。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch4-008",
+      "source_number": 3,
+      "practice_group": 2,
+      "question": "自己定義的方法應該放在哪裡？",
+      "options": {
+        "A": "一定放在 main 的大括號裡",
+        "B": "放在 class 裡，但不要定義在另一個方法裡",
+        "C": "放在 import 前面",
+        "D": "放在 Java 檔案外面"
+      },
+      "answer": "B",
+      "explanation": "方法屬於 class 的內容，但 Java 不允許在 main 方法內再定義另一個一般方法。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch4-009",
+      "source_number": 4,
+      "practice_group": 2,
+      "question": "目前教材中的自訂方法為什麼先寫成 static ？",
+      "options": {
+        "A": "因為現在要從 static main 直接呼叫",
+        "B": "因為所有 Java 方法永遠都必須 static",
+        "C": "因為 static 代表回傳整數",
+        "D": "因為 static 代表迴圈"
+      },
+      "answer": "A",
+      "explanation": "目前先使用 static 方法，讓 main 可以直接呼叫；更完整的差異會在物件導向階段\n說明。",
+      "type": "single_choice",
+      "source_pages": [
+        7,
+        8
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "目前教材中的自訂方法為什麼先寫成 static ？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-010",
+      "source_number": 5,
+      "practice_group": 2,
+      "question": "static void showMenu()  中的方法名稱是哪一個？",
+      "options": {
+        "A": "static",
+        "B": "void",
+        "C": "showMenu",
+        "D": "main"
+      },
+      "answer": "C",
+      "explanation": "showMenu  是方法名稱。",
+      "type": "single_choice",
+      "source_pages": [
+        8
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "static void showMenu()  中的方法名稱是哪一個？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-011",
+      "source_number": 1,
+      "practice_group": 3,
+      "question": "void  在目前教材中代表什麼？",
+      "options": {
+        "A": "方法一定回傳 int",
+        "B": "方法不回傳一個結果值",
+        "C": "方法不能執行",
+        "D": "方法只能呼叫一次"
+      },
+      "answer": "B",
+      "explanation": "void 表示方法沒有回傳值。",
+      "type": "single_choice",
+      "source_pages": [
+        10
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "void  在目前教材中代表什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-012",
+      "source_number": 2,
+      "practice_group": 3,
+      "question": "哪一個方法名稱通常比較容易閱讀？",
+      "options": {
+        "A": "a()",
+        "B": "x1()",
+        "C": "showMenu()",
+        "D": "m()"
+      },
+      "answer": "C",
+      "explanation": "方法名稱最好能表達功能，showMenu 很容易理解是「顯示選單」。",
+      "type": "single_choice",
+      "source_pages": [
+        10
+      ]
+    },
+    {
+      "id": "ch4-013",
+      "source_number": 3,
+      "practice_group": 3,
+      "question": "方法真正執行的程式通常放在哪裡？",
+      "options": {
+        "A": "方法的大括號中",
+        "B": "import 中",
+        "C": "class 名稱中",
+        "D": "檔名中"
+      },
+      "answer": "A",
+      "explanation": "方法本體位在大括號中。",
+      "type": "single_choice",
+      "source_pages": [
+        10,
+        11
+      ]
+    },
+    {
+      "id": "ch4-014",
+      "source_number": 4,
+      "practice_group": 3,
+      "question": "static void printLine()  的回傳型別是什麼？",
+      "options": {
+        "A": "static",
+        "B": "printLine",
+        "C": "void",
+        "D": "String"
+      },
+      "answer": "C",
+      "explanation": "void 位在方法名稱前面，代表這個方法沒有回傳值。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "static void printLine()  的回傳型別是什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-015",
+      "source_number": 5,
+      "practice_group": 3,
+      "question": "哪一個名稱最適合「計算總金額」的方法？",
+      "options": {
+        "A": "calculateTotal()",
+        "B": "aaa()",
+        "C": "int()",
+        "D": "class()"
+      },
+      "answer": "A",
+      "explanation": "calculateTotal 可以清楚表達「計算總金額」的用途。",
+      "type": "single_choice",
+      "source_pages": [
+        11
+      ]
+    },
+    {
+      "id": "ch4-016",
+      "source_number": 1,
+      "practice_group": 4,
+      "question": "方法參數的主要用途是什麼？",
+      "options": {
+        "A": "把資料傳入方法使用",
+        "B": "刪除方法",
+        "C": "建立 class",
+        "D": "結束程式"
+      },
+      "answer": "A",
+      "explanation": "參數讓呼叫者可以把不同資料交給同一個方法處理。",
+      "type": "single_choice",
+      "source_pages": [
+        13,
+        14
+      ]
+    },
+    {
+      "id": "ch4-017",
+      "source_number": 2,
+      "practice_group": 4,
+      "question": "static void showScore(int score)  中，參數名稱是？",
+      "options": {
+        "A": "static",
+        "B": "void",
+        "C": "showScore",
+        "D": "score"
+      },
+      "answer": "D",
+      "explanation": "score  是方法內用來接收資料的參數名稱。",
+      "type": "single_choice",
+      "source_pages": [
+        14
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "static void showScore(int score)  中，參數名稱是？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-018",
+      "source_number": 3,
+      "practice_group": 4,
+      "question": "呼叫 showScore(90);  時，傳入的引數是多少？",
+      "options": {
+        "A": "showScore",
+        "B": "int",
+        "C": "90",
+        "D": "void"
+      },
+      "answer": "C",
+      "explanation": "呼叫時括號中的 90 是實際傳入的方法資料。",
+      "type": "single_choice",
+      "source_pages": [
+        14
+      ]
+    },
+    {
+      "id": "ch4-019",
+      "source_number": 4,
+      "practice_group": 4,
+      "question": "若方法定義為 showName(String name) ，哪個呼叫較正確？",
+      "options": {
+        "A": "showName(100);",
+        "B": "showName(\"Amy\");",
+        "C": "showName();",
+        "D": "showName(true);"
+      },
+      "answer": "B",
+      "explanation": "方法需要 String，因此應傳入文字資料。",
+      "type": "single_choice",
+      "source_pages": [
+        14,
+        15
+      ]
+    },
+    {
+      "id": "ch4-020",
+      "source_number": 5,
+      "practice_group": 4,
+      "question": "使用參數後最大的好處之一是什麼？",
+      "options": {
+        "A": "同一個方法可以處理不同輸入資料",
+        "B": "方法只能使用固定值",
+        "C": "方法不能使用 if",
+        "D": "方法不能被重複呼叫"
+      },
+      "answer": "A",
+      "explanation": "透過不同引數，同一個方法可以被重複使用來處理不同資料。",
+      "type": "single_choice",
+      "source_pages": [
+        15
+      ]
+    },
+    {
+      "id": "ch4-021",
+      "source_number": 1,
+      "practice_group": 5,
+      "question": "多個參數之間通常使用什麼分隔？",
+      "options": {
+        "A": "分號",
+        "B": "逗號",
+        "C": "冒號",
+        "D": "加號"
+      },
+      "answer": "B",
+      "explanation": "方法的多個參數使用逗號分隔。",
+      "type": "single_choice",
+      "source_pages": [
+        17
+      ]
+    },
+    {
+      "id": "ch4-022",
+      "source_number": 2,
+      "practice_group": 5,
+      "question": "方法為 test(int a, int b) ，哪個呼叫正確？",
+      "options": {
+        "A": "test();",
+        "B": "test(10);",
+        "C": "test(10, 20);",
+        "D": "test(\"10\", \"20\");"
+      },
+      "answer": "C",
+      "explanation": "方法需要兩個 int，因此要依序提供兩個整數。",
+      "type": "single_choice",
+      "source_pages": [
+        17,
+        18
+      ]
+    },
+    {
+      "id": "ch4-023",
+      "source_number": 3,
+      "practice_group": 5,
+      "question": "showStudent(String name, int score)  哪個呼叫較正確？",
+      "options": {
+        "A": "showStudent(90, \"Amy\");",
+        "B": "showStudent(\"Amy\", 90);",
+        "C": "showStudent(\"Amy\");",
+        "D": "showStudent(90);"
+      },
+      "answer": "B",
+      "explanation": "呼叫時必須依照參數定義的順序與型別提供資料。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch4-024",
+      "source_number": 4,
+      "practice_group": 5,
+      "question": "方法有三個參數時，呼叫通常需要注意什麼？",
+      "options": {
+        "A": "只要方法名稱相同就好",
+        "B": "參數數量、順序與型別",
+        "C": "一律傳入 String",
+        "D": "一律傳入 0"
+      },
+      "answer": "B",
+      "explanation": "呼叫資料要能對應方法定義中的參數。",
+      "type": "single_choice",
+      "source_pages": [
+        18
+      ]
+    },
+    {
+      "id": "ch4-025",
+      "source_number": 5,
+      "practice_group": 5,
+      "question": "下列哪一個方法定義包含三個參數？",
+      "options": {
+        "A": "static void a()",
+        "B": "static void a(int x)",
+        "C": "static void a(int x, int y)",
+        "D": "static void a(String name, int price, int quantity)"
+      },
+      "answer": "D",
+      "explanation": "括號內共有三組參數定義。",
+      "type": "single_choice",
+      "source_pages": [
+        18,
+        19
+      ]
+    },
+    {
+      "id": "ch4-026",
+      "source_number": 1,
+      "practice_group": 6,
+      "question": "若方法要回傳整數，回傳型別通常可寫成？",
+      "options": {
+        "A": "void",
+        "B": "int",
+        "C": "class",
+        "D": "static"
+      },
+      "answer": "B",
+      "explanation": "要回傳整數結果，可將方法回傳型別設定為 int。",
+      "type": "single_choice",
+      "source_pages": [
+        21
+      ]
+    },
+    {
+      "id": "ch4-027",
+      "source_number": 2,
+      "practice_group": 6,
+      "question": "哪個關鍵字用來把結果回傳給呼叫端？",
+      "options": {
+        "A": "print",
+        "B": "break",
+        "C": "return",
+        "D": "import"
+      },
+      "answer": "C",
+      "explanation": "return 會將方法計算出的結果交回呼叫的位置。",
+      "type": "single_choice",
+      "source_pages": [
+        21,
+        22
+      ]
+    },
+    {
+      "id": "ch4-028",
+      "source_number": 3,
+      "practice_group": 6,
+      "question": "static double getPrice()  表示方法預期回傳什麼？",
+      "options": {
+        "A": "int",
+        "B": "double",
+        "C": "String",
+        "D": "不回傳"
+      },
+      "answer": "B",
+      "explanation": "方法名稱前面的 double 就是回傳型別。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "static double getPrice()  表示方法預期回傳什麼？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-029",
+      "source_number": 4,
+      "practice_group": 6,
+      "question": "int result = add(10, 20);  中，add 方法的回傳結果被放在哪裡？",
+      "options": {
+        "A": "result",
+        "B": "add",
+        "C": "10",
+        "D": "20"
+      },
+      "answer": "A",
+      "explanation": "add 回傳的 int 值會被指定給 result。",
+      "type": "single_choice",
+      "source_pages": [
+        22
+      ]
+    },
+    {
+      "id": "ch4-030",
+      "source_number": 5,
+      "practice_group": 6,
+      "question": "哪一個方法最適合使用 boolean  回傳值？",
+      "options": {
+        "A": "顯示分隔線",
+        "B": "判斷使用者是否成年",
+        "C": "印出選單",
+        "D": "顯示歡迎訊息"
+      },
+      "answer": "B",
+      "explanation": "「是否成年」只有 true / false 兩種狀態，因此適合回傳 boolean。",
+      "type": "single_choice",
+      "source_pages": [
+        22,
+        23
+      ]
+    },
+    {
+      "id": "ch4-031",
+      "source_number": 1,
+      "practice_group": 7,
+      "question": "「參數 + 回傳值」的方法流程最接近哪一個？",
+      "options": {
+        "A": "傳入資料 → 方法處理 → 回傳結果",
+        "B": "回傳結果 → 再建立方法",
+        "C": "只能印文字",
+        "D": "不能使用 if"
+      },
+      "answer": "A",
+      "explanation": "呼叫端提供參數，方法執行工作後再把結果 return 回去。",
+      "type": "single_choice",
+      "source_pages": [
+        26
+      ]
+    },
+    {
+      "id": "ch4-032",
+      "source_number": 2,
+      "practice_group": 7,
+      "question": "calculateSubtotal(int price, int quantity)  最可能需要哪種回傳型別？",
+      "options": {
+        "A": "int",
+        "B": "void 一定最好",
+        "C": "class",
+        "D": "import"
+      },
+      "answer": "A",
+      "explanation": "price 與 quantity 都是整數，乘積也可用 int 回傳。",
+      "type": "single_choice",
+      "source_pages": [
+        26
+      ]
+    },
+    {
+      "id": "ch4-033",
+      "source_number": 3,
+      "practice_group": 7,
+      "question": "getGrade(85)  最適合回傳哪一種型別？",
+      "options": {
+        "A": "String",
+        "B": "boolean",
+        "C": "Scanner",
+        "D": "class"
+      },
+      "answer": "A",
+      "explanation": "A、B、C 等等級屬於文字，因此適合使用 String。",
+      "type": "single_choice",
+      "source_pages": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "ch4-034",
+      "source_number": 4,
+      "practice_group": 7,
+      "question": "將「計算」和「顯示」拆成不同方法的優點是？",
+      "options": {
+        "A": "每個方法功能更清楚",
+        "B": "Java 一定要求這樣寫",
+        "C": "方法會自動變成陣列",
+        "D": "所有變數會消失"
+      },
+      "answer": "A",
+      "explanation": "讓每個方法專注一個工作，通常更容易閱讀與修改。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch4-035",
+      "source_number": 5,
+      "practice_group": 7,
+      "question": "boolean canWithdraw(int balance, int amount)  最適合回傳什麼？",
+      "options": {
+        "A": "商品名稱",
+        "B": "true 或 false",
+        "C": "一定回傳 0",
+        "D": "一個陣列"
+      },
+      "answer": "B",
+      "explanation": "boolean 方法會回傳 true 或 false。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch4-036",
+      "source_number": 1,
+      "practice_group": 8,
+      "question": "「高內聚」最接近下列哪一個意思？",
+      "options": {
+        "A": "一個方法負責很多不相關的工作",
+        "B": "一個方法專注在一件主要工作",
+        "C": "所有程式都寫在 main",
+        "D": "方法參數越多越好"
+      },
+      "answer": "B",
+      "explanation": "高內聚表示一個方法內的工作彼此高度相關，方法的責任清楚而集中。",
+      "type": "single_choice",
+      "source_pages": [
+        34
+      ]
+    },
+    {
+      "id": "ch4-037",
+      "source_number": 2,
+      "practice_group": 8,
+      "question": "下列哪一個方法設計的內聚通常比較高？",
+      "options": {
+        "A": "同時計算商品金額、判斷成績、顯示日期",
+        "B": "只負責計算兩個數字的總和",
+        "C": "把整個系統所有功能都寫在一個方法",
+        "D": "方法名稱叫 doEverything"
+      },
+      "answer": "B",
+      "explanation": "只負責一項明確工作的方法，通常比混合多種不相關工作的方法具有較高內聚。",
+      "type": "single_choice",
+      "source_pages": [
+        34
+      ]
+    },
+    {
+      "id": "ch4-038",
+      "source_number": 3,
+      "practice_group": 8,
+      "question": "「低耦合」目前可以先理解成什麼？",
+      "options": {
+        "A": "方法完全不能互相呼叫",
+        "B": "方法只依賴完成工作真正需要的資料",
+        "C": "方法不能有參數",
+        "D": "方法不能有回傳值"
+      },
+      "answer": "B",
+      "explanation": "低耦合不是完全沒有合作，而是讓依賴保持必要、清楚且盡量少。",
+      "type": "single_choice",
+      "source_pages": [
+        34,
+        35
+      ]
+    },
+    {
+      "id": "ch4-039",
+      "source_number": 4,
+      "practice_group": 8,
+      "question": "若 getGrade 只需要一個分數，哪一種參數設計通常較單純？",
+      "options": {
+        "A": "getGrade(int score)",
+        "B": "getGrade(int[] scores, int index)",
+        "C": "getGrade(String name, int[] scores, int index, boolean login)",
+        "D": "不使用方法"
+      },
+      "answer": "A",
+      "explanation": "如果方法真正需要的只有 score，就直接傳入 score，可以減少對其他資料結構與\n流程的依賴。",
+      "type": "single_choice",
+      "source_pages": [
+        35
+      ]
+    },
+    {
+      "id": "ch4-040",
+      "source_number": 5,
+      "practice_group": 8,
+      "question": "良好的方法設計通常追求哪一個方向？",
+      "options": {
+        "A": "低內聚、高耦合",
+        "B": "高內聚、高耦合",
+        "C": "高內聚、低耦合",
+        "D": "低內聚、低耦合"
+      },
+      "answer": "C",
+      "explanation": "常見的設計方向是高內聚、低耦合：每個方法責任清楚，方法之間的依賴保持簡\n單。",
+      "type": "single_choice",
+      "source_pages": [
+        35
+      ]
+    },
+    {
+      "id": "ch4-041",
+      "source_number": 1,
+      "practice_group": 9,
+      "question": "什麼是遞迴？",
+      "options": {
+        "A": "方法呼叫自己",
+        "B": "方法一定要使用陣列",
+        "C": "方法只能回傳 String",
+        "D": "把所有程式放在 main"
+      },
+      "answer": "A",
+      "explanation": "遞迴的核心特徵就是方法在自己的執行過程中再次呼叫自己。",
+      "type": "single_choice",
+      "source_pages": [
+        42
+      ]
+    },
+    {
+      "id": "ch4-042",
+      "source_number": 2,
+      "practice_group": 9,
+      "question": "遞迴方法中最重要的停止設計稱為什麼？",
+      "options": {
+        "A": "Scanner",
+        "B": "Base Case",
+        "C": "switch",
+        "D": "array.length"
+      },
+      "answer": "B",
+      "explanation": "Base Case 是遞迴的停止條件，沒有它可能造成無限遞迴。",
+      "type": "single_choice",
+      "source_pages": [
+        42
+      ]
+    },
+    {
+      "id": "ch4-043",
+      "source_number": 3,
+      "practice_group": 9,
+      "question": "下列哪一個遞迴設計較合理？",
+      "options": {
+        "A": "每次呼叫參數都離停止條件越來越遠",
+        "B": "沒有任何停止條件",
+        "C": "每次呼叫都讓問題逐漸接近 Base Case",
+        "D": "方法永遠只能呼叫 main"
+      },
+      "answer": "C",
+      "explanation": "好的遞迴會讓每次呼叫都逐漸接近停止條件。",
+      "type": "single_choice",
+      "source_pages": [
+        42,
+        43
+      ]
+    },
+    {
+      "id": "ch4-044",
+      "source_number": 4,
+      "practice_group": 9,
+      "question": "無限遞迴最後可能造成哪個錯誤？",
+      "options": {
+        "A": "ArrayIndexOutOfBoundsException",
+        "B": "StackOverflowError",
+        "C": "ArithmeticException 一定發生",
+        "D": "FileNotFoundException"
+      },
+      "answer": "B",
+      "explanation": "方法不斷呼叫自己，呼叫層數持續增加，最後可能發生 StackOverflowError。",
+      "type": "single_choice",
+      "source_pages": [
+        43
+      ]
+    },
+    {
+      "id": "ch4-045",
+      "source_number": 5,
+      "practice_group": 9,
+      "question": "關於迴圈與遞迴，下列哪個敘述較正確？",
+      "options": {
+        "A": "遞迴可以取代所有程式設計方式",
+        "B": "迴圈與遞迴都能用來處理某些重複問題，但停止方式不同",
+        "C": "遞迴不需要停止條件",
+        "D": "for 迴圈本身就是遞迴"
+      },
+      "answer": "B",
+      "explanation": "迴圈透過條件控制重複，遞迴則透過方法呼叫自己並依靠 Base Case 停止。\n🔟 方法常見錯誤與除錯",
+      "type": "single_choice",
+      "source_pages": [
+        43
+      ]
+    },
+    {
+      "id": "ch4-046",
+      "source_number": 1,
+      "practice_group": 10,
+      "question": "方法定義在 main 的大括號裡，主要問題是什麼？",
+      "options": {
+        "A": "Java 一般方法不能這樣巢狀定義",
+        "B": "main 不能有任何程式",
+        "C": "static 不能使用",
+        "D": "println 不能使用"
+      },
+      "answer": "A",
+      "explanation": "一般方法要定義在 class 中，但不能放進另一個方法本體裡。",
+      "type": "single_choice",
+      "source_pages": [
+        46
+      ]
+    },
+    {
+      "id": "ch4-047",
+      "source_number": 2,
+      "practice_group": 10,
+      "question": "方法需要兩個參數，卻只傳一個，最可能發生什麼？",
+      "options": {
+        "A": "Java 自動補 0",
+        "B": "無法找到符合的呼叫方式而產生編譯錯誤",
+        "C": "方法仍正常執行",
+        "D": "第二個參數自動變 null"
+      },
+      "answer": "B",
+      "explanation": "呼叫必須符合方法需要的參數數量與型別。",
+      "type": "single_choice",
+      "source_pages": [
+        46
+      ]
+    },
+    {
+      "id": "ch4-048",
+      "source_number": 3,
+      "practice_group": 10,
+      "question": "方法宣告回傳 int，但 return String，主要問題是？",
+      "options": {
+        "A": "回傳型別不一致",
+        "B": "方法名稱太短",
+        "C": "沒有使用 Scanner",
+        "D": "沒有迴圈"
+      },
+      "answer": "A",
+      "explanation": "return 的資料必須符合方法宣告的回傳型別。",
+      "type": "single_choice",
+      "source_pages": [
+        46,
+        47
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "方法宣告回傳 int，但 return String，主要問題是？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-049",
+      "source_number": 4,
+      "practice_group": 10,
+      "question": "非 void 方法最常需要哪個關鍵字把結果帶回去？",
+      "options": {
+        "A": "return",
+        "B": "break",
+        "C": "continue",
+        "D": "import"
+      },
+      "answer": "A",
+      "explanation": "非 void 方法通常使用 return 回傳結果。",
+      "type": "single_choice",
+      "source_pages": [
+        47
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "非 void 方法最常需要哪個關鍵字把結果帶回去？"
+        }
+      ]
+    },
+    {
+      "id": "ch4-050",
+      "source_number": 5,
+      "practice_group": 10,
+      "question": "除錯方法呼叫時，下列哪一項不需要優先檢查？",
+      "options": {
+        "A": "方法名稱",
+        "B": "參數數量",
+        "C": "參數型別與順序",
+        "D": "螢幕桌布顏色"
+      },
+      "answer": "D",
+      "explanation": "桌布顏色與 Java 方法呼叫無關。",
+      "type": "single_choice",
+      "source_pages": [
+        47
+      ]
+    },
+    {
+      "id": "ch4-051",
+      "source_number": 1,
+      "practice_group": 11,
+      "question": "哪一個最能描述方法的完整基本流程？",
+      "options": {
+        "A": "定義功能 → 呼叫方法 → 執行功能",
+        "B": "只建立變數",
+        "C": "只建立陣列",
+        "D": "只寫 import"
+      },
+      "answer": "A",
+      "explanation": "先定義方法內容，再從需要的位置呼叫，方法才會執行。",
+      "type": "single_choice",
+      "source_pages": [
+        50
+      ]
+    },
+    {
+      "id": "ch4-052",
+      "source_number": 2,
+      "practice_group": 11,
+      "question": "方法需要接收不同的分數資料，最適合使用什麼？",
+      "options": {
+        "A": "參數",
+        "B": "package",
+        "C": "class 名稱",
+        "D": "import"
+      },
+      "answer": "A",
+      "explanation": "參數讓呼叫端把不同資料傳入方法。",
+      "type": "single_choice",
+      "source_pages": [
+        50
+      ]
+    },
+    {
+      "id": "ch4-053",
+      "source_number": 3,
+      "practice_group": 11,
+      "question": "方法需要算出總金額並交給 main 繼續使用，最適合使用什麼？",
+      "options": {
+        "A": "return 回傳值",
+        "B": "只使用 println",
+        "C": "只使用 break",
+        "D": "只使用 import"
+      },
+      "answer": "A",
+      "explanation": "若 main 還需要使用方法算出的結果，回傳值通常比直接印出更適合。",
+      "type": "single_choice",
+      "source_pages": [
+        50
+      ]
+    },
+    {
+      "id": "ch4-054",
+      "source_number": 4,
+      "practice_group": 11,
+      "question": "哪一個方法定義同時具有參數與回傳值？",
+      "options": {
+        "A": "static void showMenu()",
+        "B": "static void showScore(int score)",
+        "C": "static int add(int a, int b)",
+        "D": "static void printLine()"
+      },
+      "answer": "C",
+      "explanation": "add 有兩個 int 參數，同時宣告回傳 int。",
+      "type": "single_choice",
+      "source_pages": [
+        50,
+        51
+      ]
+    },
+    {
+      "id": "ch4-055",
+      "source_number": 5,
+      "practice_group": 11,
+      "question": "學會方法後，最重要的程式設計觀念之一是什麼？",
+      "options": {
+        "A": "將不同功能拆成容易理解、可重複使用的小單位",
+        "B": "所有程式都放在 main",
+        "C": "不再需要變數",
+        "D": "不再需要條件判斷"
+      },
+      "answer": "A",
+      "explanation": "方法的重要價值就是把大型程式拆成職責較清楚的小功能。",
+      "type": "single_choice",
+      "source_pages": [
+        51
+      ]
+    }
+  ],
+  "chapter_5": [
+    {
+      "id": "ch5-001",
+      "source_number": 1,
+      "practice_group": 1,
+      "question": "下列哪一個最可能是執行時例外？",
+      "options": {
+        "A": "少寫分號",
+        "B": "int 變數指定 String",
+        "C": "整數除以 0",
+        "D": "class 名稱拼錯"
+      },
+      "answer": "C",
+      "explanation": "整數除以 0 可以通過語法檢查，但執行時會發生 ArithmeticException。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch5-002",
+      "source_number": 2,
+      "practice_group": 1,
+      "question": "Exception 最接近哪一個意思？",
+      "options": {
+        "A": "Java 檔名",
+        "B": "程式執行途中出現的異常狀況",
+        "C": "變數名稱",
+        "D": "迴圈次數"
+      },
+      "answer": "B",
+      "explanation": "例外通常表示程式執行期間遇到無法正常完成的狀況。",
+      "type": "single_choice",
+      "source_pages": [
+        3
+      ]
+    },
+    {
+      "id": "ch5-003",
+      "source_number": 3,
+      "practice_group": 1,
+      "question": "索引超出陣列範圍可能造成哪個例外？",
+      "options": {
+        "A": "ArithmeticException",
+        "B": "InputMismatchException",
+        "C": "ArrayIndexOutOfBoundsException",
+        "D": "NumberFormatException"
+      },
+      "answer": "C",
+      "explanation": "陣列索引超過合法範圍時會發生 ArrayIndexOutOfBoundsException。",
+      "type": "single_choice",
+      "source_pages": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": "ch5-004",
+      "source_number": 4,
+      "practice_group": 1,
+      "question": "沒有處理的例外可能造成什麼結果？",
+      "options": {
+        "A": "Java 自動修正資料",
+        "B": "程式可能中斷",
+        "C": "陣列自動加長",
+        "D": "程式一定重新執行"
+      },
+      "answer": "B",
+      "explanation": "若例外一路往外拋且沒有被處理，程式通常會中斷並顯示例外資訊。",
+      "type": "single_choice",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "ch5-005",
+      "source_number": 5,
+      "practice_group": 1,
+      "question": "下列哪一個通常在編譯階段就能發現？",
+      "options": {
+        "A": "int age = \"20\";",
+        "B": "使用者輸入文字給 nextInt()",
+        "C": "陣列索引超過長度",
+        "D": "整數除以 0"
+      },
+      "answer": "A",
+      "explanation": "型別不相容通常會直接造成編譯錯誤。",
+      "type": "single_choice",
+      "source_pages": [
+        4
+      ]
+    },
+    {
+      "id": "ch5-006",
+      "source_number": 1,
+      "practice_group": 2,
+      "question": "try 中通常放什麼？",
+      "options": {
+        "A": "一定不會發生問題的註解",
+        "B": "可能發生例外的程式",
+        "C": "class 名稱",
+        "D": "import"
+      },
+      "answer": "B",
+      "explanation": "try 用來包住可能產生例外的程式碼。",
+      "type": "single_choice",
+      "source_pages": [
+        6,
+        7
+      ]
+    },
+    {
+      "id": "ch5-007",
+      "source_number": 2,
+      "practice_group": 2,
+      "question": "catch 的主要工作是什麼？",
+      "options": {
+        "A": "建立陣列",
+        "B": "發生指定例外時進行處理",
+        "C": "宣告方法",
+        "D": "重複執行迴圈"
+      },
+      "answer": "B",
+      "explanation": "catch 用來處理 try 中發生且符合型別的例外。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch5-008",
+      "source_number": 3,
+      "practice_group": 2,
+      "question": "整數除以 0 最常捕捉哪一個例外？",
+      "options": {
+        "A": "ArithmeticException",
+        "B": "InputMismatchException",
+        "C": "NumberFormatException",
+        "D": "NullPointerException"
+      },
+      "answer": "A",
+      "explanation": "整數除以 0 會造成 ArithmeticException。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch5-009",
+      "source_number": 4,
+      "practice_group": 2,
+      "question": "try 內發生例外後，try 中尚未執行的程式通常會怎樣？",
+      "options": {
+        "A": "繼續全部執行",
+        "B": "跳過並尋找對應的 catch",
+        "C": "自動重新執行",
+        "D": "全部變成註解"
+      },
+      "answer": "B",
+      "explanation": "例外發生後，流程會離開目前 try 的剩餘部分並尋找能處理它的 catch。",
+      "type": "single_choice",
+      "source_pages": [
+        7
+      ]
+    },
+    {
+      "id": "ch5-010",
+      "source_number": 5,
+      "practice_group": 2,
+      "question": "try/catch 的主要好處之一是什麼？",
+      "options": {
+        "A": "讓所有錯誤永遠消失",
+        "B": "可以針對預期的異常狀況做適當處理",
+        "C": "不需要再測試程式",
+        "D": "可以取代所有 if"
+      },
+      "answer": "B",
+      "explanation": "try/catch 讓程式能針對可能發生的例外採取適當處理。",
+      "type": "single_choice",
+      "source_pages": [
+        7,
+        8
+      ]
+    },
+    {
+      "id": "ch5-011",
+      "source_number": 1,
+      "practice_group": 3,
+      "question": "Scanner 的 nextInt() 遇到 ABC，可能發生？",
+      "options": {
+        "A": "ArithmeticException",
+        "B": "InputMismatchException",
+        "C": "NullPointerException",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "answer": "B",
+      "explanation": "輸入內容與 nextInt() 需要的整數格式不符合時，常見為\nInputMismatchException。",
+      "type": "single_choice",
+      "source_pages": [
+        11,
+        12
+      ]
+    },
+    {
+      "id": "ch5-012",
+      "source_number": 2,
+      "practice_group": 3,
+      "question": "Integer.parseInt(\"ABC\")  可能發生？",
+      "options": {
+        "A": "NumberFormatException",
+        "B": "ArithmeticException",
+        "C": "InputMismatchException",
+        "D": "StackOverflowError"
+      },
+      "answer": "A",
+      "explanation": "ABC 無法轉成合法整數，因此會產生 NumberFormatException。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch5-013",
+      "source_number": 3,
+      "practice_group": 3,
+      "question": "陣列只有 3 格，卻讀取 index 8，可能發生？",
+      "options": {
+        "A": "NumberFormatException",
+        "B": "ArrayIndexOutOfBoundsException",
+        "C": "ArithmeticException",
+        "D": "InputMismatchException"
+      },
+      "answer": "B",
+      "explanation": "索引超出陣列合法範圍。",
+      "type": "single_choice",
+      "source_pages": [
+        12
+      ]
+    },
+    {
+      "id": "ch5-014",
+      "source_number": 4,
+      "practice_group": 3,
+      "question": "對 null 的 String 執行 length()，可能發生？",
+      "options": {
+        "A": "NullPointerException",
+        "B": "InputMismatchException",
+        "C": "ArithmeticException",
+        "D": "NumberFormatException"
+      },
+      "answer": "A",
+      "explanation": "null 沒有實際物件可供呼叫 length()。",
+      "type": "single_choice",
+      "source_pages": [
+        12,
+        13
+      ]
+    },
+    {
+      "id": "ch5-015",
+      "source_number": 5,
+      "practice_group": 3,
+      "question": "下列哪個例外和「文字轉整數失敗」最相關？",
+      "options": {
+        "A": "ArithmeticException",
+        "B": "NumberFormatException",
+        "C": "NullPointerException",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "answer": "B",
+      "explanation": "NumberFormatException 常出現在文字無法轉為指定數字格式時。",
+      "type": "single_choice",
+      "source_pages": [
+        13
+      ]
+    },
+    {
+      "id": "ch5-016",
+      "source_number": 1,
+      "practice_group": 4,
+      "question": "一個 try 後面可以有多個 catch 嗎？",
+      "options": {
+        "A": "可以",
+        "B": "不可以",
+        "C": "只能有 10 個",
+        "D": "只能在陣列中使用"
+      },
+      "answer": "A",
+      "explanation": "可以使用多個 catch 處理不同例外。",
+      "type": "single_choice",
+      "source_pages": [
+        15,
+        16
+      ]
+    },
+    {
+      "id": "ch5-017",
+      "source_number": 2,
+      "practice_group": 4,
+      "question": "為不同例外使用不同 catch 的優點是？",
+      "options": {
+        "A": "可以給更精確的處理與訊息",
+        "B": "程式一定變快",
+        "C": "不需要測試",
+        "D": "不需要 try"
+      },
+      "answer": "A",
+      "explanation": "不同錯誤可提供不同提示，比單純顯示「發生錯誤」更有用。",
+      "type": "single_choice",
+      "source_pages": [
+        16
+      ]
+    },
+    {
+      "id": "ch5-018",
+      "source_number": 3,
+      "practice_group": 4,
+      "question": "較廣泛的 Exception  catch 通常應放在哪裡？",
+      "options": {
+        "A": "比特定例外更前面",
+        "B": "通常放在較特定 catch 後面",
+        "C": "一定放在 main 前",
+        "D": "放在 import 中"
+      },
+      "answer": "B",
+      "explanation": "若先捕捉過於廣泛的 Exception，後面較特定的例外處理可能無法到達。",
+      "type": "single_choice",
+      "source_pages": [
+        16
+      ]
+    },
+    {
+      "id": "ch5-019",
+      "source_number": 4,
+      "practice_group": 4,
+      "question": "輸入文字給 nextInt()，應優先處理哪個例外？",
+      "options": {
+        "A": "InputMismatchException",
+        "B": "ArithmeticException",
+        "C": "NullPointerException",
+        "D": "ArrayIndexOutOfBoundsException"
+      },
+      "answer": "A",
+      "explanation": "Scanner 讀取型別與輸入不符合時，常見為 InputMismatchException。",
+      "type": "single_choice",
+      "source_pages": [
+        16,
+        17
+      ]
+    },
+    {
+      "id": "ch5-020",
+      "source_number": 5,
+      "practice_group": 4,
+      "question": "只寫 catch (Exception e)  的主要缺點之一是？",
+      "options": {
+        "A": "一定不能編譯",
+        "B": "容易讓不同錯誤都只得到模糊處理",
+        "C": "不能使用 println",
+        "D": "不能處理例外"
+      },
+      "answer": "B",
+      "explanation": "過度廣泛的 catch 容易失去錯誤分類資訊，使處理訊息不夠精確。",
+      "type": "single_choice",
+      "source_pages": [
+        17
+      ],
+      "content_format": "text_with_code",
+      "question_content": [
+        {
+          "type": "preformatted_text",
+          "value": "只寫 catch (Exception e)  的主要缺點之一是？"
+        }
+      ]
+    },
+    {
+      "id": "ch5-021",
+      "source_number": 1,
+      "practice_group": 5,
+      "question": "finally 的主要特性是？",
+      "options": {
+        "A": "只有發生例外才執行",
+        "B": "通常不論是否發生例外都會執行",
+        "C": "只能處理陣列",
+        "D": "一定要有 5 個 catch"
+      },
+      "answer": "B",
+      "explanation": "finally 通常用來放不論成功或失敗都希望執行的工作。",
+      "type": "single_choice",
+      "source_pages": [
+        19
+      ]
+    },
+    {
+      "id": "ch5-022",
+      "source_number": 2,
+      "practice_group": 5,
+      "question": "下列哪種工作適合放 finally？",
+      "options": {
+        "A": "資源清理",
+        "B": "宣告 class 名稱",
+        "C": "寫 import",
+        "D": "設定檔名"
+      },
+      "answer": "A",
+      "explanation": "finally 常用於需要確保執行的清理或關閉資源工作。",
+      "type": "single_choice",
+      "source_pages": [
+        19
+      ]
+    },
+    {
+      "id": "ch5-023",
+      "source_number": 3,
+      "practice_group": 5,
+      "question": "try 成功沒有發生例外，finally 會怎樣？",
+      "options": {
+        "A": "通常仍會執行",
+        "B": "一定不執行",
+        "C": "自動刪除",
+        "D": "變成 catch"
+      },
+      "answer": "A",
+      "explanation": "finally 的設計就是讓最後工作通常不受是否發生例外影響。",
+      "type": "single_choice",
+      "source_pages": [
+        19,
+        20
+      ]
+    },
+    {
+      "id": "ch5-024",
+      "source_number": 4,
+      "practice_group": 5,
+      "question": "catch 執行後，finally 會怎樣？",
+      "options": {
+        "A": "通常接著執行",
+        "B": "永遠不執行",
+        "C": "只能重新編譯",
+        "D": "一定重新進入 try"
+      },
+      "answer": "A",
+      "explanation": "catch 處理完後，finally 通常會接續執行。",
+      "type": "single_choice",
+      "source_pages": [
+        20
+      ]
+    },
+    {
+      "id": "ch5-025",
+      "source_number": 5,
+      "practice_group": 5,
+      "question": "目前學 finally 最重要的觀念是？",
+      "options": {
+        "A": "將「最後一定要處理的工作」集中放置",
+        "B": "用來取代所有 catch",
+        "C": "用來建立陣列",
+        "D": "用來計算平均"
+      },
+      "answer": "A",
+      "explanation": "finally 適合放清理、收尾等希望一定執行的工作。",
+      "type": "single_choice",
+      "source_pages": [
+        20
+      ]
+    },
+    {
+      "id": "ch5-026",
+      "source_number": 1,
+      "practice_group": 6,
+      "question": "輸入 ABC 給 nextInt() 時，try/catch 可以解決哪個問題？",
+      "options": {
+        "A": "避免 InputMismatchException 直接中斷程式",
+        "B": "自動把 ABC 變成 0",
+        "C": "自動建立陣列",
+        "D": "自動把 ABC 變成整數"
+      },
+      "answer": "A",
+      "explanation": "catch 可以攔截輸入型別不符的例外，讓程式自行決定後續流程。",
+      "type": "single_choice",
+      "source_pages": [
+        23
+      ]
+    },
+    {
+      "id": "ch5-027",
+      "source_number": 2,
+      "practice_group": 6,
+      "question": "catch 後使用 scanner.nextLine()  常見目的是？",
+      "options": {
+        "A": "清除錯誤輸入內容",
+        "B": "關閉 Java",
+        "C": "建立方法",
+        "D": "計算平均"
+      },
+      "answer": "A",
+      "explanation": "需要將造成 InputMismatchException 的錯誤 token 消耗掉，才能重新讀取新資\n料。",
+      "type": "single_choice",
+      "source_pages": [
+        23
+      ]
+    },
+    {
+      "id": "ch5-028",
+      "source_number": 3,
+      "practice_group": 6,
+      "question": "判斷成績是否 0～100，通常較適合用？",
+      "options": {
+        "A": "if",
+        "B": "import",
+        "C": "class",
+        "D": "finally 一定最好"
+      },
+      "answer": "A",
+      "explanation": "0～100 是正常業務規則，可直接使用 if 判斷。",
+      "type": "single_choice",
+      "source_pages": [
+        23
+      ]
+    },
+    {
+      "id": "ch5-029",
+      "source_number": 4,
+      "practice_group": 6,
+      "question": "例外處理與 if 的關係，下列哪個較正確？",
+      "options": {
+        "A": "學了 try/catch 就完全不用 if",
+        "B": "兩者處理的問題不同，可以一起使用",
+        "C": "if 可以捕捉所有 Java 例外",
+        "D": "catch 只能判斷分數"
+      },
+      "answer": "B",
+      "explanation": "try/catch 處理異常狀況，if 處理一般條件與業務規則，兩者常搭配使用。",
+      "type": "single_choice",
+      "source_pages": [
+        23,
+        24
+      ]
+    },
+    {
+      "id": "ch5-030",
+      "source_number": 5,
+      "practice_group": 6,
+      "question": "要讓錯誤輸入後重新輸入，通常還會搭配什麼？",
+      "options": {
+        "A": "迴圈",
+        "B": "class 名稱",
+        "C": "import 名稱",
+        "D": "Java 檔名"
+      },
+      "answer": "A",
+      "explanation": "使用 while 或 do-while 才能讓程式在輸入錯誤後再次詢問。",
+      "type": "single_choice",
+      "source_pages": [
+        24
+      ]
+    },
+    {
+      "id": "ch5-031",
+      "source_number": 1,
+      "practice_group": 7,
+      "question": "throw 的用途是什麼？",
+      "options": {
+        "A": "主動拋出例外",
+        "B": "建立迴圈",
+        "C": "輸入資料",
+        "D": "關閉 Scanner"
+      },
+      "answer": "A",
+      "explanation": "throw 可以由程式主動產生例外。",
+      "type": "single_choice",
+      "source_pages": [
+        26,
+        27
+      ]
+    },
+    {
+      "id": "ch5-032",
+      "source_number": 2,
+      "practice_group": 7,
+      "question": "哪種情況可能適合主動 throw？",
+      "options": {
+        "A": "方法收到不合理的參數",
+        "B": "顯示 Hello",
+        "C": "宣告 int",
+        "D": "寫註解"
+      },
+      "answer": "A",
+      "explanation": "當參數在業務規則上不合理且方法不應繼續處理時，可以考慮主動拋出例外。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch5-033",
+      "source_number": 3,
+      "practice_group": 7,
+      "question": "下列哪個寫法可以主動拋出 IllegalArgumentException？",
+      "options": {
+        "A": "throw new IllegalArgumentException(\"錯誤\");",
+        "B": "return new IllegalArgumentException();",
+        "C": "catch new IllegalArgumentException();",
+        "D": "if IllegalArgumentException;"
+      },
+      "answer": "A",
+      "explanation": "Java 使用 throw 加上例外物件主動拋出例外。",
+      "type": "single_choice",
+      "source_pages": [
+        27
+      ]
+    },
+    {
+      "id": "ch5-034",
+      "source_number": 4,
+      "practice_group": 7,
+      "question": "執行 throw 後，目前正常流程通常會？",
+      "options": {
+        "A": "繼續執行下一行",
+        "B": "中斷目前流程並尋找例外處理",
+        "C": "自動變成迴圈",
+        "D": "自動重新輸入"
+      },
+      "answer": "B",
+      "explanation": "throw 會改變正常流程，讓例外向外尋找對應的處理。",
+      "type": "single_choice",
+      "source_pages": [
+        27,
+        28
+      ]
+    },
+    {
+      "id": "ch5-035",
+      "source_number": 5,
+      "practice_group": 7,
+      "question": "IllegalArgumentException  名稱最接近？",
+      "options": {
+        "A": "傳入的方法參數不合理",
+        "B": "找不到陣列",
+        "C": "網路一定斷線",
+        "D": "Java 沒有 main"
+      },
+      "answer": "A",
+      "explanation": "IllegalArgumentException 常用來表示方法收到不合理的引數。",
+      "type": "single_choice",
+      "source_pages": [
+        28
+      ]
+    },
+    {
+      "id": "ch5-036",
+      "source_number": 1,
+      "practice_group": 8,
+      "question": "下列哪個屬於常見 Unchecked Exception？",
+      "options": {
+        "A": "ArithmeticException",
+        "B": "一定是 IOException",
+        "C": "Java 檔案",
+        "D": "Scanner 類別"
+      },
+      "answer": "A",
+      "explanation": "ArithmeticException 屬於 RuntimeException 系列的常見 Unchecked\nException。",
+      "type": "single_choice",
+      "source_pages": [
+        30,
+        31
+      ]
+    },
+    {
+      "id": "ch5-037",
+      "source_number": 2,
+      "practice_group": 8,
+      "question": "Checked Exception 的一個特色是？",
+      "options": {
+        "A": "編譯器通常要求處理或宣告",
+        "B": "永遠不會發生",
+        "C": "只能發生在陣列",
+        "D": "一定是使用者輸入錯誤"
+      },
+      "answer": "A",
+      "explanation": "Checked Exception 通常需要 catch，或使用 throws 宣告由呼叫者處理。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch5-038",
+      "source_number": 3,
+      "practice_group": 8,
+      "question": "throws 通常寫在哪裡？",
+      "options": {
+        "A": "方法宣告",
+        "B": "for 迴圈條件",
+        "C": "陣列索引",
+        "D": "Scanner 建構子一定要寫"
+      },
+      "answer": "A",
+      "explanation": "throws 是方法宣告的一部分，用來標示可能拋出的例外。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch5-039",
+      "source_number": 4,
+      "practice_group": 8,
+      "question": "throw 與 throws 的差異？",
+      "options": {
+        "A": "完全一樣",
+        "B": "throw 真正拋出例外，throws 宣告方法可能拋出例外",
+        "C": "throws 只能印文字",
+        "D": "throw 是迴圈"
+      },
+      "answer": "B",
+      "explanation": "一個是實際動作，一個是方法宣告上的說明。",
+      "type": "single_choice",
+      "source_pages": [
+        31
+      ]
+    },
+    {
+      "id": "ch5-040",
+      "source_number": 5,
+      "practice_group": 8,
+      "question": "目前對 Checked / Unchecked 最重要的理解是？",
+      "options": {
+        "A": "必須背完整繼承樹",
+        "B": "有些例外編譯器會要求處理，有些不會",
+        "C": "所有例外都必須 finally",
+        "D": "所有例外都是 Scanner 造成"
+      },
+      "answer": "B",
+      "explanation": "現階段先理解編譯器要求的差異即可。",
+      "type": "single_choice",
+      "source_pages": [
+        31,
+        32
+      ]
+    },
+    {
+      "id": "ch5-041",
+      "source_number": 1,
+      "practice_group": 9,
+      "question": "空白 catch 最大問題是？",
+      "options": {
+        "A": "可能把錯誤完全隱藏",
+        "B": "一定不能編譯",
+        "C": "陣列會變長",
+        "D": "Scanner 會自動關閉"
+      },
+      "answer": "A",
+      "explanation": "若完全不處理也不記錄，就很難知道程式出了什麼問題。",
+      "type": "single_choice",
+      "source_pages": [
+        34,
+        35
+      ]
+    },
+    {
+      "id": "ch5-042",
+      "source_number": 2,
+      "practice_group": 9,
+      "question": "「59 分是不及格」適合用 Exception 嗎？",
+      "options": {
+        "A": "通常不用，這是正常業務規則",
+        "B": "一定要 throw",
+        "C": "一定要 finally",
+        "D": "一定要 NullPointerException"
+      },
+      "answer": "A",
+      "explanation": "正常可預期的條件分支通常用 if/else 即可。",
+      "type": "single_choice",
+      "source_pages": [
+        35
+      ]
+    },
+    {
+      "id": "ch5-043",
+      "source_number": 3,
+      "practice_group": 9,
+      "question": "try 範圍通常應？",
+      "options": {
+        "A": "盡量包住真正可能發生例外的相關程式",
+        "B": "一律包整個專案",
+        "C": "一定只有一行",
+        "D": "不可以出現方法呼叫"
+      },
+      "answer": "A",
+      "explanation": "範圍清楚可讓例外來源與處理責任更容易理解。",
+      "type": "single_choice",
+      "source_pages": [
+        35
+      ]
+    },
+    {
+      "id": "ch5-044",
+      "source_number": 4,
+      "practice_group": 9,
+      "question": "對一般使用者顯示錯誤訊息，哪個較適合？",
+      "options": {
+        "A": "「輸入格式錯誤，請輸入整數」",
+        "B": "只顯示完整 stack trace",
+        "C": "不顯示任何內容",
+        "D": "關閉程式不說明"
+      },
+      "answer": "A",
+      "explanation": "使用者需要知道如何修正自己的操作。",
+      "type": "single_choice",
+      "source_pages": [
+        35,
+        36
+      ]
+    },
+    {
+      "id": "ch5-045",
+      "source_number": 5,
+      "practice_group": 9,
+      "question": "好的例外處理目標是？",
+      "options": {
+        "A": "隱藏所有 bug",
+        "B": "讓可預期異常有清楚、合理的處理",
+        "C": "讓所有程式都寫在 catch",
+        "D": "取代 if、for、method"
+      },
+      "answer": "B",
+      "explanation": "例外處理是提升程式在異常情境下的可靠性與可理解性，而不是隱藏問題。\n🔟 本章總整理與課堂檢核",
+      "type": "single_choice",
+      "source_pages": [
+        36
+      ]
+    },
+    {
+      "id": "ch5-046",
+      "source_number": 1,
+      "practice_group": 10,
+      "question": "例外處理最主要的目的之一是？",
+      "options": {
+        "A": "讓異常狀況有可控制的處理流程",
+        "B": "讓程式永遠沒有 bug",
+        "C": "取代所有條件判斷",
+        "D": "不需要測試程式"
+      },
+      "answer": "A",
+      "explanation": "例外處理不是消除所有問題，而是讓可能發生的異常有合理的處理方式。",
+      "type": "single_choice",
+      "source_pages": [
+        38,
+        39
+      ]
+    },
+    {
+      "id": "ch5-047",
+      "source_number": 2,
+      "practice_group": 10,
+      "question": "Scanner 輸入型別錯誤常使用哪個 catch？",
+      "options": {
+        "A": "InputMismatchException",
+        "B": "ArithmeticException",
+        "C": "ArrayIndexOutOfBoundsException",
+        "D": "NullPointerException"
+      },
+      "answer": "A",
+      "explanation": "InputMismatchException 是 Scanner 輸入型別不符合時的常見例外。",
+      "type": "single_choice",
+      "source_pages": [
+        39
+      ]
+    },
+    {
+      "id": "ch5-048",
+      "source_number": 3,
+      "practice_group": 10,
+      "question": "finally 適合處理什麼？",
+      "options": {
+        "A": "最後通常都要執行的清理或收尾工作",
+        "B": "只處理除以 0",
+        "C": "建立方法名稱",
+        "D": "改變陣列長度"
+      },
+      "answer": "A",
+      "explanation": "finally 常用於不論 try 成功或 catch 發生都希望完成的收尾工作。",
+      "type": "single_choice",
+      "source_pages": [
+        39
+      ]
+    },
+    {
+      "id": "ch5-049",
+      "source_number": 4,
+      "practice_group": 10,
+      "question": "想主動表示「方法不接受負數年齡」，可使用？",
+      "options": {
+        "A": "throw",
+        "B": "import",
+        "C": "continue 一定最好",
+        "D": "array.length"
+      },
+      "answer": "A",
+      "explanation": "throw 可以主動產生 IllegalArgumentException 等例外。",
+      "type": "single_choice",
+      "source_pages": [
+        39,
+        40
+      ]
+    },
+    {
+      "id": "ch5-050",
+      "source_number": 5,
+      "practice_group": 10,
+      "question": "關於良好的例外處理，下列哪個敘述正確？",
+      "options": {
+        "A": "catch 越廣越好，全部使用 Exception",
+        "B": "catch 什麼都不要寫",
+        "C": "根據可預期問題提供適當且清楚的處理",
+        "D": "正常的 if/else 規則全部改成 throw"
+      },
+      "answer": "C",
+      "explanation": "應針對合理預期的異常給出適合的處理，而不是過度捕捉或隱藏問題。",
+      "type": "single_choice",
+      "source_pages": [
+        40
+      ]
+    }
+  ],
+  "subjectId": "java-midterm",
+  "subjectName": "Java 期中考"
+}
