@@ -1,0 +1,5 @@
+# 本地私人備份與設定
+*backup*
+.env*
+.DS_Store
+node_modules/

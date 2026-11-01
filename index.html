@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: blob:; font-src 'self'; base-uri 'none'; object-src 'none'; form-action 'none'; frame-src 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f8ff" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f1219" />
+  <title>題檔即練｜動態刷題工具</title>
+  <meta name="application-version" content="2026-11-01-no-drive-unified-import" />
+  <link rel="stylesheet" href="css/style.css?v=20261101-review-contrast" />
+  
+  
+  
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">刷</span><div><strong>題檔即練</strong><small>學生題庫轉刷題工具</small></div></div>
+      <div class="subject-tag"><span class="subject-dot"></span>個人題庫</div>
+      <nav class="nav" aria-label="主要導覽">
+        <button class="nav-item active" data-page="dashboard" type="button"><span>▦</span> 首頁儀表板</button>
+        <button class="nav-item" data-page="bank" type="button"><span>▤</span> 題庫瀏覽</button>
+        <button class="nav-item" data-page="practice" type="button"><span>✎</span> 題庫練習</button>
+        <button class="nav-item" data-page="wrong" type="button"><span>◇</span> 錯題本</button>
+        <button class="nav-item" data-page="favorites" type="button"><span>☆</span> 收藏題目</button>
+        <button class="nav-item" data-page="stats" type="button"><span>▥</span> 學習統計</button>
+        <button class="nav-item" data-page="settings" type="button"><span>⚙</span> 題庫設定</button>
+      </nav>
+      <div class="sidebar-note">題檔即練 · 個人學習與題庫管理</div>
+    </aside>
+    <div class="backdrop" id="backdrop" hidden></div>
+    <div class="main-area">
+      <header class="topbar"><button class="menu-toggle" id="menuToggle" aria-label="開啟選單" aria-expanded="false">☰</button><span class="top-subject">個人題庫</span><span class="top-label">個人學習空間</span></header>
+      <main class="content" id="content" tabindex="-1"><p class="loading">正在檢查本機題庫…</p></main>
+    </div>
+  </div>
+  <script src="js/vendor/jszip.min.js"></script>
+  <script type="module" src="js/app.js?v=20261101-settings-1"></script>
+</body>
+</html>
