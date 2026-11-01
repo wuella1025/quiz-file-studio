@@ -235,7 +235,14 @@ function downloadJson(name,data){
 async function readJsonFile(input){
  const file=input.files?.[0];if(!file)return null;
  if(file.size>5*1024*1024)throw new Error('檔案超過 5 MB，請確認是否為題庫或備份 JSON。');
- return await file.text();
+ // File.text() 在部分舊版行動 Safari 不可用；以 FileReader 作備援。
+ if(typeof file.text==='function')return await file.text();
+ return await new Promise((resolve,reject)=>{
+  const reader=new FileReader();
+  reader.onload=()=>resolve(String(reader.result||''));
+  reader.onerror=()=>reject(new Error('讀取檔案失敗，請確認平板允許存取該檔案。'));
+  reader.readAsText(file,'UTF-8');
+ });
 }
 async function switchBank(){
  const imported=readImportedBank();
@@ -254,18 +261,48 @@ function settingsPage(){
  content.innerHTML=title('DATA MANAGEMENT','題庫設定與學習資料','匯入題庫前先驗證格式；練習紀錄與題庫分開保存。')+
  `<div class="card settings-subject-card"><div class="tool-actions"><button type="button" class="btn btn-secondary" id="backFromSettings">← 返回首頁</button></div><h2>我的科目</h2><label>切換科目<select class="field" id="subjectSwitcher">${listSubjects().map(x=>`<option value="${esc(x.id)}" ${x.id===b.subjectId?'selected':''}>${esc(x.name)}（${esc(x.id)}）</option>`).join('')}</select></label><p class="small-note">匯入具有不同 subject 或 subjectId 的 JSON 將新增獨立科目；各科作答、錯題、收藏、統計獨立。</p></div>`+
  `<div class="card settings-info-card"><h2>目前題庫資訊</h2><table class="info-table"><tbody><tr><td>科目</td><td>${esc(b.subjectName)}</td></tr><tr><td>題庫來源</td><td>使用者本機匯入</td></tr><tr><td>章節</td><td>${b.chapters.length} 章</td></tr><tr><td>題數</td><td>${b.questions.length} 題</td></tr><tr><td>格式驗證</td><td>通過</td></tr><tr><td>目前題庫有效紀錄</td><td>${info.activeRecords} 筆</td></tr><tr><td>目前題庫外的保留紀錄</td><td>${info.orphanRecords} 筆</td></tr></tbody></table></div>`+
- `<div class="section-header" id="bankManagement"><h2>新增科目／題庫管理</h2></div><section class="card settings-actions settings-import-card"><p class="muted">支援 chapter_* JSON 與 ZIP 題庫（純文字、Markdown 與程式碼）。匯入新題庫會保留相同 ID 的紀錄，也不會刪除舊題目歷史。建議匯入前先備份。</p><label for="bankUpload" class="input-label">新增科目或更新目前科目：選擇 JSON 或 ZIP 題庫<input class="field" type="file" id="bankUpload" accept=".json,.zip,application/json,application/zip"></label><div class="tool-actions"><button class="btn" id="bankImport">驗證並匯入（自動切換科目）</button></div><div class="danger-zone"><h3>刪除本機題庫</h3><p class="muted">只移除所選的題庫檔案，保留原有學習紀錄。公開內建題庫刪除後不會自動重新載入，可重新匯入以恢復。</p><label for="deleteBankScope" class="input-label">刪除範圍<select id="deleteBankScope" class="field"><option value="selected">僅刪除指定科目題庫</option><option value="all">刪除全部本機題庫</option></select></label><label for="deleteBankId" class="input-label">選擇要刪除的題庫<select id="deleteBankId" class="field">${listSubjects().map(x=>`<option value="${esc(x.id)}" ${x.id===b.subjectId?'selected':''}>${esc(x.name)}（${esc(x.id)}）</option>`).join('')}</select></label><button class="btn btn-danger" id="removeBank" type="button">刪除所選題庫</button></div><p class="small-note">更換題庫會結束目前未完成的練習，但已確認作答仍保留。題目唯一識別碼為「科目：章節：題號」。</p></section>`+
- `<div class="section-header"><h2>資料備份與還原</h2></div><section class="card settings-actions settings-backup-card"><p class="muted">備份包含本機作答紀錄、錯題與收藏、備註、練習成績、未完成練習及匯入的題庫。還原會覆蓋此科目的現有學習資料。</p><div class="tool-actions"><button class="btn" id="exportBackup">下載 JSON 備份</button></div><label for="backupUpload" class="input-label">選擇備份檔案<input class="field" type="file" id="backupUpload" accept=".json,application/json"></label><button class="btn btn-secondary" id="restoreBackup">驗證並還原備份</button></section>`+
+ `<div class="section-header" id="bankManagement"><h2>匯入／更新題庫</h2></div><section class="card settings-actions settings-import-card"><p class="muted">此功能只匯入題目、答案與解析，<strong>不還原學習紀錄</strong>。支援 chapter_* JSON 與 ZIP 題庫；建議事先備份。</p><label for="bankUpload" class="input-label">新增科目或更新目前科目：選擇 JSON 或 ZIP 題庫<input class="field" type="file" id="bankUpload" accept=".json,.zip,application/json,application/zip"></label><div class="tool-actions"><button class="btn" id="bankImport" type="button">驗證並匯入題庫</button></div><p class="small-note" id="bankImportMessage" role="status" aria-live="polite">選好題庫檔案後，按下「驗證並匯入題庫」。</p><div class="danger-zone"><h3>刪除本機題庫</h3><p class="muted">只移除所選的題庫檔案，保留原有學習紀錄。公開內建題庫刪除後不會自動重新載入，可重新匯入以恢復。</p><label for="deleteBankScope" class="input-label">刪除範圍<select id="deleteBankScope" class="field"><option value="selected">僅刪除指定科目題庫</option><option value="all">刪除全部本機題庫</option></select></label><label for="deleteBankId" class="input-label">選擇要刪除的題庫<select id="deleteBankId" class="field">${listSubjects().map(x=>`<option value="${esc(x.id)}" ${x.id===b.subjectId?'selected':''}>${esc(x.name)}（${esc(x.id)}）</option>`).join('')}</select></label><button class="btn btn-danger" id="removeBank" type="button">刪除所選題庫</button></div><p class="small-note">更換題庫會結束目前未完成的練習，但已確認作答仍保留。題目唯一識別碼為「科目：章節：題號」。</p></section>`+
+ `<div class="section-header"><h2>學習資料備份／還原</h2></div><section class="card settings-actions settings-backup-card"><p class="muted">與「匯入題庫」不同：此處備份包含目前科目的作答紀錄、收藏、備註、練習成績、未完成進度及題庫。還原會覆蓋該科目現有的學習資料，請確認備份來源。</p><div class="tool-actions"><button class="btn" id="exportBackup">下載 JSON 備份</button></div><label for="backupUpload" class="input-label">選擇備份檔案<input class="field" type="file" id="backupUpload" accept=".json,application/json"></label><button class="btn btn-secondary" id="restoreBackup" type="button">驗證並還原備份</button><p id="backupRestoreMessage" class="small-note" role="status" aria-live="polite"></p></section>`+
  `<div class="section-header"><h2>重設學習紀錄</h2></div><section class="card settings-actions settings-reset-card"><p class="muted">只清除目前科目的練習紀錄、錯題、收藏、備註、練習歷史與暫存進度，不刪除題庫。建議先下載備份。</p><button class="btn btn-danger" id="resetProgress">重設目前科目學習紀錄</button></section>`+
  `<div class="section-header"><h2>手動刪除單題紀錄</h2></div><section class="card settings-actions settings-record-card"><p class="muted">可刪除指定題目的作答、錯題、收藏與備註。刪除後不會自動回算先前已結算的成績歷史；請另外從學習統計刪除不需要的場次。建議先備份。</p><label>搜尋題號或題目<input id="recordSearch" class="field" placeholder="例如 chapter_1:1 或 Java"></label><div id="recordMatches" class="question-list"></div></section>`+
  `<div class="section-header"><h2>章節清單</h2></div><div class="chapter-grid">${b.chapters.map(ch=>`<div class="card chapter-row"><div class="chapter-icon">${esc(ch.title.replace(/\D/g,''))}</div><div class="chapter-detail"><h3>${esc(ch.title)}</h3><p>${ch.count} 題</p></div></div>`).join('')}</div><p id="settingsMessage" class="small-note" role="status" aria-live="polite"></p>`;
  document.getElementById('backFromSettings').onclick=()=>navigate('dashboard');
  document.getElementById('subjectSwitcher').onchange=async e=>{setActiveSubject(e.target.value);await switchBank();};
- const message=(t,error=false)=>{const el=document.getElementById('settingsMessage');el.textContent=t;el.className=error?'error':'notice';};
+ // 匯入及還原都可能重新繪製設定頁；每次顯示訊息前重新取得 DOM，避免寫入已卸載的節點。
+ const message=(t,error=false,target='settingsMessage')=>{
+  const el=document.getElementById(target)||document.getElementById('settingsMessage');
+  if(!el)return;
+  el.textContent=t;el.className=error?'error':'notice';
+ };
  const recordSearch=document.getElementById('recordSearch'),recordMatches=document.getElementById('recordMatches');
  const renderMatches=()=>{const progress=loadProgress(b.subjectId);const query=recordSearch.value.trim().toLowerCase();const matched=b.questions.filter(q=>progress[q.id]&&((Number(progress[q.id].attempts)||0)>0||progress[q.id].favorite||progress[q.id].note||progress[q.id].wrong)&&(!query||q.id.toLowerCase().includes(query)||q.text.toLowerCase().includes(query))).slice(0,30);recordMatches.innerHTML=matched.length?matched.map(q=>`<div class="record-delete-row"><span><b>${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</b> — ${esc(q.text)}</span><button class="btn btn-danger" data-delete-record="${esc(q.id)}">刪除本題紀錄</button></div>`).join(''):'<div class="empty">沒有符合的學習紀錄。</div>';recordMatches.querySelectorAll('[data-delete-record]').forEach(btn=>btn.onclick=()=>{if(!confirm('確定刪除這一題的全部個人紀錄（包含錯題、收藏和備註）？'))return;deleteQuestionRecord(b.subjectId,btn.dataset.deleteRecord);renderMatches();});};
  recordSearch.oninput=renderMatches;renderMatches();
- document.getElementById('bankImport').onclick=async()=>{try{const fileInput=document.getElementById('bankUpload');if(!fileInput.files?.[0])throw new Error('請先選擇題庫檔案。');if(!confirm('確認匯入題庫？相同科目識別碼會更新題庫，不同識別碼會新增科目；原有已完成紀錄仍保留。'))return;const bank=await importQuizFile(fileInput);saveSession(b.subjectId,null);await switchBank();message(`已匯入 ${bank.questions.length} 題，舊紀錄仍保留。`);}catch(e){message(e.message,true);}};
+ // 平板/iPad：明確顯示選檔、讀取、驗證、儲存結果；避免匯入後重畫頁面造成使用者誤以為按鈕無效。
+ const bankUpload=document.getElementById('bankUpload'),bankImport=document.getElementById('bankImport');
+ bankUpload.addEventListener('change',()=>{
+  const f=bankUpload.files?.[0];
+  message(f?`已選擇：${f.name}（${Math.ceil(f.size/1024)} KB），可以開始匯入。`:'尚未選擇題庫檔案。',false,'bankImportMessage');
+ });
+ bankImport.onclick=async()=>{
+  const fileInput=document.getElementById('bankUpload');
+  if(!fileInput.files?.[0]){message('請先選擇 JSON 或 ZIP 題庫檔案。',true,'bankImportMessage');return;}
+  if(!confirm('確認匯入題庫？相同科目識別碼會更新題庫，不同識別碼會新增科目；原有學習紀錄仍保留。'))return;
+  bankImport.disabled=true;
+  bankImport.textContent='正在驗證及匯入…';
+  message('正在讀取並檢查題庫，請勿重複點擊。',false,'bankImportMessage');
+  try{
+   const bank=await importQuizFile(fileInput);
+   saveSession(b.subjectId,null);
+   await switchBank();
+   // switchBank 會重新建立設定頁及按鈕，重新尋找狀態節點。
+   message(`已成功匯入「${bank.subjectName}」，共 ${bank.questions.length} 題。原學習紀錄保留。`,false,'bankImportMessage');
+  }catch(e){
+   message(`匯入失敗：${e?.message||String(e)}`,true,'bankImportMessage');
+  }finally{
+   // 舊頁面若已重新繪製，這個按鈕已不在 DOM 中。
+   if(bankImport.isConnected){bankImport.disabled=false;bankImport.textContent='驗證並匯入題庫';}
+  }
+ };
  const deleteScope=document.getElementById('deleteBankScope'),deleteId=document.getElementById('deleteBankId'),deleteButton=document.getElementById('removeBank');
  deleteScope.onchange=()=>{deleteId.disabled=deleteScope.value==='all';deleteButton.textContent=deleteScope.value==='all'?'刪除全部本機題庫':'刪除所選題庫';};
  deleteButton.onclick=async()=>{
