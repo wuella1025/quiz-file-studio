@@ -59,7 +59,7 @@ export function finalizeDraftAnswers(session,bank,progress,at=new Date().toISOSt
   if(!question)continue;
   const correct=grade(question,value);
   if(typeof correct!=='boolean')continue;
-  session.answers[id]={value,correct,confirmed:true,at};
+  session.answers[id]={...draft,value,correct,confirmed:true,at};
   recordAnswer(progress,question,value,correct,at);
   autoConfirmed++;
  }

@@ -5,7 +5,7 @@ import { loadProgress, saveProgress, loadSession, saveSession, loadHistory, addH
 import { learningStatistics } from './statistics.js';
 import { candidates, selectQuestions, grade, recordAnswer, finalizeDraftAnswers, sessionResult, mistakeStatus, toggleFavorite, setFavoriteNote, markCorrected } from './practice.js';
 
-const BUILD_ID = '2026-11-01-focus-practice';
+const BUILD_ID = '2026-11-01-focus-review-flow';
 const state = { bank: null, page: 'dashboard', chapter: 'all', search: '', pageNumber: 1, revealed: new Set(), session: null, wrongChapter:'all', wrongStatus:'all', favoriteChapter:'all' };
 const content = document.getElementById('content');
 const sidebar = document.getElementById('sidebar');
@@ -35,7 +35,15 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggleMenu(false);
 function navigate(page) {
   if (!pageTitles[page]) return;
   state.page = page;
+  // 每次進入練習時依據是否有進行中的練習重新計算，避免離開再返回後側欄出現。
   if(page==='dashboard') focusPractice=false;
+  else if(page==='practice') {
+    if(state.session?.finished){
+      // 僅在重新進入練習時清除已結算的暫存練習，已寫入歷史的成績不變。
+      state.session=null; saveSession(state.bank.subjectId,null);
+    }
+    focusPractice=!!state.session;
+  }
   syncFocusLayout();
   document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   toggleMenu(false);
@@ -286,7 +294,7 @@ function captureDraft(question,session){
  else if(['text','essay'].includes(question.type))value=form.querySelector('#textAnswer')?.value;
  else if(question.type==='boolean')value=form.querySelector('input[name=answer]:checked')?.value;
  if(value===undefined)return;
- session.answers[question.id]={value,confirmed:false};
+ session.answers[question.id]={...session.answers[question.id],value,confirmed:false};
  saveSession(state.bank.subjectId,session);
 }
 function selectedAnswer(value){return value===undefined||value===null||value===''||(Array.isArray(value)&&!value.length)?'未作答':Array.isArray(value)?value.join('、'):String(value);}
@@ -298,7 +306,7 @@ function selectedAnswer(value){return value===undefined||value===null||value==='
 function reviewDetails(session,wrongOnly=true){
  const items=session.ids.map((id,index)=>({question:state.bank.questionMap.get(id),answer:session.answers[id],index})).filter(x=>x.question&&(!wrongOnly||(x.answer?.confirmed&&!x.answer.correct)));
  if(!items.length)return `<div class="empty">${wrongOnly?'本次沒有答錯的題目。':'沒有可查看的題目。'}</div>`;
- return items.map(({question:q,answer:a,index})=>`<article class="card question-card"><div class="question-head"><span class="pill">第 ${index+1} 題 · ${esc(q.chapterTitle)} · 原題 ${esc(q.originalId)}</span><span class="status-pill ${!a?.confirmed?'result-unanswered':a.correct?'result-correct':'result-wrong'}">${!a?.confirmed?'— 未作答':a.correct?'✓ 答對':'✕ 答錯'}</span></div><div class="question-text">${renderQuestionBody(q)}</div><div class="option-list result-options">${q.options.map(([k,v])=>{const selected=Array.isArray(a?.value)?a.value.includes(k):String(a?.value??'')===k;const correct=Array.isArray(q.answer)?q.answer.includes(k):String(q.answer)===k;const cls=correct?'review-option-correct':selected&&a?.confirmed?'review-option-wrong':'';const tag=correct?'<span class="review-choice-label">✓ 正確選項</span>':selected&&a?.confirmed?'<span class="review-choice-label">✕ 你的選擇</span>':'';return `<div class="option ${cls}"><b>${esc(k)}.</b>${renderOptionValue(v)}${tag}</div>`;}).join('')}</div><p class="review-my-answer ${!a?.confirmed?'':a.correct?'answer-correct':'answer-wrong'}"><b>你的答案：</b>${esc(selectedAnswer(a?.value))}</p><div class="answer-panel ${a?.correct?'correct-panel':'incorrect-panel'}"><div><b>正確答案：</b>${esc(selectedAnswer(q.answer))}</div><div><b>詳細解析：</b><span class="preline">${renderMarkdown(q.explanation||'原始題庫沒有提供解析')}</span></div></div></article>`).join('');
+ return items.map(({question:q,answer:a,index})=>`<article class="card question-card"><div class="question-head"><span class="pill">第 ${index+1} 題 · ${esc(q.chapterTitle)} · 原題 ${esc(q.originalId)}</span><span class="status-pill ${!a?.confirmed?'result-unanswered':a.correct?'result-correct':'result-wrong'}">${!a?.confirmed?'— 未作答':a.correct?'✓ 答對':'✕ 答錯'}</span>${a?.needsReview?'<span class="status-pill review-needed">◈ 須複習 · 曾查看詳解</span>':''}</div><div class="question-text">${renderQuestionBody(q)}</div><div class="option-list result-options">${q.options.map(([k,v])=>{const selected=Array.isArray(a?.value)?a.value.includes(k):String(a?.value??'')===k;const correct=Array.isArray(q.answer)?q.answer.includes(k):String(q.answer)===k;const cls=correct?'review-option-correct':selected&&a?.confirmed?'review-option-wrong':'';const tag=correct?'<span class="review-choice-label">✓ 正確選項</span>':selected&&a?.confirmed?'<span class="review-choice-label">✕ 你的選擇</span>':'';return `<div class="option ${cls}"><b>${esc(k)}.</b>${renderOptionValue(v)}${tag}</div>`;}).join('')}</div><p class="review-my-answer ${!a?.confirmed?'':a.correct?'answer-correct':'answer-wrong'}"><b>你的答案：</b>${esc(selectedAnswer(a?.value))}</p><div class="answer-panel ${a?.correct?'correct-panel':'incorrect-panel'}"><div><b>正確答案：</b>${esc(selectedAnswer(q.answer))}</div><div><b>詳細解析：</b><span class="preline">${renderMarkdown(q.explanation||'原始題庫沒有提供解析')}</span></div></div></article>`).join('');
 }
 function finishCurrentSession(session,question){
  if(question)captureDraft(question,session);
@@ -319,10 +327,12 @@ function finishCurrentSession(session,question){
 }
 /** 刷題頁面控制器：管理建立練習、作答、結算與結果切換。 */
 function practicePage(){
+ // 已結算的練習再次開啟時，顯示建立練習設定；歷史成績仍保存在 history。
  const session=state.session;
  if(!session){
+  focusPractice=false; syncFocusLayout(); // 建立練習設定不屬於正式作答，側欄可正常使用。
   const chapters=state.bank.chapters;
-  content.innerHTML=title('PRACTICE','開始刷題','選擇模式與題數；只有按下「確認答案」後才會顯示正確答案及解析。')+`<div class="card practice-setup"><h2>建立練習</h2><form id="practiceSetup"><label>練習模式<select class="field" id="mode"><option value="all">全部題目</option><option value="chapter">章節練習</option><option value="random">隨機練習</option><option value="unpracticed">未練習題目</option><option value="wrong">待複習錯題</option><option value="favorites">收藏題目</option></select></label><label>指定章節<select class="field" id="practiceChapter">${chapters.map(ch=>`<option value="${esc(ch.id)}">${esc(ch.title)}（${ch.count} 題）</option>`).join('')}</select></label><label>練習題數<input class="field" type="number" id="practiceCount" min="1" value="20" required></label><label class="inline-check"><input type="checkbox" id="randomOrder"> 隨機排序題目</label><p class="muted" id="availableHint"></p><button class="btn" type="submit">開始練習 →</button></form></div>`;
+  content.innerHTML=title('PRACTICE','開始刷題','選擇練習模式、章節與題數；查看詳解會標記須複習，正式判分只在結算時進行。')+`<div class="card practice-setup"><h2>建立練習</h2><form id="practiceSetup"><label>練習模式<select class="field" id="mode"><option value="all">全部題目</option><option value="chapter">章節練習</option><option value="random">隨機練習</option><option value="unpracticed">未練習題目</option><option value="wrong">待複習錯題</option><option value="favorites">收藏題目</option></select></label><label>指定章節<select class="field" id="practiceChapter">${chapters.map(ch=>`<option value="${esc(ch.id)}">${esc(ch.title)}（${ch.count} 題）</option>`).join('')}</select></label><label>練習題數<input class="field" type="number" id="practiceCount" min="1" value="20" required></label><label class="inline-check"><input type="checkbox" id="randomOrder"> 隨機排序題目</label><p class="muted" id="availableHint"></p><button class="btn" type="submit">開始練習 →</button></form></div>`;
   const mode=document.getElementById('mode'),ch=document.getElementById('practiceChapter'),count=document.getElementById('practiceCount'),hint=document.getElementById('availableHint');
   const refresh=()=>{const n=candidates(state.bank,loadProgress(state.bank.subjectId),mode.value,ch.value).length;ch.disabled=mode.value!=='chapter';count.max=String(n);if(Number(count.value)>n)count.value=String(n);hint.textContent=`目前符合條件 ${n} 題${n===0?'，沒有可練習題目。':''}`;document.querySelector('#practiceSetup button[type=submit]').disabled=!n;};mode.onchange=refresh;ch.onchange=refresh;refresh();
   document.getElementById('practiceSetup').onsubmit=e=>{e.preventDefault();const pool=selectQuestions(state.bank,loadProgress(state.bank.subjectId),{mode:mode.value,chapter:ch.value,count:count.value,random:document.getElementById('randomOrder').checked});if(!pool.length)return;state.session={ids:pool.map(q=>q.id),answers:{},index:0,mode:mode.value,startedAt:new Date().toISOString(),finished:false};saveSession(state.bank.subjectId,state.session);focusPractice=true;syncFocusLayout();practicePage();};return;
@@ -333,12 +343,19 @@ function practicePage(){
  if(!q){content.innerHTML='<div class="error">無法找到目前題目，請重新載入。</div>';return;}
  const previous=session.answers[q.id]||{}, confirmed=!!previous.confirmed, isLast=index===session.ids.length-1;
  const answerHtml=confirmed?`<div class="answer-panel ${previous.correct?'correct-panel':'incorrect-panel'}" role="status"><strong>${previous.correct?'✓ 答對了':'✕ 答錯了'}</strong><div><b>正確答案：</b>${esc(Array.isArray(q.answer)?q.answer.join('、'):q.answer)}</div><div><b>題目解析：</b><span class="preline">${renderMarkdown(q.explanation||'原始題庫未提供解析')}</span></div></div>`:'';
+ const peekHtml=previous.needsReview&&!confirmed?`<div class="answer-panel review-peek-panel" role="region" aria-label="本題詳解"><strong>◈ 已查看詳解 · 本題須複習</strong><div><b>參考答案：</b>${esc(selectedAnswer(q.answer))}</div><div><b>詳細解析：</b><span class="preline">${renderMarkdown(q.explanation||'原始題庫未提供解析')}</span></div><p class="small-note">這裡不會判分；正式結算時才會計算作答結果。</p></div>`:'';
  const inputHtml=q.type==='single'||q.type==='multiple'?`<div class="answer-options">${q.options.map(([key,value])=>`<label class="answer-option ${confirmed&&((Array.isArray(previous.value)?previous.value:[previous.value]).includes(key))?'chosen':''}"><input name="answer" type="${q.type==='single'?'radio':'checkbox'}" value="${esc(key)}" ${((Array.isArray(previous.value)?previous.value:[previous.value]).includes(key))?'checked':''} ${confirmed?'disabled':''}><div class="answer-option-content"><strong class="option-key">${esc(key)}.</strong>${renderOptionValue(value)}</div></label>`).join('')}</div>`:q.type==='boolean'?`<div class="answer-options">${(q.options.length?q.options:[['true','正確／是'],['false','錯誤／非']]).map(([key,val])=>`<label class="answer-option"><input type="radio" name="answer" value="${esc(key)}" ${String(previous.value)===key?'checked':''} ${confirmed?'disabled':''}><div class="answer-option-content">${renderOptionValue(val)}</div></label>`).join('')}</div>`:q.type==='text'?`<label class="input-label">請輸入答案<input id="textAnswer" class="field" value="${esc(previous.value??'')}" ${confirmed?'disabled':''}></label>`:q.type==='essay'?`<label class="input-label">請輸入你的回答<textarea id="textAnswer" class="field essay-field" rows="6" ${confirmed?'disabled':''}>${esc(previous.value??'')}</textarea></label><p class="small-note">問答題不使用不可靠的自動文字比對；確認後對照參考答案自行判定。</p>`:`<div class="notice">目前尚未支援此題型。</div>`;
  const answeredCount=Object.values(session.answers).filter(a=>a.confirmed).length;
- content.innerHTML=title('PRACTICE','題庫練習',`已確認 ${answeredCount} / ${session.ids.length} 題；可自由切換題目，不會提前公布答案。`)+`<div class="card"><div class="practice-top"><span class="pill">${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</span><span class="muted">第 ${index+1} / ${session.ids.length} 題</span>${favoriteControl(q,loadProgress(state.bank.subjectId))}</div><div class="progress-track"><div class="progress-bar" style="width:${Math.round(answeredCount/session.ids.length*100)}%"></div></div><div class="practice-question">${renderQuestionBody(q)}</div><form id="answerForm">${inputHtml}<div class="action-row">${!confirmed?`<button class="btn" type="submit">確認答案</button>`:'<span class="muted">本題已確認，無法重複計分。</span>'}</div></form>${answerHtml}<div class="practice-footer"><button class="btn btn-secondary" id="previousQuestion" ${index===0?'disabled':''}>← 上一題</button><button class="btn btn-secondary" id="nextQuestion" ${isLast?'disabled':''}>下一題 →</button></div><div class="practice-footer"><button class="btn btn-secondary" id="leavePractice">返回首頁（保留進度）</button><button class="btn" id="finishPractice">結算練習</button></div></div>`;
+ content.innerHTML=title('PRACTICE','題庫練習',`已儲存 ${Object.values(session.answers).filter(a=>a.value!==undefined).length} / ${session.ids.length} 題；查看詳解會標記須複習，結算時才統一判分。`)+`<div class="card"><div class="practice-top"><span class="pill">${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</span><span class="muted">第 ${index+1} / ${session.ids.length} 題</span>${favoriteControl(q,loadProgress(state.bank.subjectId))}</div><div class="progress-track"><div class="progress-bar" style="width:${Math.round(answeredCount/session.ids.length*100)}%"></div></div><div class="practice-question">${renderQuestionBody(q)}</div><form id="answerForm">${inputHtml}<div class="action-row">${!confirmed?`<button class="btn" type="button" id="peekExplanation" ${previous.needsReview?'disabled':''}>${previous.needsReview?'已查看詳解 · 須複習':'查看詳解'}</button>`:'<span class="muted">本題已於結算前確認。</span>'}</div></form>${peekHtml}${answerHtml}<div class="practice-footer"><button class="btn btn-secondary" id="previousQuestion" ${index===0?'disabled':''}>← 上一題</button><button class="btn btn-secondary" id="nextQuestion" ${isLast?'disabled':''}>下一題 →</button></div><div class="practice-footer"><button class="btn btn-secondary" id="leavePractice">返回首頁（保留進度）</button><button class="btn" id="finishPractice">結算練習</button></div></div>`;
  wireFavorites();
- document.getElementById('answerForm').onsubmit=e=>{e.preventDefault();if(confirmed)return;captureDraft(q,session);const value=session.answers[q.id]?.value;if(value===undefined||value===null||(Array.isArray(value)&&!value.length)||(typeof value==='string'&&!value.trim())){alert('請先作答，再按確認答案。');return;}const correct=grade(q,value);if(correct===null && q.type!=='essay'){alert('目前不支援自動判斷此題型。');return;}
- const judged=q.type==='essay'?confirm(`請先核對參考答案與解析，再自行判定是否答對。\n\n參考答案：${String(q.answer??'未提供')}\n解析：${q.explanation||'未提供'}\n\n選「確定」表示答對，「取消」表示答錯。`):correct;session.answers[q.id]={value,correct:judged,confirmed:true,at:new Date().toISOString()};const progress=loadProgress(state.bank.subjectId);recordAnswer(progress,q,value,judged);saveProgress(state.bank.subjectId,progress);saveSession(state.bank.subjectId,session);practicePage();};
+ // 查看詳解不呼叫 grade / recordAnswer，避免提前計分、重複計分或改變結算功能。
+ const peekButton=document.getElementById('peekExplanation');
+ if(peekButton) peekButton.onclick=()=>{
+   captureDraft(q,session); // 保留目前已填答案
+   session.answers[q.id]={...session.answers[q.id],confirmed:false,needsReview:true};
+   saveSession(state.bank.subjectId,session);
+   practicePage();
+ };
  document.getElementById('answerForm').onchange=()=>captureDraft(q,session);
  document.getElementById('answerForm').oninput=()=>{if(['text','essay'].includes(q.type))captureDraft(q,session);};
  document.getElementById('previousQuestion').onclick=()=>{captureDraft(q,session);session.index--;saveSession(state.bank.subjectId,session);practicePage();};document.getElementById('nextQuestion').onclick=()=>{captureDraft(q,session);session.index++;saveSession(state.bank.subjectId,session);practicePage();};document.getElementById('leavePractice').onclick=()=>{captureDraft(q,session);navigate('dashboard');};

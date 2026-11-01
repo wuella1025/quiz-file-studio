@@ -513,3 +513,9 @@ body.focus-practice .focus-home-button { display: inline-flex; align-items: cent
   body.focus-practice .top-label { display: none; }
   body.focus-practice .focus-home-button { padding: 10px 12px; font-size: .9rem; }
 }
+
+/* 提前查看詳解：與正式結算的紅／綠判分視覺區分。 */
+.review-peek-panel { border: 1px solid #e0ad48; background: rgba(224,173,72,.09); margin-top: 16px; }
+.review-peek-panel > strong { color: #edc16c; display:block; margin-bottom: 12px; }
+.status-pill.review-needed { background: rgba(224,173,72,.18); color: #f7d48a; border: 1px solid rgba(224,173,72,.5); }
+@media (prefers-color-scheme: light) { .review-peek-panel > strong {color:#825715} .status-pill.review-needed {color:#825715; background:#fff4d7;} }
