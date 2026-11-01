@@ -1,6 +1,6 @@
 import { renderMarkdown } from './markdown.js';
 import { parseQuestionZip, saveMedia, getMedia, clearMedia, setMediaSubject, exportMedia } from './media.js';
-import { readImportedBank, validateImportedBank, saveImportedBank, removeImportedBank, removeAllImportedBanks, removeSubject, hiddenBuiltins, hideBuiltins, createBackup, restoreBackup, resetLearning, storedInfo, migrateLegacy, listSubjects, activeSubject, setActiveSubject, subjectIdForBank, registerSubject, markPersonalBank, upsertBuiltinBank } from './dataManagement.js';
+import { readImportedBank, validateImportedBank, saveImportedBank, removeImportedBank, removeAllImportedBanks, removeSubject, hiddenBuiltins, hideBuiltins, createBackup, restoreBackup, resetLearning, storedInfo, migrateLegacy, listSubjects, activeSubject, setActiveSubject, subjectIdForBank, registerSubject } from './dataManagement.js';
 import { loadProgress, saveProgress, loadSession, saveSession, loadHistory, addHistory, deleteHistory, deleteQuestionRecord, summarizeProgress } from './storage.js';
 import { learningStatistics } from './statistics.js';
 import { candidates, selectQuestions, grade, recordAnswer, finalizeDraftAnswers, sessionResult, mistakeStatus, toggleFavorite, setFavoriteNote, markCorrected } from './practice.js';
@@ -224,9 +224,9 @@ async function importQuizFile(input){
  const file=input.files?.[0];if(!file)throw new Error('請先選擇 JSON 或 ZIP 題庫。');
  if(/\.zip$/i.test(file.name)){
   const {raw,pages}=await parseQuestionZip(file);const bank=validateImportedBank(JSON.stringify(raw)).bank;
-  setMediaSubject(bank.subjectId);await saveMedia(pages);saveImportedBank(raw);markPersonalBank(bank.subjectId);return bank;
+  setMediaSubject(bank.subjectId);await saveMedia(pages);saveImportedBank(raw);return bank;
  }
- const text=await readJsonFile(input);const {raw,bank}=validateImportedBank(text);setMediaSubject(bank.subjectId);await clearMedia();saveImportedBank(raw);markPersonalBank(bank.subjectId);return bank;
+ const text=await readJsonFile(input);const {raw,bank}=validateImportedBank(text);setMediaSubject(bank.subjectId);await clearMedia();saveImportedBank(raw);return bank;
 }
 function downloadJson(name,data){
  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
@@ -452,70 +452,34 @@ function showFirstImport(error='') {
    catch(e){msg.textContent=e.message;}
  };
 }
-/**
- * 啟動原則：優先顯示本機已有的題庫與學習紀錄，再更新 GitHub 內建題庫。
- * 避免網路離線、GitHub Pages 延遲或單一 JSON 載入失敗時，整站停在載入畫面。
- */
-function displayStoredSubject(){
- const imported=readImportedBank();
- if(!imported)return false;
- state.bank=imported.bank;
- setMediaSubject(state.bank.subjectId);
- state.session=loadSession(state.bank.subjectId);
- if(state.session&&(!Array.isArray(state.session.ids)||!state.session.answers||state.session.ids.some(id=>!state.bank.questionMap.has(id)))){
-  state.session=null;saveSession(state.bank.subjectId,null);
- }
- render();
- return true;
-}
-
-/** 每個公開 JSON 都有獨立逾時與失敗保護；不清除私人題庫或學習資料。 */
-async function refreshOneBuiltin(expectedId,url){
- if(hiddenBuiltins().includes(expectedId))return false;
- const controller=new AbortController();
- const timeout=setTimeout(()=>controller.abort(),6500);
- try{
-  const response=await fetch(url,{cache:'no-store',signal:controller.signal});
-  if(!response.ok)throw new Error(`HTTP ${response.status}`);
-  const raw=await response.json();
-  const {bank}=validateImportedBank(JSON.stringify(raw));
-  if(bank.subjectId!==expectedId)throw new Error('內建題庫識別碼與清單不符');
-  return upsertBuiltinBank(raw,expectedId);
- }catch(error){
-  console.warn('內建科目更新失敗；繼續使用本機資料：',expectedId,error);
-  return false;
- }finally{clearTimeout(timeout);}
-}
 async function initializeSite(){
  try{
   migrateLegacy();
-  // 不等待遠端請求；進入網站時立刻顯示本機可用的科目。
-  const hasLocal=displayStoredSubject();
-  if(!hasLocal){
-   content.innerHTML='<div class="card"><h2>正在載入公開題庫…</h2><p class="muted">首次使用需要網路連線；若載入失敗，可自行匯入 JSON 題庫。</p></div>';
+  // Register each publicly hosted subject once. Never overwrite locally edited banks,
+  // change an existing subject selection, or erase progress/session history.
+  const originalSelection=activeSubject();
+  for(const [expectedId,url] of [
+    ['java-midterm','data/java-midterm.json'],
+    ['computer-literacy-midterm-150','data/embedded-midterm.json'],
+    ['work-study-ergonomics-midterm','data/ergonomics-midterm.json']
+  ]){
+   if(listSubjects().some(x=>x.id===expectedId)||hiddenBuiltins().includes(expectedId))continue;
+   try{
+    const response=await fetch(url,{cache:'no-cache'});
+    if(!response.ok)throw new Error(`HTTP ${response.status}`);
+    const raw=await response.json();
+    const {bank}=validateImportedBank(JSON.stringify(raw));
+    if(bank.subjectId!==expectedId)throw new Error('內建題庫識別碼與清單不符');
+    saveImportedBank(raw);
+   }catch(error){console.warn('內建科目載入失敗：',expectedId,error);}
   }
-  const selectedBefore=activeSubject();
-  // 並行讀取三份內建題庫，避免單一科目阻塞其他科目。
-  const updated=await Promise.all([
-   refreshOneBuiltin('java-midterm','data/java-midterm.json'),
-   refreshOneBuiltin('computer-literacy-midterm-150','data/embedded-midterm.json'),
-   refreshOneBuiltin('work-study-ergonomics-midterm','data/ergonomics-midterm.json')
-  ]);
-  // 題庫更新不應搶走使用者已切換的科目。
-  const selectedNow=activeSubject();
-  if(selectedNow&&listSubjects().some(x=>x.id===selectedNow))setActiveSubject(selectedNow);
-  else if(selectedBefore&&listSubjects().some(x=>x.id===selectedBefore))setActiveSubject(selectedBefore);
-  if(updated.some(Boolean)||!hasLocal){
-   // 使用者若已進入正在作答的畫面，不重新渲染，避免中途干擾。
-   if(state.page!=='practice'){
-    if(!displayStoredSubject()&&!hasLocal)showFirstImport('目前無法載入公開題庫，請自行匯入 JSON 或 ZIP。');
-   }
-  }
- }catch(error){
-  console.error('網站啟動失敗：',error);
-  try{if(!displayStoredSubject())showFirstImport(`載入失敗：${error.message}`);}
-  catch(inner){content.innerHTML=`<div class="card"><h2>讀取題庫時發生錯誤</h2><p class="muted">請重新整理網站，或檢查瀏覽器儲存空間。</p></div>`;}
- }
+  if(originalSelection&&listSubjects().some(x=>x.id===originalSelection))setActiveSubject(originalSelection);
+  let imported=readImportedBank();
+  if(imported){state.bank=imported.bank;setMediaSubject(state.bank.subjectId);state.session=loadSession(state.bank.subjectId);
+   if(state.session&&(!Array.isArray(state.session.ids)||!state.session.answers||state.session.ids.some(id=>!state.bank.questionMap.has(id)))){state.session=null;saveSession(state.bank.subjectId,null);}
+   render();
+  }else showFirstImport('目前無法載入公開題庫，請自行匯入 JSON 或 ZIP。');
+ }catch(e){showFirstImport(`載入失敗：${e.message}`);}
 }
 initializeSite();
 
