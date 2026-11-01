@@ -1,0 +1,1319 @@
+{
+  "subjectId": "work-study-ergonomics-midterm",
+  "subjectName": "工作研究與人因工程－期中考",
+  "schema_version": 1,
+  "chapter_1": [
+    {
+      "id": 1,
+      "type": "single",
+      "question": "人因工程（Human Factors Engineering）的核心目標為何？",
+      "options": {
+        "A": "最大化機器運轉速度",
+        "B": "使工具、作業與環境適應人的能力與限制",
+        "C": "降低員工薪資成本",
+        "D": "取代所有人工操作"
+      },
+      "answer": "B",
+      "explanation": "人因工程強調 Fitting the Task to the Human（使工作適合人），優化人機環境系統之安全性與效率。"
+    },
+    {
+      "id": 2,
+      "type": "single",
+      "question": "生產力（Productivity）的基本計算公式為何？",
+      "options": {
+        "A": "產出 / 投入",
+        "B": "投入 / 產出",
+        "C": "市場價值 - 投入價值",
+        "D": "附加價值 / 總工時"
+      },
+      "answer": "A",
+      "explanation": "生產力定義為產出（Output）與投入（Input）資源的比值。"
+    },
+    {
+      "id": 3,
+      "type": "single",
+      "question": "附加價值（Value Added）的定義為何？",
+      "options": {
+        "A": "銷售總額加上稅金",
+        "B": "總生產價值（市場價值）扣除購入原材料與外部產品價值",
+        "C": "淨利潤除以總員工人數",
+        "D": "總產出乘以生產力"
+      },
+      "answer": "B",
+      "explanation": "附加價值為企業透過內部生產製造活動所創造的新增價值。"
+    },
+    {
+      "id": 4,
+      "type": "single",
+      "question": "經營效率（Operating Efficiency）公式的分母包含哪些要素？",
+      "options": {
+        "A": "僅包含員工人數",
+        "B": "人 + 設備 + 資金",
+        "C": "原材料成本 + 運費",
+        "D": "淨利潤 + 總工時"
+      },
+      "answer": "B",
+      "explanation": "經營效率 = 附加價值 / (人 + 設備 + 資金)。"
+    },
+    {
+      "id": 5,
+      "type": "single",
+      "question": "被尊稱為「科學管理之父」的學者為何人？",
+      "options": {
+        "A": "泰勒（Frederick W. Taylor）",
+        "B": "吉爾勃斯（Frank Gilbreth）",
+        "C": "梅奧（Elton Mayo）",
+        "D": "亨利·福特（Henry Ford）"
+      },
+      "answer": "A",
+      "explanation": "泰勒（F.W. Taylor）提倡科學管理，發表《科學管理原則》。"
+    },
+    {
+      "id": 6,
+      "type": "single",
+      "question": "泰勒在伯利恆鋼鐵公司進行的經典實驗中，不包含下列何者？",
+      "options": {
+        "A": "搬運生鐵塊試驗",
+        "B": "鐵鍬試驗（Shovel Test）",
+        "C": "霍桑試驗（Hawthorne Effect）",
+        "D": "切削金屬試驗"
+      },
+      "answer": "C",
+      "explanation": "霍桑試驗是由梅奧（Elton Mayo）主持的人際關係學派實驗。"
+    },
+    {
+      "id": 7,
+      "type": "single",
+      "question": "在鐵鍬試驗中，泰勒發現每鏟最適當的標準負載約為多少磅？",
+      "options": {
+        "A": "10 磅",
+        "B": "21 磅（約 9.5 公斤）",
+        "C": "35 磅",
+        "D": "50 磅"
+      },
+      "answer": "B",
+      "explanation": "泰勒實驗發現每鏟負載約 21 磅時，每日總搬運量達到最大極限。"
+    },
+    {
+      "id": 8,
+      "type": "single",
+      "question": "吉爾勃斯夫婦（Gilbreths）主要的學術貢獻領域為何？",
+      "options": {
+        "A": "時間研究與馬表測工",
+        "B": "動作研究（Motion Study）與動素分析",
+        "C": "統計品質管制",
+        "D": "線性規劃"
+      },
+      "answer": "B",
+      "explanation": "吉爾勃斯夫婦為動作研究之父，提出 17 個基本動素（Therbligs）。"
+    },
+    {
+      "id": 9,
+      "type": "single",
+      "question": "吉爾勃斯夫婦在經典的「砌磚研究」中，將單次砌磚動作由 18 次減少至幾次？",
+      "options": {
+        "A": "12 次",
+        "B": "8.5 次",
+        "C": "4.5 次",
+        "D": "1 次"
+      },
+      "answer": "C",
+      "explanation": "吉爾勃斯改善腳手架與動線，將砌磚動作從 18 次降至 4.5 次，產量提升至 300%。"
+    },
+    {
+      "id": 10,
+      "type": "single",
+      "question": "泰勒提出的科學管理四大原則中，不包含下列何者？",
+      "options": {
+        "A": "科學原則（代替經驗法則）",
+        "B": "發展原則（科學選拔與培訓）",
+        "C": "自由放任原則（由工人自行隨意決定操作）",
+        "D": "平等分工與合作原則"
+      },
+      "answer": "C",
+      "explanation": "科學管理主張明確標準化分工與合作，反對自由放任的盲目操作。"
+    },
+    {
+      "id": 11,
+      "type": "single",
+      "question": "現場改善 5S 活動中，區分「要與不要的物品，並將不要的清理掉」屬於哪一個 S？",
+      "options": {
+        "A": "整理（Seiri）",
+        "B": "整頓（Seiton）",
+        "C": "清掃（Seiso）",
+        "D": "教養（Shitsuke）"
+      },
+      "answer": "A",
+      "explanation": "整理（Seiri）的核心是區分要與不要，消除現場多餘留存物。"
+    },
+    {
+      "id": 12,
+      "type": "single",
+      "question": "將留下的必要物品「定位、定量、標示，使其好拿好放」屬於 5S 中哪一個 S？",
+      "options": {
+        "A": "整理（Seiri）",
+        "B": "整頓（Seiton）",
+        "C": "清潔（Seiketsu）",
+        "D": "教養（Shitsuke）"
+      },
+      "answer": "B",
+      "explanation": "整頓（Seiton）強調物品擺放定位定量與目視化管理。"
+    },
+    {
+      "id": 13,
+      "type": "single",
+      "question": "人機系統（Human-Machine System）運作的三大基本環節順序為何？",
+      "options": {
+        "A": "物理控制 -> 能量轉換 -> 感覺接受",
+        "B": "資訊輸入/感覺接收 -> 大腦處理決策 -> 控制輸出/動作執行",
+        "C": "輸出執行 -> 感覺接收 -> 無意識反射",
+        "D": "大腦處理 -> 反應時間 -> 機械開關"
+      },
+      "answer": "B",
+      "explanation": "人機系統流程為：感知（Sensory） -> 決策（Processing） -> 控制執行（Control Output）。"
+    },
+    {
+      "id": 14,
+      "type": "single",
+      "question": "下列何者屬於精益生產中的非附加價值（Non-value-added）浪費？",
+      "options": {
+        "A": "將組件鎖緊至標準扭力",
+        "B": "工人在混亂的桌面中尋找零件耗時 2 分鐘",
+        "C": "產品表面噴塗保護漆",
+        "D": "進行功能測試"
+      },
+      "answer": "B",
+      "explanation": "尋找、等待與多餘移動皆屬於不產生價值的浪費。"
+    },
+    {
+      "id": 15,
+      "type": "single",
+      "question": "「教養（Shitsuke）」在 5S 活動中的主要目標為何？",
+      "options": {
+        "A": "採購高科技設備",
+        "B": "培養員工遵守標準規範的自律習慣",
+        "C": "增加每日打掃次數",
+        "D": "降低產品銷售價格"
+      },
+      "answer": "B",
+      "explanation": "教養（素養）旨在將良好的 5S 規範內化為員工的自律行為習慣。"
+    },
+    {
+      "id": 16,
+      "type": "single",
+      "question": "閉迴路（Closed-loop）人機系統的主要特徵為何？",
+      "options": {
+        "A": "完全缺乏反饋機制",
+        "B": "具備即時反饋（Feedback）訊號供操作者修正控制",
+        "C": "機器完全無人化運作",
+        "D": "操作過程無法被中斷"
+      },
+      "answer": "B",
+      "explanation": "閉迴路系統包含反饋機制，操作者可依據輸出結果持續調整控制輸入。"
+    },
+    {
+      "id": 17,
+      "type": "single",
+      "question": "在生產力評估中，若產出（Output）增加且投入（Input）減少，對生產力的影響為何？",
+      "options": {
+        "A": "生產力下降",
+        "B": "生產力大幅提升",
+        "C": "生產力保持不變",
+        "D": "無法判斷"
+      },
+      "answer": "B",
+      "explanation": "分子增加且分母減少，比值（生產力）必然大幅提升。"
+    }
+  ],
+  "chapter_2": [
+    {
+      "id": 18,
+      "type": "single",
+      "question": "將人體垂直切割為左右對稱兩半側的剖面稱為？",
+      "options": {
+        "A": "矢狀面（Sagittal Plane / 正中矢狀面）",
+        "B": "額狀面（Coronal Plane）",
+        "C": "水平面（Horizontal Plane）",
+        "D": "斜剖面"
+      },
+      "answer": "A",
+      "explanation": "正中矢狀面將人體區分為左右對稱的兩半。"
+    },
+    {
+      "id": 19,
+      "type": "single",
+      "question": "將人體切分為前（Ventral）與後（Dorsal）兩部分的平面稱為？",
+      "options": {
+        "A": "矢狀面",
+        "B": "額狀面 / 冠狀面（Coronal / Frontal Plane）",
+        "C": "水平面",
+        "D": "橫斷面"
+      },
+      "answer": "B",
+      "explanation": "額狀面（冠狀面）將人體前後劃分。"
+    },
+    {
+      "id": 20,
+      "type": "single",
+      "question": "將人體切分為上（Superior）與下（Inferior）兩部分的平面稱為？",
+      "options": {
+        "A": "矢狀面",
+        "B": "額狀面",
+        "C": "水平面 / 橫剖面（Horizontal / Transverse Plane）",
+        "D": "垂直面"
+      },
+      "answer": "C",
+      "explanation": "水平面將人體上下切分。"
+    },
+    {
+      "id": 21,
+      "type": "single",
+      "question": "靜態人體計測（Static Anthropometry）主要測量人體在何種狀態下的尺寸？",
+      "options": {
+        "A": "全速奔跑狀態",
+        "B": "標準固定姿態且靜止不動狀態",
+        "C": "搬運重物動作過程",
+        "D": "睡眠作夢狀態"
+      },
+      "answer": "B",
+      "explanation": "靜態人體計測測量身體在特定標準姿態靜止時的骨骼結構尺寸。"
+    },
+    {
+      "id": 22,
+      "type": "single",
+      "question": "動態人體計測（Dynamic Anthropometry）主要應用於下列何種設計場景？",
+      "options": {
+        "A": "確定帽子頭圍尺寸",
+        "B": "設計作業員可觸及的實務工作空間（Reach Envelope）與活動範圍",
+        "C": "測量靜止身高",
+        "D": "設計定點照片框架"
+      },
+      "answer": "B",
+      "explanation": "動態（功能性）計測關注肢體運動過程中的可及範圍與空間配合。"
+    },
+    {
+      "id": 23,
+      "type": "single",
+      "question": "測量人體各部位尺寸最經典且精確的標準直尺儀器稱為？",
+      "options": {
+        "A": "馬丁氏人體測量儀（Martin Anthropometer）",
+        "B": "游標卡尺",
+        "C": "布捲尺",
+        "D": "雷射測距儀"
+      },
+      "answer": "A",
+      "explanation": "馬丁式人體測量儀為古典人體計測的標準棒狀量具。"
+    },
+    {
+      "id": 24,
+      "type": "single",
+      "question": "人體計測資料應用於空間設計的三大基本原則不包含下列何者？",
+      "options": {
+        "A": "極端值設計原則（Design for Extremes）",
+        "B": "可調式設計原則（Design for Adjustability）",
+        "C": "平均值設計原則（Design for the Average）",
+        "D": "隨機猜測設計原則"
+      },
+      "answer": "D",
+      "explanation": "三大原則為極端值設計、可調式設計與平均值設計。"
+    },
+    {
+      "id": 25,
+      "type": "single",
+      "question": "設計防護欄高度、緊急逃生口尺寸與門框高度時，應採用何種設計原則與百分位數？",
+      "options": {
+        "A": "極端值設計——參考第 95 或 99 百分位數（大身材）",
+        "B": "極端值設計——參考第 5 百分位數（小身材）",
+        "C": "平均值設計（第 50 百分位數）",
+        "D": "隨意指定 180cm"
+      },
+      "answer": "A",
+      "explanation": "門框高度與逃生口需容納身材高大者，應以高百分位數（如 95th 或 99th）為極端設計。"
+    },
+    {
+      "id": 26,
+      "type": "single",
+      "question": "設計控制按鈕之最大伸手可觸及距離（Reach Distance）時，應參考何種數值？",
+      "options": {
+        "A": "男性第 95 百分位數",
+        "B": "女性第 5 百分位數（身材較小者）",
+        "C": "全體平均值",
+        "D": "任意數值"
+      },
+      "answer": "B",
+      "explanation": "觸及距離需確保手臂較短者（女性第 5 百分位數）也能輕鬆夠得。"
+    },
+    {
+      "id": 27,
+      "type": "single",
+      "question": "設計汽車座椅前後距離、辦公椅高度調整範圍時，最適合採用何種原則？",
+      "options": {
+        "A": "最小極端設計",
+        "B": "可調式設計原則（涵蓋 5th 至 95th 百分位數）",
+        "C": "平均值設計",
+        "D": "固定式設計"
+      },
+      "answer": "B",
+      "explanation": "可調式設計可滿足 5%～95%廣大使用者群體的需求。"
+    },
+    {
+      "id": 28,
+      "type": "single",
+      "question": "若某產品因成本限制無法做成可調式，且非關安全容限，才考慮採用何種原則？",
+      "options": {
+        "A": "平均值設計原則（Design for Average, 50th percentile）",
+        "B": "最大極端原則",
+        "C": "最小極端原則",
+        "D": "完全不設計"
+      },
+      "answer": "A",
+      "explanation": "平均值設計是無法做可調式且無極端危害時的最後妥協選擇。"
+    },
+    {
+      "id": 29,
+      "type": "single",
+      "question": "人體計測數據中，同族群內成年男性與女性尺寸差異最顯著之處通常為？",
+      "options": {
+        "A": "男性的肩寬、身高與肢體長度平均大於女性，女性臀寬相對較寬",
+        "B": "女性所有尺寸均大於男性",
+        "C": "男女尺寸完全一致",
+        "D": "僅有頭圍有差異"
+      },
+      "answer": "A",
+      "explanation": "性別差異表現為男性肩寬身高較大，女性臀寬比例較高。"
+    },
+    {
+      "id": 30,
+      "type": "single",
+      "question": "工作檯面設計中，「正常作業區（Normal Working Area）」係指何種範圍？",
+      "options": {
+        "A": "上臂自然下垂，前臂以手肘為支點平掃所涵蓋的舒適區域",
+        "B": "手臂完全伸直旋轉一圈的區域",
+        "C": "站立並踮腳尖所及區域",
+        "D": "需彎腰 45 度涵蓋之區域"
+      },
+      "answer": "A",
+      "explanation": "正常作業區以手肘為樞紐，前臂掃過的範圍，最省力且適合頻繁操作。"
+    },
+    {
+      "id": 31,
+      "type": "single",
+      "question": "工作檯面設計中，「最大作業區（Maximum Working Area）」係指？",
+      "options": {
+        "A": "手肘固定平掃區域",
+        "B": "整條手臂以肩膀為樞紐伸直平掃所能觸及的極限區域",
+        "C": "必須走動才能到達的區域",
+        "D": "抬高雙腳觸及區域"
+      },
+      "answer": "B",
+      "explanation": "最大作業區是以肩膀為中心伸直手臂掃過的極限區域。"
+    },
+    {
+      "id": 32,
+      "type": "single",
+      "question": "從事坐姿精密作業（Precision Work，如電子微焊接）時，工作檯面高度應？",
+      "options": {
+        "A": "低於肘高 15 公分",
+        "B": "高於肘高（約 5~10 公分）以利眼睛觀察並支撐手肘",
+        "C": "與地面齊平",
+        "D": "高於頭頂"
+      },
+      "answer": "B",
+      "explanation": "精密作業檯面需高於手肘高度，以減少視線距離並提供手臂局部支撐。"
+    },
+    {
+      "id": 33,
+      "type": "single",
+      "question": "從事站姿重體力作業（Heavy Work，如用力下壓或搬運）時，工作檯面高度應？",
+      "options": {
+        "A": "高於肩膀",
+        "B": "低於手肘高度（約 10~20 公分）以利利用體重向下施力",
+        "C": "高於手肘 10 公分",
+        "D": "無限制"
+      },
+      "answer": "B",
+      "explanation": "重體力作業檯面需低於手肘，以便發揮上半身體重進行向下壓施力。"
+    },
+    {
+      "id": 34,
+      "type": "single",
+      "question": "長期從事不良坐姿作業時，下列何者最容易引發椎間盤過度受壓與下背痛？",
+      "options": {
+        "A": "保持脊椎自然 S 型曲度",
+        "B": "彎腰駝背（Lumbar Flexion）導致腰椎生理前凸消失",
+        "C": "使用良好的腰靠支撐",
+        "D": "雙腳平放地面"
+      },
+      "answer": "B",
+      "explanation": "腰椎後彎（駝背）會大幅增加椎間盤內壓力，引發下背痛（LBP）。"
+    }
+  ],
+  "chapter_3": [
+    {
+      "id": 35,
+      "type": "single",
+      "question": "人體槓桿系統中，支點（F）位於施力點（E）與抗力點（R）之間的槓桿屬於？",
+      "options": {
+        "A": "第一種槓桿（First-class Lever）",
+        "B": "第二種槓桿（Second-class Lever）",
+        "C": "第三種槓桿（Third-class Lever）",
+        "D": "第四種槓桿"
+      },
+      "answer": "A",
+      "explanation": "第一種槓桿支點在中間（如頭頸接合處、剪刀）。"
+    },
+    {
+      "id": 36,
+      "type": "single",
+      "question": "人體提踵（翹腳尖）動作中，腳尖為支點、體重為抗力、腓腸肌為施力，屬於？",
+      "options": {
+        "A": "第一種槓桿",
+        "B": "第二種槓桿（Second-class Lever）",
+        "C": "第三種槓桿",
+        "D": "無槓桿作用"
+      },
+      "answer": "B",
+      "explanation": "第二種槓桿抗力在中間（如開瓶器、獨輪車），省力但費時。"
+    },
+    {
+      "id": 37,
+      "type": "single",
+      "question": "人體大多數骨骼關節（如手肘彎曲、膝關節屈曲）屬於第幾種槓桿？",
+      "options": {
+        "A": "第一種槓桿",
+        "B": "第二種槓桿",
+        "C": "第三種槓桿（Third-class Lever）",
+        "D": "複合槓桿"
+      },
+      "answer": "C",
+      "explanation": "人體關節大多為第三種槓桿（施力點在中間）。"
+    },
+    {
+      "id": 38,
+      "type": "single",
+      "question": "第三種槓桿雖然機械效益 MA < 1（費力），但其在生物體結構上的最大優勢為何？",
+      "options": {
+        "A": "能夠大幅節省肌肉收縮力",
+        "B": "肌肉只需微小收縮即可產生遠端肢體大範圍的快速移動與速度",
+        "C": "完全不需要消耗 ATP",
+        "D": "防止骨折"
+      },
+      "answer": "B",
+      "explanation": "第三種槓桿犧牲力量（費力），但換取了極大的運動範圍與運動速度。"
+    },
+    {
+      "id": 39,
+      "type": "single",
+      "question": "靜態力學平衡（Static Equilibrium）必須同時滿足下列哪兩個條件？",
+      "options": {
+        "A": "合力 ΣF = 0 且 合力矩 ΣM = 0",
+        "B": "合力 ΣF > 0 且 合力矩 ΣM = 0",
+        "C": "速度 V = 10 m/s 且 加速度 a > 0",
+        "D": "質量 m = 0"
+      },
+      "answer": "A",
+      "explanation": "靜態平衡要求所有方向合力為零且對任意點之合力矩為零。"
+    },
+    {
+      "id": 40,
+      "type": "single",
+      "question": "計算手肘水平握持 10 kg 重物時，二頭肌收縮力（Fm）遠大於物重（約 750 N vs 98 N），原因為何？",
+      "options": {
+        "A": "二頭肌肌腱附著點距離關節支點極短（力臂極小），必須產生巨大拉力以平衡物重力矩",
+        "B": "物體質量太輕",
+        "C": "地心引力消失",
+        "D": "二頭肌無法產生收縮"
+      },
+      "answer": "A",
+      "explanation": "第三種槓桿中肌肉力臂短（約 5cm），物體力臂長（約 35cm），故肌肉力需放大多倍。"
+    },
+    {
+      "id": 41,
+      "type": "single",
+      "question": "最大意志收縮力（MVC, Maximum Voluntary Contraction）的定義為何？",
+      "options": {
+        "A": "肌肉在無意識抽搐時發出的力量",
+        "B": "個人盡最大努力意願所能展現的最大靜態肌肉力量輸出",
+        "C": "睡眠時肌肉張力",
+        "D": "輕微散步時的肌力"
+      },
+      "answer": "B",
+      "explanation": "MVC 係指受測者出於最大意志努力下所能產生的最大靜態肌力。"
+    },
+    {
+      "id": 42,
+      "type": "single",
+      "question": "進行靜態肌力量測時，為防止受測者受傷或快速疲勞，單次最大施力時間建議為？",
+      "options": {
+        "A": "3~5 秒",
+        "B": "60 秒",
+        "C": "10 分鐘",
+        "D": "0.1 秒"
+      },
+      "answer": "A",
+      "explanation": "標準靜態肌力量測規範要求最大施力維持約 3~5 秒。"
+    },
+    {
+      "id": 43,
+      "type": "single",
+      "question": "進行兩次最大肌力量測（MVC）之間，建議至少給予多久的休息間隔？",
+      "options": {
+        "A": "5 秒",
+        "B": "2 分鐘（120 秒）",
+        "C": "12 小時",
+        "D": "完全不休息"
+      },
+      "answer": "B",
+      "explanation": "為使肌肉 ATP-CP 能量完全恢復，兩次 MVC 測試間應至少休息 2 分鐘。"
+    },
+    {
+      "id": 44,
+      "type": "single",
+      "question": "肌電圖（EMG, Electromyography）主要量測何種生理訊號？",
+      "options": {
+        "A": "骨骼密度變化",
+        "B": "肌肉收縮時神經傳導與肌纖維產生的電位變化",
+        "C": "血液氧氣濃度",
+        "D": "關節角度變化"
+      },
+      "answer": "B",
+      "explanation": "EMG 紀錄肌肉活動時的電位變化訊號。"
+    },
+    {
+      "id": 45,
+      "type": "single",
+      "question": "肌電圖訊號標準化公式 %MVC 的計算方式為何？",
+      "options": {
+        "A": "(EMG_measured - EMG_rest) / (EMG_MVC - EMG_rest) * 100%",
+        "B": "EMG_measured / 100",
+        "C": "EMG_MVC / EMG_measured * 100%",
+        "D": "EMG_rest * 2"
+      },
+      "answer": "A",
+      "explanation": "%MVC = (實測EMG - 靜息EMG) / (最大EMG - 靜息EMG) * 100%。"
+    },
+    {
+      "id": 46,
+      "type": "single",
+      "question": "當肌肉發生疲勞（Fatigue）時，若欲維持相同的外在力輸出，EMG 訊號振幅會？",
+      "options": {
+        "A": "顯著增加（Amplitude Increase，召喚更多肌纖維）",
+        "B": "變為零",
+        "C": "保持完全不變",
+        "D": "頻率無限升高"
+      },
+      "answer": "A",
+      "explanation": "疲勞時肌肉效率下降，中樞神經需召喚更多運動單元，致使 EMG 振幅增大。"
+    },
+    {
+      "id": 47,
+      "type": "single",
+      "question": "Borg 主觀自覺用力等級（RPE Scale）的數值範圍為何？",
+      "options": {
+        "A": "0 至 100 分",
+        "B": "6 至 20 分",
+        "C": "-5 至 +5 分",
+        "D": "1 至 5 分"
+      },
+      "answer": "B",
+      "explanation": "標準 Borg RPE 量表介於 6（完全不費力）至 20（極度費力）。"
+    },
+    {
+      "id": 48,
+      "type": "single",
+      "question": "Borg RPE 量表數值乘以多少，可大致近似反映受測者當時的心跳率（bpm）？",
+      "options": {
+        "A": "乘以 2",
+        "B": "乘以 10",
+        "C": "乘以 100",
+        "D": "除以 2"
+      },
+      "answer": "B",
+      "explanation": "RPE * 10 估算心率（例如 RPE=12 對應心率約 120 bpm）。"
+    },
+    {
+      "id": 49,
+      "type": "single",
+      "question": "手腕處於何種姿勢時，捏握力（Pinch Strength）與握力輸出達到最大？",
+      "options": {
+        "A": "自然姿態（Neutral Position，微伸展 10-15 度）",
+        "B": "極度屈曲（Flexion）",
+        "C": "掌心極度橈偏",
+        "D": "腕關節扭轉 90 度"
+      },
+      "answer": "A",
+      "explanation": "手腕處於自然姿態（Neutral）時肌腱長度張力關係最佳，肌力輸出最大。"
+    },
+    {
+      "id": 50,
+      "type": "single",
+      "question": "下列何種手腕姿勢會造成捏握力最嚴重的衰減（降低可達 40-50% 以上）？",
+      "options": {
+        "A": "自然姿勢",
+        "B": "手腕屈曲（Flexion）",
+        "C": "輕微伸展",
+        "D": "拇指直立"
+      },
+      "answer": "B",
+      "explanation": "屈曲（Flexion）姿態使屈指肌腱過度縮短與彎折，力量衰減最嚴重。"
+    },
+    {
+      "id": 51,
+      "type": "single",
+      "question": "手部的壓痛閾值（PPT, Pain Pressure Threshold）在手工具設計上的主要應用為？",
+      "options": {
+        "A": "應將工具作用力集中在掌心中央敏感區",
+        "B": "握把應避開高壓痛敏感區（如掌心），將壓力分散至大拇指球與小拇指球肉墊處",
+        "C": "握把必須做成金屬尖銳形狀",
+        "D": "完全無視手部構造"
+      },
+      "answer": "B",
+      "explanation": "手工具握把應避開掌心神經血管密集區，將壓力分散至手掌兩側大/小拇指肉墊。"
+    }
+  ],
+  "chapter_4": [
+    {
+      "id": 52,
+      "type": "single",
+      "question": "人體肌肉收縮直接利用的化學能量高能磷酸化合物為何？",
+      "options": {
+        "A": "葡萄糖（Glucose）",
+        "B": "三磷酸腺苷（ATP）",
+        "C": "乳酸（Lactic Acid）",
+        "D": "維生素 C"
+      },
+      "answer": "B",
+      "explanation": "ATP 是肌肉收縮唯一的直接能量來源。"
+    },
+    {
+      "id": 53,
+      "type": "single",
+      "question": "葡萄糖在無氧過程（Anaerobic Process/糖解作用）下分解，一分子葡萄糖可產生多少 ATP？",
+      "options": {
+        "A": "3 個 ATP",
+        "B": "38 個 ATP",
+        "C": "130 個 ATP",
+        "D": "0 個 ATP"
+      },
+      "answer": "A",
+      "explanation": "無氧過程（糖解）產生 3 個 ATP 並生成乳酸。"
+    },
+    {
+      "id": 54,
+      "type": "single",
+      "question": "脂肪酸在有氧過程（Aerobic Process）下完全氧化，可高效率產生多少 ATP？",
+      "options": {
+        "A": "3 個 ATP",
+        "B": "10 個 ATP",
+        "C": "130 個 ATP",
+        "D": "1000 個 ATP"
+      },
+      "answer": "C",
+      "explanation": "有氧過程能量產額高，一分子脂肪酸完全氧化可產生 130 ATP。"
+    },
+    {
+      "id": 55,
+      "type": "single",
+      "question": "無氧代謝過程（Anaerobic）大量進行時，肌肉中累積導致酸痛與疲勞的主要副產物為何？",
+      "options": {
+        "A": "丙酮酸",
+        "B": "乳酸（Lactic Acid）",
+        "C": "膽固醇",
+        "D": "尿酸"
+      },
+      "answer": "B",
+      "explanation": "無氧代謝副產物為乳酸，累積會引起肌肉疲勞與酸痛。"
+    },
+    {
+      "id": 56,
+      "type": "single",
+      "question": "健康成人靜止狀態下的心輸出量（Cardiac Output）約為多少 L/min？",
+      "options": {
+        "A": "1 L/min",
+        "B": "5 L/min",
+        "C": "25 L/min",
+        "D": "50 L/min"
+      },
+      "answer": "B",
+      "explanation": "成人靜止心輸出量約 5 L/min（70 bpm * 0.07 L）。"
+    },
+    {
+      "id": 57,
+      "type": "single",
+      "question": "隨著運動強度增加，心縮排血量（Stroke Volume）當氧攝取量達到多少 % VO2 max 時即達到最大上限？",
+      "options": {
+        "A": "10%",
+        "B": "40%",
+        "C": "90%",
+        "D": "100%"
+      },
+      "answer": "B",
+      "explanation": "心縮排血量在約 40% VO2 max 時即達到極限，隨後心輸出量增加主要靠心跳率升高。"
+    },
+    {
+      "id": 58,
+      "type": "single",
+      "question": "依據常用預估公式（HRmax = 220 - 年齡），一位 40 歲作業員的最大心率約為？",
+      "options": {
+        "A": "180 bpm",
+        "B": "220 bpm",
+        "C": "140 bpm",
+        "D": "100 bpm"
+      },
+      "answer": "A",
+      "explanation": "HRmax = 220 - 40 = 180 bpm。"
+    },
+    {
+      "id": 59,
+      "type": "single",
+      "question": "最大有氧能力（VO2 max）代表人體何種生理極限？",
+      "options": {
+        "A": "肌肉力量的最大值",
+        "B": "呼吸與心血管系統吸收、輸送並利用氧氣的最大速率水準",
+        "C": "腸胃消化速度",
+        "D": "腎臟排毒極限"
+      },
+      "answer": "B",
+      "explanation": "VO2 max 代表心肺系統與組織有氧代謝的最大極限能量輸出。"
+    },
+    {
+      "id": 60,
+      "type": "single",
+      "question": "運動開始初期，氧氣攝取量無法立刻跟上能量需求所產生的供氧缺口稱為？",
+      "options": {
+        "A": "氧債（Oxygen Debt）",
+        "B": "氧不足（Oxygen Deficit）",
+        "C": "缺氧症",
+        "D": "氧毒性"
+      },
+      "answer": "B",
+      "explanation": "工作開始時的缺口稱為氧不足（Oxygen Deficit），需由無氧系統暫時支應。"
+    },
+    {
+      "id": 61,
+      "type": "single",
+      "question": "運動結束後的恢復期，呼吸與心率維持高於靜息水準以償還無氧代謝缺口之現象稱為？",
+      "options": {
+        "A": "氧不足",
+        "B": "氧債（Oxygen Debt / EPOC）",
+        "C": "負氮平衡",
+        "D": "血糖過低"
+      },
+      "answer": "B",
+      "explanation": "工作結束後超額耗氧以清除乳酸並重建能量儲備稱為償還「氧債」。"
+    },
+    {
+      "id": 62,
+      "type": "single",
+      "question": "依據耐力限度時間（ET）公式，當單位體重能量需求 M 增加時，耐力時間 ET 會？",
+      "options": {
+        "A": "呈對數/指數級大幅縮短",
+        "B": "線性增加",
+        "C": "保持不變",
+        "D": "無限延長"
+      },
+      "answer": "A",
+      "explanation": "ET = 10^((0.26144-M)/0.0712)，M 增大致使 ET 指數級下降。"
+    },
+    {
+      "id": 63,
+      "type": "single",
+      "question": "Murrell 休息時間（RT）計算公式中，標準 8 小時工作制的平均能量支出限度 S 通常取？",
+      "options": {
+        "A": "1.5 kcal/min",
+        "B": "4.0 kcal/min（或 5.0 kcal/min）",
+        "C": "10.0 kcal/min",
+        "D": "0 kcal/min"
+      },
+      "answer": "B",
+      "explanation": "Murrell 公式中全天持續工作的能量限度 S 常設定為 4.0 kcal/min。"
+    },
+    {
+      "id": 64,
+      "type": "single",
+      "question": "若重體力工作能量需求 M = 7.5 kcal/min，工作 1 小時（60 min），依 Murrell 公式（S=4.0）應休息幾分鐘？",
+      "options": {
+        "A": "10 分鐘",
+        "B": "35 分鐘",
+        "C": "50 分鐘",
+        "D": "0 分鐘"
+      },
+      "answer": "B",
+      "explanation": "RT = 60 * (7.5 - 4.0) / (7.5 - 1.5) = 60 * 3.5 / 6.0 = 35 分鐘。"
+    },
+    {
+      "id": 65,
+      "type": "single",
+      "question": "Spitzer 休息時間公式 [RT% = (M/4 - 1) * 100%]，計算出的結果代表何意？",
+      "options": {
+        "A": "休息時間佔工作時間的百分比",
+        "B": "總共消耗的卡路里數",
+        "C": "建議的薪資加給比例",
+        "D": "應排放的二氧化碳量"
+      },
+      "answer": "A",
+      "explanation": "Spitzer 公式求出的是休息時間相對工作時間的百分比（RT%）。"
+    },
+    {
+      "id": 66,
+      "type": "single",
+      "question": "人體體溫、心率與血壓在一天 24 小時的生理日韻律（Circadian Rhythm）中，最低谷通常出現在？",
+      "options": {
+        "A": "中午 12 點",
+        "B": "凌晨 3 點至清晨 5 點",
+        "C": "傍晚 6 點",
+        "D": "上午 9 點"
+      },
+      "answer": "B",
+      "explanation": "清晨 3~5 點是生理日韻律的最低谷，此時警醒度最低，事故率最高。"
+    },
+    {
+      "id": 67,
+      "type": "single",
+      "question": "腦波（EEG）分類中，對應深沉睡眠（Deep Sleep）狀態的低頻高幅腦波為何？",
+      "options": {
+        "A": "α 波（8-11 Hz）",
+        "B": "β 波（>15 Hz）",
+        "C": "δ 波（<3.5 Hz）",
+        "D": "θ 波（3.5-7.5 Hz）"
+      },
+      "answer": "C",
+      "explanation": "δ 波（Delta）頻率最低（<3.5Hz），為深沉睡眠期特徵。"
+    },
+    {
+      "id": 68,
+      "type": "single",
+      "question": "依據 Grandjean 提出的夜班排班原則，輪班方向應優先採用何種模式？",
+      "options": {
+        "A": "向前輪班（Forward Rotation: 早班 -> 中班 -> 夜班）",
+        "B": "向後輪班（Backward Rotation: 夜班 -> 中班 -> 早班）",
+        "C": "隨機亂序輪班",
+        "D": "每天更換班別"
+      },
+      "answer": "A",
+      "explanation": "向前輪班符合人體晝夜節律順時針調相（超過 24小時生理週期），較易適應。"
+    }
+  ],
+  "chapter_5": [
+    {
+      "id": 69,
+      "type": "single",
+      "question": "動作研究（Motion Study）的主要創始人為下列何者？",
+      "options": {
+        "A": "泰勒（Frederick Taylor）",
+        "B": "吉爾勃斯夫婦（Frank & Lillian Gilbreth）",
+        "C": "甘特（Henry Gantt）",
+        "D": "梅奧（Elton Mayo）"
+      },
+      "answer": "B",
+      "explanation": "吉爾勃斯夫婦為動作研究之創始人。"
+    },
+    {
+      "id": 70,
+      "type": "single",
+      "question": "吉爾勃斯將人體手部完成工作的所有基本動作分解為多少個「動素（Therbligs）」？",
+      "options": {
+        "A": "5 個",
+        "B": "17 個（後擴充為 18 個）",
+        "C": "50 個",
+        "D": "100 個"
+      },
+      "answer": "B",
+      "explanation": "吉爾勃斯提出 17 個基本動素（Therblig 為其姓氏倒拼）。"
+    },
+    {
+      "id": 71,
+      "type": "single",
+      "question": "下列動素中，何者屬於推進工作進行的「有效動素（Effective Therblig）」？",
+      "options": {
+        "A": "尋找（Search）",
+        "B": "握取（Grasp）與裝配（Assemble）",
+        "C": "選擇（Select）",
+        "D": "故遲（Unavoidable Delay）"
+      },
+      "answer": "B",
+      "explanation": "握取、搬運、裝配等直接推進作業者為有效動素。"
+    },
+    {
+      "id": 72,
+      "type": "single",
+      "question": "下列動素中，何者屬於應儘量消除的「無效動素（Ineffective Therblig）」？",
+      "options": {
+        "A": "抓取",
+        "B": "裝配",
+        "C": "尋找（Search）與選擇（Select）",
+        "D": "使用（Use）"
+      },
+      "answer": "C",
+      "explanation": "尋找、選擇、思考、等待均屬於無效動素，應透過改善消除。"
+    },
+    {
+      "id": 73,
+      "type": "single",
+      "question": "在動素分類中，「思考（Plan）」屬於何種性質的動素？",
+      "options": {
+        "A": "物理性動素",
+        "B": "心智/心理性動素（Mental Therblig）",
+        "C": "客觀性動素",
+        "D": "機器性動素"
+      },
+      "answer": "B",
+      "explanation": "思考（Plan）與尋找、選擇等屬於心智/心理性動素。"
+    },
+    {
+      "id": 74,
+      "type": "single",
+      "question": "動素符號中，表示「伸手（Reach）」的英文縮寫字母為何？",
+      "options": {
+        "A": "G",
+        "B": "R",
+        "C": "P",
+        "D": "A"
+      },
+      "answer": "B",
+      "explanation": "伸手動素簡寫為 R（Reach）。"
+    },
+    {
+      "id": 75,
+      "type": "single",
+      "question": "動素符號中，表示「抓取/握取（Grasp）」的英文縮寫字母為何？",
+      "options": {
+        "A": "G",
+        "B": "RL",
+        "C": "M",
+        "D": "H"
+      },
+      "answer": "A",
+      "explanation": "握取動素簡寫為 G（Grasp）。"
+    },
+    {
+      "id": 76,
+      "type": "single",
+      "question": "動素符號中，表示「裝配（Assemble）」的英文縮寫字母為何？",
+      "options": {
+        "A": "A",
+        "B": "DA",
+        "C": "U",
+        "D": "ST"
+      },
+      "answer": "A",
+      "explanation": "裝配動素簡寫為 A（Assemble）。"
+    },
+    {
+      "id": 77,
+      "type": "single",
+      "question": "雙手作業圖（Left-Hand Right-Hand Chart）主要用於分析何種規模的作業？",
+      "options": {
+        "A": "跨工廠供應鏈物流",
+        "B": "高度重複性且空間範圍侷限於單一工作檯的雙手微型作業",
+        "C": "長途卡車駕駛",
+        "D": "建築工地施工"
+      },
+      "answer": "B",
+      "explanation": "雙手作業圖細致紀錄左右手在工作檯上的動作配合。"
+    },
+    {
+      "id": 78,
+      "type": "single",
+      "question": "動作經濟原則（Principles of Motion Economy）包含的三大範疇不包含下列何者？",
+      "options": {
+        "A": "關於人體之運用",
+        "B": "關於工作場所之佈置",
+        "C": "關於工具與設備之設計",
+        "D": "關於產品市場行銷策略"
+      },
+      "answer": "D",
+      "explanation": "動作經濟原則三大範疇為人體運用、工作場所佈置與工具設備設計。"
+    },
+    {
+      "id": 79,
+      "type": "single",
+      "question": "關於雙手動作的動作經濟原則，下列敘述何者正確？",
+      "options": {
+        "A": "雙手應同時開始並同時完成動作，且動作方向宜對稱反向進行",
+        "B": "一隻手工作時，另一隻手應完全休息保持不動",
+        "C": "雙手應進行急銳改變方向的鋸齒狀移動",
+        "D": "盡量使用手掌支撐重物"
+      },
+      "answer": "A",
+      "explanation": "雙手對稱反向同時動作能保持身體平衡，減少疲勞。"
+    },
+    {
+      "id": 80,
+      "type": "single",
+      "question": "依據動作等級（Classes of Movement），僅移動「手指」屬於第幾級動作？",
+      "options": {
+        "A": "第一級動作（Class 1，最省力）",
+        "B": "第三級動作",
+        "C": "第五級動作",
+        "D": "第十級動作"
+      },
+      "answer": "A",
+      "explanation": "第一級動作僅動手指，耗能最小。"
+    },
+    {
+      "id": 81,
+      "type": "single",
+      "question": "包含手指、手腕、前臂、上臂與肩膀的全面移動（甚至軀幹彎曲）屬於第幾級動作？",
+      "options": {
+        "A": "第一級動作",
+        "B": "第二級動作",
+        "C": "第五級動作（Class 5，最耗力）",
+        "D": "零級動作"
+      },
+      "answer": "C",
+      "explanation": "第五級動作涉及整個上肢與軀幹，耗能最大且最易疲勞。"
+    },
+    {
+      "id": 82,
+      "type": "single",
+      "question": "為了減少作業疲勞，作業設計應儘量採用低等級（如第 1~3 級）的動作，主要原因為何？",
+      "options": {
+        "A": "低等級動作動用的肌肉群少、移動質量小且耗能量低",
+        "B": "高等級動作速度太快",
+        "C": "低等級動作看起來比較美觀",
+        "D": "法律強制規定"
+      },
+      "answer": "A",
+      "explanation": "低級次動作參與肌肉少、移動質量小，可顯著降低疲勞。"
+    },
+    {
+      "id": 83,
+      "type": "single",
+      "question": "利用物料自重使其順著斜槽滑落至操作者取用位置的裝置稱為？",
+      "options": {
+        "A": "墜送法 / 重力餵料槽（Gravity Feed Bin）",
+        "B": "天秤",
+        "C": "手動吊車",
+        "D": "液壓升降機"
+      },
+      "answer": "A",
+      "explanation": "重力餵料槽利用重力自動將物料送到取用點，符合動作經濟原則。"
+    },
+    {
+      "id": 84,
+      "type": "single",
+      "question": "微動作研究（Micro-motion Study）通常結合何種工具進行高精細動作分割分析？",
+      "options": {
+        "A": "高速攝影/錄影與計時鐘（VTR Analysis）",
+        "B": "口頭問卷",
+        "C": "直尺",
+        "D": "捲尺"
+      },
+      "answer": "A",
+      "explanation": "微動作研究利用影像錄製進行逐幀（Frame-by-frame）分析。"
+    }
+  ],
+  "chapter_6": [
+    {
+      "id": 85,
+      "type": "single",
+      "question": "馬表時間研究（Stopwatch Time Study）的主要創始人為？",
+      "options": {
+        "A": "泰勒（Frederick W. Taylor）",
+        "B": "吉爾勃斯",
+        "C": "福特",
+        "D": "斯金納"
+      },
+      "answer": "A",
+      "explanation": "泰勒最早提出使用馬表進行時間研究與標準工時制定。"
+    },
+    {
+      "id": 86,
+      "type": "single",
+      "question": "進行馬表時間研究時，第一步準備工作通常為何？",
+      "options": {
+        "A": "直接按下馬表開始計時",
+        "B": "選擇合適的觀察對象，並將完整作業劃分為數個明確的「單元（Elements）」",
+        "C": "扣減工人薪資",
+        "D": "購買新機器"
+      },
+      "answer": "B",
+      "explanation": "時間研究必須先劃分作業單元（Elements）並明確起止界點。"
+    },
+    {
+      "id": 87,
+      "type": "single",
+      "question": "馬表時間研究中，實測時間（Observed Time, OT）乘上評核係數（Rating Factor, RF）等於？",
+      "options": {
+        "A": "正常時間（Normal Time, NT）",
+        "B": "標準時間（Standard Time, ST）",
+        "C": "寬放時間",
+        "D": "失效時間"
+      },
+      "answer": "A",
+      "explanation": "正常時間 NT = 實測時間 OT * 評核係數 RF。"
+    },
+    {
+      "id": 88,
+      "type": "single",
+      "question": "在時間研究中，進行「評核（Performance Rating）」的主要目的為何？",
+      "options": {
+        "A": "處罰動作太慢的工人",
+        "B": "將被觀察工人的實際操作速度調整修正為「合格平準工人」的正常速度水準",
+        "C": "計算產品利潤",
+        "D": "檢視機器馬力"
+      },
+      "answer": "B",
+      "explanation": "評核旨在消除個體速度差異，調整至標準平準速率。"
+    },
+    {
+      "id": 89,
+      "type": "single",
+      "question": "衛斯汀豪斯評核法（Westinghouse System）考量的四大因素不包含下列何者？",
+      "options": {
+        "A": "熟練度（Skill）",
+        "B": "努力度（Effort）",
+        "C": "工作條件（Conditions）與一致性（Consistency）",
+        "D": "工人體重（Weight）"
+      },
+      "answer": "D",
+      "explanation": "衛斯汀豪斯法評核四大因素為：熟練度、努力度、工作條件、一致性。"
+    },
+    {
+      "id": 90,
+      "type": "single",
+      "question": "正常時間（Normal Time, NT）加上寬放時間（Allowance Time）等於？",
+      "options": {
+        "A": "標準時間（Standard Time, ST）",
+        "B": "實測時間",
+        "C": "加工時間",
+        "D": "閒置時間"
+      },
+      "answer": "A",
+      "explanation": "標準時間 ST = 正常時間 NT * (1 + 寬放率%)。"
+    },
+    {
+      "id": 91,
+      "type": "single",
+      "question": "寬放（Allowance）分類中，因個人基本生理需求（如喝水、上廁所）所給予的寬放稱為？",
+      "options": {
+        "A": "生理寬放（Personal Allowance）",
+        "B": "疲勞寬放（Fatigue Allowance）",
+        "C": "作業寬放（Delay Allowance）",
+        "D": "政策寬放"
+      },
+      "answer": "A",
+      "explanation": "個人生理需求寬放通常給予約 5% 的寬放比例。"
+    },
+    {
+      "id": 92,
+      "type": "single",
+      "question": "因從事重體力工作導致體力消耗與疲勞，為使體力恢復所給予的寬放稱為？",
+      "options": {
+        "A": "疲勞寬放（Fatigue Allowance）",
+        "B": "生理寬放",
+        "C": "機器寬放",
+        "D": "隨機寬放"
+      },
+      "answer": "A",
+      "explanation": "疲勞寬放依據體力消耗等級（如能量支出）給予相應補償時間。"
+    },
+    {
+      "id": 93,
+      "type": "single",
+      "question": "預定動作時間系統（PMTS, Predetermined Motion Time System）的最大優點為何？",
+      "options": {
+        "A": "在方法尚未實際建立或產品尚未量產前，即可預先設定標準時間，且無需現場馬表測工",
+        "B": "完全不需要任何數據",
+        "C": "測量結果永遠為零",
+        "D": "只能用於農業"
+      },
+      "answer": "A",
+      "explanation": "PMTS 可在設計階段預估標準工時，免去現場馬表測量與主觀評核。"
+    },
+    {
+      "id": 94,
+      "type": "single",
+      "question": "最著名的 PMTS 系統 MTM-1 中，時間單位為 TMU（Time Measurement Unit），1 TMU 等於多少秒？",
+      "options": {
+        "A": "0.00001 小時（即 0.036 秒）",
+        "B": "1 秒",
+        "C": "60 秒",
+        "D": "0.001 秒"
+      },
+      "answer": "A",
+      "explanation": "1 TMU = 0.00001 小時 = 0.0006 分 = 0.036 秒。"
+    },
+    {
+      "id": 95,
+      "type": "single",
+      "question": "換算單位：1 小時（Hour）等於多少 TMU？",
+      "options": {
+        "A": "100,000 TMU",
+        "B": "1,000 TMU",
+        "C": "60 TMU",
+        "D": "3,600 TMU"
+      },
+      "answer": "A",
+      "explanation": "因為 1 TMU = 0.00001 小時，故 1 小時 = 100,000 TMU。"
+    },
+    {
+      "id": 96,
+      "type": "single",
+      "question": "工作抽查（Work Sampling）主要建立在何種統計學原理基礎上？",
+      "options": {
+        "A": "常態分配與機率抽樣原理（Binomial / Normal Distribution Sampling）",
+        "B": "微積分",
+        "C": "幾何學",
+        "D": "模糊邏輯"
+      },
+      "answer": "A",
+      "explanation": "工作抽查透過隨機時間點的瞬間觀察，以樣本比例推估總體狀況。"
+    },
+    {
+      "id": 97,
+      "type": "single",
+      "question": "工作抽查最適宜用於下列何種作業的時間衡量與率比分析？",
+      "options": {
+        "A": "長週期、非重複性作業（如維修作業、文書行政、機器稼動率分析）",
+        "B": "3 秒一次的高度重複性流水線",
+        "C": "機器百萬分之一秒運轉",
+        "D": "完全靜止的物體"
+      },
+      "answer": "A",
+      "explanation": "工作抽查非常適合非重複性、長週期或多台機器/人員寬放調查。"
+    },
+    {
+      "id": 98,
+      "type": "single",
+      "question": "在工作抽查中，若希望在 95.45% 信心水準下（Z=2），精確度要求相對誤差為 S，觀測次數 N 的計算公式為何？",
+      "options": {
+        "A": "N = 4 * (1 - p) / (S^2 * p)",
+        "B": "N = p * S",
+        "C": "N = 100 / p",
+        "D": "N = S^2"
+      },
+      "answer": "A",
+      "explanation": "工作抽查樣本數公式 N = Z^2 * (1-p) / (S^2 * p)，當 Z=2 時 N = 4(1-p)/(S^2*p)。"
+    },
+    {
+      "id": 99,
+      "type": "single",
+      "question": "標準工時（Standard Time）在生產管理上的應用不包含下列何者？",
+      "options": {
+        "A": "生產排程與產能規劃（Capacity Planning）",
+        "B": "績效評估與獎勵工資計算",
+        "C": "產品標準成本（Standard Costing）計算",
+        "D": "隨意決定員工下班時間"
+      },
+      "answer": "D",
+      "explanation": "標準工時是排程、成本估算與績效獎勵的基礎科學依據。"
+    }
+  ],
+  "chapter_7": [
+    {
+      "id": 100,
+      "type": "single",
+      "question": "綜合工作研究與人因工程的終極目標，下列敘述何者最為精準完整？",
+      "options": {
+        "A": "透過方法改善與人機環境最佳化設計，在保障人員安全健康前提下，消除浪費並提升系統生產力",
+        "B": "極限壓榨勞工體力以追求最大產量",
+        "C": "淘汰所有高齡員工",
+        "D": "忽視作業環境品質"
+      },
+      "answer": "A",
+      "explanation": "工作研究與人因工程的核心理念：安全、健康、舒適與高效生產力並重。"
+    }
+  ]
+}
