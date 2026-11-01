@@ -452,35 +452,70 @@ function showFirstImport(error='') {
    catch(e){msg.textContent=e.message;}
  };
 }
+/**
+ * 啟動原則：優先顯示本機已有的題庫與學習紀錄，再更新 GitHub 內建題庫。
+ * 避免網路離線、GitHub Pages 延遲或單一 JSON 載入失敗時，整站停在載入畫面。
+ */
+function displayStoredSubject(){
+ const imported=readImportedBank();
+ if(!imported)return false;
+ state.bank=imported.bank;
+ setMediaSubject(state.bank.subjectId);
+ state.session=loadSession(state.bank.subjectId);
+ if(state.session&&(!Array.isArray(state.session.ids)||!state.session.answers||state.session.ids.some(id=>!state.bank.questionMap.has(id)))){
+  state.session=null;saveSession(state.bank.subjectId,null);
+ }
+ render();
+ return true;
+}
+
+/** 每個公開 JSON 都有獨立逾時與失敗保護；不清除私人題庫或學習資料。 */
+async function refreshOneBuiltin(expectedId,url){
+ if(hiddenBuiltins().includes(expectedId))return false;
+ const controller=new AbortController();
+ const timeout=setTimeout(()=>controller.abort(),6500);
+ try{
+  const response=await fetch(url,{cache:'no-store',signal:controller.signal});
+  if(!response.ok)throw new Error(`HTTP ${response.status}`);
+  const raw=await response.json();
+  const {bank}=validateImportedBank(JSON.stringify(raw));
+  if(bank.subjectId!==expectedId)throw new Error('內建題庫識別碼與清單不符');
+  return upsertBuiltinBank(raw,expectedId);
+ }catch(error){
+  console.warn('內建科目更新失敗；繼續使用本機資料：',expectedId,error);
+  return false;
+ }finally{clearTimeout(timeout);}
+}
 async function initializeSite(){
  try{
   migrateLegacy();
-  // 每次開啟網站都向 GitHub Pages 取得最新內建 JSON；不覆蓋自行匯入的題庫。
-  // 更新題目內容與學習紀錄分開儲存，避免不同裝置沿用舊詳解。
-  const originalSelection=activeSubject();
-  for(const [expectedId,url] of [
-    ['java-midterm','data/java-midterm.json'],
-    ['computer-literacy-midterm-150','data/embedded-midterm.json'],
-    ['work-study-ergonomics-midterm','data/ergonomics-midterm.json']
-  ]){
-   // 使用者明確刪除的內建題庫不自動復原。
-   if(hiddenBuiltins().includes(expectedId))continue;
-   try{
-    const response=await fetch(url,{cache:'no-store'});
-    if(!response.ok)throw new Error(`HTTP ${response.status}`);
-    const raw=await response.json();
-    const {bank}=validateImportedBank(JSON.stringify(raw));
-    if(bank.subjectId!==expectedId)throw new Error('內建題庫識別碼與清單不符');
-    upsertBuiltinBank(raw,expectedId);
-   }catch(error){console.warn('內建科目載入失敗：',expectedId,error);}
+  // 不等待遠端請求；進入網站時立刻顯示本機可用的科目。
+  const hasLocal=displayStoredSubject();
+  if(!hasLocal){
+   content.innerHTML='<div class="card"><h2>正在載入公開題庫…</h2><p class="muted">首次使用需要網路連線；若載入失敗，可自行匯入 JSON 題庫。</p></div>';
   }
-  if(originalSelection&&listSubjects().some(x=>x.id===originalSelection))setActiveSubject(originalSelection);
-  let imported=readImportedBank();
-  if(imported){state.bank=imported.bank;setMediaSubject(state.bank.subjectId);state.session=loadSession(state.bank.subjectId);
-   if(state.session&&(!Array.isArray(state.session.ids)||!state.session.answers||state.session.ids.some(id=>!state.bank.questionMap.has(id)))){state.session=null;saveSession(state.bank.subjectId,null);}
-   render();
-  }else showFirstImport('目前無法載入公開題庫，請自行匯入 JSON 或 ZIP。');
- }catch(e){showFirstImport(`載入失敗：${e.message}`);}
+  const selectedBefore=activeSubject();
+  // 並行讀取三份內建題庫，避免單一科目阻塞其他科目。
+  const updated=await Promise.all([
+   refreshOneBuiltin('java-midterm','data/java-midterm.json'),
+   refreshOneBuiltin('computer-literacy-midterm-150','data/embedded-midterm.json'),
+   refreshOneBuiltin('work-study-ergonomics-midterm','data/ergonomics-midterm.json')
+  ]);
+  // 題庫更新不應搶走使用者已切換的科目。
+  const selectedNow=activeSubject();
+  if(selectedNow&&listSubjects().some(x=>x.id===selectedNow))setActiveSubject(selectedNow);
+  else if(selectedBefore&&listSubjects().some(x=>x.id===selectedBefore))setActiveSubject(selectedBefore);
+  if(updated.some(Boolean)||!hasLocal){
+   // 使用者若已進入正在作答的畫面，不重新渲染，避免中途干擾。
+   if(state.page!=='practice'){
+    if(!displayStoredSubject()&&!hasLocal)showFirstImport('目前無法載入公開題庫，請自行匯入 JSON 或 ZIP。');
+   }
+  }
+ }catch(error){
+  console.error('網站啟動失敗：',error);
+  try{if(!displayStoredSubject())showFirstImport(`載入失敗：${error.message}`);}
+  catch(inner){content.innerHTML=`<div class="card"><h2>讀取題庫時發生錯誤</h2><p class="muted">請重新整理網站，或檢查瀏覽器儲存空間。</p></div>`;}
+ }
 }
 initializeSite();
 
