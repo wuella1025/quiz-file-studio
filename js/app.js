@@ -1,11 +1,11 @@
 import { renderMarkdown } from './markdown.js';
 import { parseQuestionZip, saveMedia, getMedia, clearMedia, setMediaSubject, exportMedia } from './media.js';
-import { readImportedBank, validateImportedBank, saveImportedBank, removeImportedBank, removeAllImportedBanks, removeSubject, hiddenBuiltins, hideBuiltins, createBackup, restoreBackup, resetLearning, storedInfo, migrateLegacy, listSubjects, activeSubject, setActiveSubject, subjectIdForBank, registerSubject } from './dataManagement.js';
+import { readImportedBank, validateImportedBank, saveImportedBank, removeImportedBank, removeAllImportedBanks, removeSubject, hiddenBuiltins, hideBuiltins, createBackup, restoreBackup, resetLearning, storedInfo, migrateLegacy, listSubjects, activeSubject, setActiveSubject, subjectIdForBank, registerSubject, markPersonalBank, upsertBuiltinBank } from './dataManagement.js';
 import { loadProgress, saveProgress, loadSession, saveSession, loadHistory, addHistory, deleteHistory, deleteQuestionRecord, summarizeProgress } from './storage.js';
 import { learningStatistics } from './statistics.js';
 import { candidates, selectQuestions, grade, recordAnswer, finalizeDraftAnswers, sessionResult, mistakeStatus, toggleFavorite, setFavoriteNote, markCorrected } from './practice.js';
 
-const BUILD_ID = '2026-11-01-focus-review-flow';
+const BUILD_ID = '2026-11-01-mobile-bank-scroll-fix';
 const state = { bank: null, page: 'dashboard', chapter: 'all', search: '', pageNumber: 1, revealed: new Set(), session: null, wrongChapter:'all', wrongStatus:'all', favoriteChapter:'all' };
 const content = document.getElementById('content');
 const sidebar = document.getElementById('sidebar');
@@ -99,8 +99,10 @@ function filteredQuestions(){return state.bank.questions.filter(q=>(state.chapte
 // 題庫瀏覽使用分批追加的無限捲動，避免一次建立數百個題目造成手機卡頓。
 const BANK_BATCH_SIZE = 20;
 let bankScrollObserver = null;
+let bankScrollCleanup = null;
 function stopBankScroll(){
  if(bankScrollObserver){bankScrollObserver.disconnect();bankScrollObserver=null;}
+ if(bankScrollCleanup){bankScrollCleanup();bankScrollCleanup=null;}
 }
 function bankQuestionHTML(q){
  return `<article class="card question-card" data-bank-question="${esc(q.id)}"><div class="question-head"><span class="pill">${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</span><span class="muted" style="font-size:12px">${q.type==='single'?'單選題':q.type==='multiple'?'多選題':q.type==='text'?'填答題':q.type==='boolean'?'是非題':q.type==='essay'?'問答題':'尚未支援'}</span></div><div class="question-text">${renderQuestionBody(q)}</div><div class="option-list">${q.options.map(([key,value])=>`<div class="option"><b>${esc(key)}</b>${renderOptionValue(value)}</div>`).join('')}</div><div class="question-foot"><small>此頁為題庫預覽，非作答模式</small><button type="button" class="btn btn-secondary" data-reveal="${esc(q.id)}" aria-expanded="${state.revealed.has(q.id)}">${state.revealed.has(q.id)?'收起答案':'查看答案與解析'}</button></div>${state.revealed.has(q.id)?bankAnswerHTML(q):''}</article>`;
@@ -136,13 +138,22 @@ function bankPage(){
        if(entries.some(entry=>entry.isIntersecting)&&state.page==='bank')appendBatch();
      },{rootMargin:'500px 0px'});
      bankScrollObserver.observe(sentinel);
-   }else{
-     // 舊瀏覽器不支援 IntersectionObserver 時提供可操作的備援。
-     const loadMore=document.createElement('button');loadMore.className='btn btn-secondary';loadMore.textContent='載入更多題目';
-     loadMore.onclick=()=>{appendBatch();if(visible>=all.length)loadMore.remove();};
-     status.after(loadMore);
    }
  }
+ // 手機瀏覽器或嵌入式 WebView 的 IntersectionObserver 有時不會觸發：
+ // 以頁面捲動與視窗尺寸變動做第二層偵測，仍維持每次 20 題分批載入。
+ // 注意：監聽器隨頁面切換清除，避免累積重複的事件處理器。
+ const loadOnApproach=()=>{
+   if(state.page!=='bank'||!sentinel.isConnected)return;
+   const threshold=window.innerHeight+650;
+   let rounds=0;
+   while(visible<all.length && sentinel.getBoundingClientRect().top<=threshold && rounds++<3){appendBatch();}
+ };
+ window.addEventListener('scroll',loadOnApproach,{passive:true});
+ window.addEventListener('resize',loadOnApproach,{passive:true});
+ bankScrollCleanup=()=>{window.removeEventListener('scroll',loadOnApproach);window.removeEventListener('resize',loadOnApproach);};
+ // 首批題目不足一個畫面時，直接補滿，不要求使用者先捲動。
+ loadOnApproach();
  const input=document.getElementById('searchInput');
  input.oninput=()=>{const v=input.value,caret=input.selectionStart;state.search=v;state.revealed.clear();bankPage();const next=document.getElementById('searchInput');next.focus();next.setSelectionRange(caret,caret);};
  document.getElementById('chapterFilter').onchange=e=>{state.chapter=e.target.value;state.revealed.clear();bankPage();};
@@ -213,9 +224,9 @@ async function importQuizFile(input){
  const file=input.files?.[0];if(!file)throw new Error('請先選擇 JSON 或 ZIP 題庫。');
  if(/\.zip$/i.test(file.name)){
   const {raw,pages}=await parseQuestionZip(file);const bank=validateImportedBank(JSON.stringify(raw)).bank;
-  setMediaSubject(bank.subjectId);await saveMedia(pages);saveImportedBank(raw);return bank;
+  setMediaSubject(bank.subjectId);await saveMedia(pages);saveImportedBank(raw);markPersonalBank(bank.subjectId);return bank;
  }
- const text=await readJsonFile(input);const {raw,bank}=validateImportedBank(text);setMediaSubject(bank.subjectId);await clearMedia();saveImportedBank(raw);return bank;
+ const text=await readJsonFile(input);const {raw,bank}=validateImportedBank(text);setMediaSubject(bank.subjectId);await clearMedia();saveImportedBank(raw);markPersonalBank(bank.subjectId);return bank;
 }
 function downloadJson(name,data){
  const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'}));
@@ -444,22 +455,23 @@ function showFirstImport(error='') {
 async function initializeSite(){
  try{
   migrateLegacy();
-  // Register each publicly hosted subject once. Never overwrite locally edited banks,
-  // change an existing subject selection, or erase progress/session history.
+  // 每次開啟網站都向 GitHub Pages 取得最新內建 JSON；不覆蓋自行匯入的題庫。
+  // 更新題目內容與學習紀錄分開儲存，避免不同裝置沿用舊詳解。
   const originalSelection=activeSubject();
   for(const [expectedId,url] of [
     ['java-midterm','data/java-midterm.json'],
     ['computer-literacy-midterm-150','data/embedded-midterm.json'],
     ['work-study-ergonomics-midterm','data/ergonomics-midterm.json']
   ]){
-   if(listSubjects().some(x=>x.id===expectedId)||hiddenBuiltins().includes(expectedId))continue;
+   // 使用者明確刪除的內建題庫不自動復原。
+   if(hiddenBuiltins().includes(expectedId))continue;
    try{
-    const response=await fetch(url,{cache:'no-cache'});
+    const response=await fetch(url,{cache:'no-store'});
     if(!response.ok)throw new Error(`HTTP ${response.status}`);
     const raw=await response.json();
     const {bank}=validateImportedBank(JSON.stringify(raw));
     if(bank.subjectId!==expectedId)throw new Error('內建題庫識別碼與清單不符');
-    saveImportedBank(raw);
+    upsertBuiltinBank(raw,expectedId);
    }catch(error){console.warn('內建科目載入失敗：',expectedId,error);}
   }
   if(originalSelection&&listSubjects().some(x=>x.id===originalSelection))setActiveSubject(originalSelection);

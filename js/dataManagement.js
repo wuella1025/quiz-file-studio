@@ -63,6 +63,35 @@ export function saveImportedBank(raw,storage=localStorage){
  const id=subjectIdForBank(raw);normalizeBank(raw,id);
  storage.setItem(bankKey(id),JSON.stringify(raw));unhideBuiltin(id,storage);registerSubject(raw,id,storage);
 }
+/** 內建題庫更新規則：公開 JSON 可以更新，但使用者自行匯入的同 ID 題庫不會被覆寫。 */
+const PERSONAL_BANKS_KEY='tidang:personal-bank-ids:v1';
+function personalBankIds(storage=localStorage){
+ try {const ids=JSON.parse(storage.getItem(PERSONAL_BANKS_KEY)||'[]');return Array.isArray(ids)?ids:[];}
+ catch{return [];}
+}
+export function markPersonalBank(id,storage=localStorage){
+ storage.setItem(PERSONAL_BANKS_KEY,JSON.stringify([...new Set([...personalBankIds(storage),id])]));
+}
+/** 更新已存在的公開內建題庫內容，不切換科目，也不碰學習紀錄。 */
+export function upsertBuiltinBank(raw,id,storage=localStorage){
+ normalizeBank(raw,id);
+ if(hiddenBuiltins(storage).includes(id)||personalBankIds(storage).includes(id))return false;
+ const key=bankKey(id),newText=JSON.stringify(raw);
+ const before=storage.getItem(key);
+ if(before===newText && listSubjects(storage).some(x=>x.id===id))return false;
+ const list=listSubjects(storage);
+ // 更新題庫的同時保留 activeSubject、progress、session、history。
+ storage.setItem(key,newText);
+ const name=String(raw.subjectName||raw.subject||id).slice(0,120);
+ if(list.some(x=>x.id===id)){
+   storage.setItem(LIST_KEY,JSON.stringify(list.map(x=>x.id===id?{id,name}:x)));
+ }else{
+   if(list.length>=50)throw new Error('科目數量超過上限');
+   list.push({id,name});storage.setItem(LIST_KEY,JSON.stringify(list));
+   if(!storage.getItem(ACTIVE_KEY))storage.setItem(ACTIVE_KEY,id);
+ }
+ return true;
+}
 export function removeImportedBank(storage=localStorage){const id=activeSubject(storage);if(id)removeSubject(id,storage);}
 /** 清除本機匯入題庫索引，不會改寫 GitHub 公開檔案。 */
 export function removeAllImportedBanks(storage=localStorage){const ids=listSubjects(storage).map(x=>x.id);for(const id of ids)removeSubject(id,storage);return ids;}
