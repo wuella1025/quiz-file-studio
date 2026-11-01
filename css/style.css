@@ -519,3 +519,10 @@ body.focus-practice .focus-home-button { display: inline-flex; align-items: cent
 .review-peek-panel > strong { color: #edc16c; display:block; margin-bottom: 12px; }
 .status-pill.review-needed { background: rgba(224,173,72,.18); color: #f7d48a; border: 1px solid rgba(224,173,72,.5); }
 @media (prefers-color-scheme: light) { .review-peek-panel > strong {color:#825715} .status-pill.review-needed {color:#825715; background:#fff4d7;} }
+
+/* 章節練習：題數輸入與「完整章節」快捷選項，共用同一列。 */
+.practice-count-row{display:flex;align-items:stretch;gap:12px;min-width:0;flex-wrap:wrap}
+.practice-count-row #practiceCount{flex:1 1 160px;width:100%;min-width:0}
+.practice-count-row .chapter-full-count{flex:0 0 auto;white-space:nowrap;min-height:44px}
+.practice-count-row .chapter-full-count[hidden]{display:none!important}
+@media(max-width:520px){.practice-count-row{gap:10px}.practice-count-row .chapter-full-count{flex:1 1 100%;width:100%}}
