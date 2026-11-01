@@ -491,3 +491,25 @@ body { background: var(--design-bg); color: var(--design-text); letter-spacing: 
  .review-choice-label{flex-basis:100%;margin-left:0}
  .status-pill.result-correct,.status-pill.result-wrong,.status-pill.result-unanswered{white-space:normal}
 }
+
+
+/* ================================================================
+   專注答題模式（2026-11）：開始作答後隱藏導覽側欄。
+   只調整畫面呈現，不改變答題、結算與 localStorage 資料。
+   返回首頁時由 app.js 移除 body.focus-practice，恢復完整導覽。
+   ================================================================ */
+body.focus-practice .sidebar,
+body.focus-practice .backdrop,
+body.focus-practice .menu-toggle { display: none !important; }
+body.focus-practice .main-area { width: 100%; max-width: none; min-width: 0; flex: 1 1 100%; }
+body.focus-practice .content { width: 100%; max-width: 1100px; margin-inline: auto; }
+body.focus-practice .topbar { justify-content: space-between; }
+/* hidden 是原生狀態，必須優先於按鈕基礎樣式。 */
+.focus-home-button[hidden] { display: none !important; }
+body.focus-practice .focus-home-button { display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; }
+@media (max-width: 760px) {
+  body.focus-practice .topbar { padding-inline: 16px; gap: 12px; }
+  body.focus-practice .content { padding-inline: 16px; }
+  body.focus-practice .top-label { display: none; }
+  body.focus-practice .focus-home-button { padding: 10px 12px; font-size: .9rem; }
+}
