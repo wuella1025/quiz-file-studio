@@ -34,6 +34,7 @@ document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggleMenu(false);
 /** 頁面導覽：切換主內容並在手機上關閉側欄。 */
 function navigate(page) {
   if (!pageTitles[page]) return;
+  if(page!=='bank')stopBankScroll();
   state.page = page;
   // 每次進入練習時依據是否有進行中的練習重新計算，避免離開再返回後側欄出現。
   if(page==='dashboard') focusPractice=false;
@@ -95,20 +96,70 @@ function dashboard(){
  content.querySelectorAll('[data-browse-chapter]').forEach(b=>b.onclick=()=>{state.chapter=b.dataset.browseChapter;state.pageNumber=1;navigate('bank')});
 }
 function filteredQuestions(){return state.bank.questions.filter(q=>(state.chapter==='all'||q.chapterId===state.chapter)&&(!state.search||`${q.text} ${q.originalId} ${q.chapterTitle} ${q.options.map(p=>p.join(' ')).join(' ')}`.toLowerCase().includes(state.search.toLowerCase())));}
+// 題庫瀏覽使用分批追加的無限捲動，避免一次建立數百個題目造成手機卡頓。
+const BANK_BATCH_SIZE = 20;
+let bankScrollObserver = null;
+function stopBankScroll(){
+ if(bankScrollObserver){bankScrollObserver.disconnect();bankScrollObserver=null;}
+}
+function bankQuestionHTML(q){
+ return `<article class="card question-card" data-bank-question="${esc(q.id)}"><div class="question-head"><span class="pill">${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</span><span class="muted" style="font-size:12px">${q.type==='single'?'單選題':q.type==='multiple'?'多選題':q.type==='text'?'填答題':q.type==='boolean'?'是非題':q.type==='essay'?'問答題':'尚未支援'}</span></div><div class="question-text">${renderQuestionBody(q)}</div><div class="option-list">${q.options.map(([key,value])=>`<div class="option"><b>${esc(key)}</b>${renderOptionValue(value)}</div>`).join('')}</div><div class="question-foot"><small>此頁為題庫預覽，非作答模式</small><button type="button" class="btn btn-secondary" data-reveal="${esc(q.id)}" aria-expanded="${state.revealed.has(q.id)}">${state.revealed.has(q.id)?'收起答案':'查看答案與解析'}</button></div>${state.revealed.has(q.id)?bankAnswerHTML(q):''}</article>`;
+}
+function bankAnswerHTML(q){
+ return `<div class="answer-panel"><div><b>正確答案：</b>${esc(Array.isArray(q.answer)?q.answer.join('、'):q.answer)}</div><div><b>解析：</b>${renderMarkdown(q.explanation||'原始題庫未提供解析')}</div></div>`;
+}
 function bankPage(){
- const all=filteredQuestions(), perPage=10, pages=Math.max(1,Math.ceil(all.length/perPage));state.pageNumber=Math.max(1,Math.min(state.pageNumber,pages));
- const slice=all.slice((state.pageNumber-1)*perPage,state.pageNumber*perPage);
+ stopBankScroll();
+ const all=filteredQuestions();
+ let visible=0;
  content.innerHTML=title('QUESTION BANK','題庫瀏覽',`目前題庫共有 ${fmt(state.bank.questions.length)} 題；此頁僅供瀏覽，不會記錄答題。`)+
  `<div class="toolbar"><input id="searchInput" class="field search" type="search" placeholder="搜尋題目、選項或題號…" aria-label="搜尋題目" value="${esc(state.search)}"><select class="field" id="chapterFilter" aria-label="篩選章節"><option value="all">所有章節</option>${state.bank.chapters.map(ch=>`<option value="${esc(ch.id)}" ${state.chapter===ch.id?'selected':''}>${esc(ch.title)}（${ch.count} 題）</option>`).join('')}</select></div>`+
- `<div class="section-header"><h2>題目清單</h2><span class="muted" style="font-size:13px">符合條件 ${all.length} 題</span></div>`+
- `<section class="question-list">${slice.length?slice.map(q=>`<article class="card question-card"><div class="question-head"><span class="pill">${esc(q.chapterTitle)} · 第 ${esc(q.originalId)} 題</span><span class="muted" style="font-size:12px">${q.type==='single'?'單選題':q.type==='multiple'?'多選題':q.type==='text'?'填答題':q.type==='boolean'?'是非題':q.type==='essay'?'問答題':'尚未支援'}</span></div><div class="question-text">${renderQuestionBody(q)}</div><div class="option-list">${q.options.map(([key,value])=>`<div class="option"><b>${esc(key)}</b>${renderOptionValue(value)}</div>`).join('')}</div><div class="question-foot"><small>此頁為題庫預覽，非作答模式</small><button type="button" class="btn btn-secondary" data-reveal="${esc(q.id)}" aria-expanded="${state.revealed.has(q.id)}">${state.revealed.has(q.id)?'收起答案':'查看答案與解析'}</button></div>${state.revealed.has(q.id)?`<div class="answer-panel"><div><b>正確答案：</b>${esc(Array.isArray(q.answer)?q.answer.join('、'):q.answer)}</div><div><b>解析：</b>${renderMarkdown(q.explanation||'原始題庫未提供解析')}</div></div>`:''}</article>`).join(''):`<div class="card empty">找不到符合搜尋條件的題目。</div>`}</section>`+
- `<div class="page-controls"><button class="btn btn-secondary" id="prevPage" ${state.pageNumber===1?'disabled':''}>上一頁</button><span>第 ${state.pageNumber} / ${pages} 頁</span><button class="btn btn-secondary" id="nextPage" ${state.pageNumber===pages?'disabled':''}>下一頁</button></div>`;
+ `<div class="section-header"><h2>題目清單</h2><span class="muted" id="bankMatchCount">符合條件 ${fmt(all.length)} 題</span></div>`+
+ `<section class="question-list" id="bankQuestionList">${all.length?'':'<div class="card empty">找不到符合搜尋條件的題目。</div>'}</section>`+
+ `<div class="bank-scroll-status muted" id="bankScrollStatus" role="status" aria-live="polite"></div><div id="bankScrollSentinel" aria-hidden="true"></div>`;
+ const list=document.getElementById('bankQuestionList');
+ const status=document.getElementById('bankScrollStatus');
+ const sentinel=document.getElementById('bankScrollSentinel');
+ // 只附加下一批 DOM，避免重繪整頁而失去捲動位置及已展開的詳解。
+ function appendBatch(){
+   if(visible>=all.length)return;
+   const end=Math.min(visible+BANK_BATCH_SIZE,all.length);
+   list.insertAdjacentHTML('beforeend',all.slice(visible,end).map(bankQuestionHTML).join(''));
+   visible=end;
+   status.textContent=visible<all.length?`已顯示 ${fmt(visible)} / ${fmt(all.length)} 題，向下滑動載入更多。`:`已顯示全部 ${fmt(all.length)} 題。`;
+   if(visible===all.length)stopBankScroll();
+ }
+ appendBatch();
+ if(all.length>BANK_BATCH_SIZE){
+   if('IntersectionObserver' in window){
+     bankScrollObserver=new IntersectionObserver(entries=>{
+       if(entries.some(entry=>entry.isIntersecting)&&state.page==='bank')appendBatch();
+     },{rootMargin:'500px 0px'});
+     bankScrollObserver.observe(sentinel);
+   }else{
+     // 舊瀏覽器不支援 IntersectionObserver 時提供可操作的備援。
+     const loadMore=document.createElement('button');loadMore.className='btn btn-secondary';loadMore.textContent='載入更多題目';
+     loadMore.onclick=()=>{appendBatch();if(visible>=all.length)loadMore.remove();};
+     status.after(loadMore);
+   }
+ }
  const input=document.getElementById('searchInput');
- input.oninput=()=>{const v=input.value, caret=input.selectionStart;state.search=v;state.pageNumber=1;bankPage();const next=document.getElementById('searchInput');next.focus();next.setSelectionRange(caret,caret);};
- document.getElementById('chapterFilter').onchange=e=>{state.chapter=e.target.value;state.pageNumber=1;bankPage();};
- document.getElementById('prevPage').onclick=()=>{state.pageNumber--;bankPage();};
- document.getElementById('nextPage').onclick=()=>{state.pageNumber++;bankPage();};
- content.querySelectorAll('[data-reveal]').forEach(btn=>btn.onclick=()=>{const id=btn.dataset.reveal;if(state.revealed.has(id))state.revealed.delete(id);else state.revealed.add(id);bankPage();});
+ input.oninput=()=>{const v=input.value,caret=input.selectionStart;state.search=v;state.revealed.clear();bankPage();const next=document.getElementById('searchInput');next.focus();next.setSelectionRange(caret,caret);};
+ document.getElementById('chapterFilter').onchange=e=>{state.chapter=e.target.value;state.revealed.clear();bankPage();};
+ // 使用事件委派，只更新當前卡片的詳解，不重新建立整份清單。
+ list.onclick=e=>{
+   const btn=e.target.closest('[data-reveal]');if(!btn)return;
+   const id=btn.dataset.reveal;
+   const q=all.find(item=>item.id===id);if(!q)return;
+   const card=btn.closest('[data-bank-question]');
+   if(state.revealed.has(id)){
+     state.revealed.delete(id);card.querySelector('.answer-panel')?.remove();
+     btn.textContent='查看答案與解析';btn.setAttribute('aria-expanded','false');
+   }else{
+     state.revealed.add(id);card.insertAdjacentHTML('beforeend',bankAnswerHTML(q));
+     btn.textContent='收起答案';btn.setAttribute('aria-expanded','true');
+   }
+ };
 }
 // 一般選項顯示為普通文字；僅當內容本身含 Markdown／程式碼語法時才啟用結構化渲染。
 function renderOptionValue(value){
