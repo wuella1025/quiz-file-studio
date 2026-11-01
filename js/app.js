@@ -5,7 +5,7 @@ import { loadProgress, saveProgress, loadSession, saveSession, loadHistory, addH
 import { learningStatistics } from './statistics.js';
 import { candidates, selectQuestions, grade, recordAnswer, finalizeDraftAnswers, sessionResult, mistakeStatus, toggleFavorite, setFavoriteNote, markCorrected } from './practice.js';
 
-const BUILD_ID = '2026-11-01-safe-bank-management';
+const BUILD_ID = '2026-11-01-focus-practice';
 const state = { bank: null, page: 'dashboard', chapter: 'all', search: '', pageNumber: 1, revealed: new Set(), session: null, wrongChapter:'all', wrongStatus:'all', favoriteChapter:'all' };
 const content = document.getElementById('content');
 const sidebar = document.getElementById('sidebar');
@@ -20,11 +20,23 @@ const pageTitles = { dashboard:'首頁儀表板', bank:'題庫瀏覽', practice:
 function toggleMenu(open) { sidebar.classList.toggle('open',open); backdrop.hidden = !open; menuToggle.setAttribute('aria-expanded', String(open)); }
 menuToggle.addEventListener('click',()=>toggleMenu(!sidebar.classList.contains('open')));
 backdrop.addEventListener('click',()=>toggleMenu(false));
+/** 專注答題模式：只在開始作答後收起側欄；返回首頁才恢復。 */
+let focusPractice = false;
+const focusHomeButton = document.getElementById('focusHomeButton');
+function syncFocusLayout(){
+  document.body.classList.toggle('focus-practice',focusPractice);
+  focusHomeButton.hidden = !focusPractice;
+  if(focusPractice) toggleMenu(false); // 同時關閉手機版側欄與遮罩
+}
+focusHomeButton.addEventListener('click',()=>navigate('dashboard'));
+
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') toggleMenu(false); });
 /** 頁面導覽：切換主內容並在手機上關閉側欄。 */
 function navigate(page) {
   if (!pageTitles[page]) return;
   state.page = page;
+  if(page==='dashboard') focusPractice=false;
+  syncFocusLayout();
   document.querySelectorAll('[data-page]').forEach(b=>b.classList.toggle('active',b.dataset.page===page));
   toggleMenu(false);
   render();
@@ -220,6 +232,7 @@ function beginSelection(questions,mode){
  if(!questions.length){alert('目前沒有符合條件的題目。');return;}
  if(state.session&&!state.session.finished&&!confirm('目前有尚未結算的練習。確定放棄目前練習並開始新練習嗎？（已確認的作答紀錄仍會保留）'))return;
  state.session={ids:questions.map(q=>q.id),answers:{},index:0,mode,startedAt:new Date().toISOString(),finished:false};
+ focusPractice=true; // 從題庫、錯題本或收藏進入作答時都啟用專注模式
  saveSession(state.bank.subjectId,state.session);
  navigate('practice');
 }
@@ -312,7 +325,7 @@ function practicePage(){
   content.innerHTML=title('PRACTICE','開始刷題','選擇模式與題數；只有按下「確認答案」後才會顯示正確答案及解析。')+`<div class="card practice-setup"><h2>建立練習</h2><form id="practiceSetup"><label>練習模式<select class="field" id="mode"><option value="all">全部題目</option><option value="chapter">章節練習</option><option value="random">隨機練習</option><option value="unpracticed">未練習題目</option><option value="wrong">待複習錯題</option><option value="favorites">收藏題目</option></select></label><label>指定章節<select class="field" id="practiceChapter">${chapters.map(ch=>`<option value="${esc(ch.id)}">${esc(ch.title)}（${ch.count} 題）</option>`).join('')}</select></label><label>練習題數<input class="field" type="number" id="practiceCount" min="1" value="20" required></label><label class="inline-check"><input type="checkbox" id="randomOrder"> 隨機排序題目</label><p class="muted" id="availableHint"></p><button class="btn" type="submit">開始練習 →</button></form></div>`;
   const mode=document.getElementById('mode'),ch=document.getElementById('practiceChapter'),count=document.getElementById('practiceCount'),hint=document.getElementById('availableHint');
   const refresh=()=>{const n=candidates(state.bank,loadProgress(state.bank.subjectId),mode.value,ch.value).length;ch.disabled=mode.value!=='chapter';count.max=String(n);if(Number(count.value)>n)count.value=String(n);hint.textContent=`目前符合條件 ${n} 題${n===0?'，沒有可練習題目。':''}`;document.querySelector('#practiceSetup button[type=submit]').disabled=!n;};mode.onchange=refresh;ch.onchange=refresh;refresh();
-  document.getElementById('practiceSetup').onsubmit=e=>{e.preventDefault();const pool=selectQuestions(state.bank,loadProgress(state.bank.subjectId),{mode:mode.value,chapter:ch.value,count:count.value,random:document.getElementById('randomOrder').checked});if(!pool.length)return;state.session={ids:pool.map(q=>q.id),answers:{},index:0,mode:mode.value,startedAt:new Date().toISOString(),finished:false};saveSession(state.bank.subjectId,state.session);practicePage();};return;
+  document.getElementById('practiceSetup').onsubmit=e=>{e.preventDefault();const pool=selectQuestions(state.bank,loadProgress(state.bank.subjectId),{mode:mode.value,chapter:ch.value,count:count.value,random:document.getElementById('randomOrder').checked});if(!pool.length)return;state.session={ids:pool.map(q=>q.id),answers:{},index:0,mode:mode.value,startedAt:new Date().toISOString(),finished:false};saveSession(state.bank.subjectId,state.session);focusPractice=true;syncFocusLayout();practicePage();};return;
  }
  if(session.finished){const r=sessionResult(session);const missing=r.total-r.answered;content.innerHTML=title('PRACTICE RESULT','本次練習結果','預設列出本次全部題目、答案與解析；可以切換只看答錯題目。已作答的題目在結算時自動確認。')+`<section class="metric-grid"><div class="card"><div class="metric-title">練習題數</div><div class="metric-value">${r.total}</div></div><div class="card"><div class="metric-title">已作答</div><div class="metric-value">${r.answered}</div></div><div class="card"><div class="metric-title">答對／答錯</div><div class="metric-value">${r.correct} / ${r.wrong}</div></div><div class="card"><div class="metric-title">正確率</div><div class="metric-value">${r.answered?r.accuracy.toFixed(1)+'%':'尚無作答'}</div></div></section><div class="card"><p>未作答：${missing} 題（不計分）。正確率依已作答題目計算。</p><div class="tool-actions"><button class="btn" id="newPractice">建立新練習</button><button class="btn btn-secondary" id="goHome">返回首頁</button><button class="btn btn-secondary" id="showAllReview">只看答錯題目</button></div></div><div class="section-header"><h2>全部題目與詳解（${r.total} 題）</h2></div><section id="reviewResults" class="question-list">${reviewDetails(session,false)}</section>`;document.getElementById('newPractice').onclick=()=>{state.session=null;saveSession(state.bank.subjectId,null);practicePage();};document.getElementById('goHome').onclick=()=>navigate('dashboard');document.getElementById('showAllReview').onclick=()=>{const el=document.getElementById('reviewResults'),btn=document.getElementById('showAllReview');const wrongOnly=btn.dataset.wrong!=='yes';el.innerHTML=reviewDetails(session,wrongOnly);btn.dataset.wrong=wrongOnly?'yes':'no';btn.textContent=wrongOnly?'查看全部題目':'只看答錯題目';};return;}
 
